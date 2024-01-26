@@ -1,0 +1,430 @@
+#+title: Learn Biomarker Analysis
+
+* What Is A Biomarker
+** FDA Definition
+"A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or responses to an exposure of intervention, including therapeutic interventions. Molecular, histologic, radiographic, or physiologic characteristics are types of biomarkers. A biomarker is NOT an assessment of how an individual feels, functions, or survives."
+
+*** Examples
+Lab based (LIPIDs), Genetic Biomarker (histologic, blood, fluid, CSF, etc), Radiographic (MRI, PET), composite biomarkers, digital biomarkers.
+
+** Fundamental Pharmacology Questions for Biomarkers
+- Drug exposure at target site of action
+- Binding to pharmacological target (Engagement/Occupancy)
+- Expression of pharmacology (PD effect)
+
+** Evidence Taken Together Integrated Framework for Decision-Making
+ - Several PD biomarkers over several phases of clinical development constitute a complete picture of the drug's mechanism in the body from minutes to hours and days of drug administration
+   - Vaidating target engagement
+   - Selection of optimal dose
+   - Identifying potential early efficacy and/or safety
+   - Identification of patient subgroup likely to respond from treatment with the drug
+   - Help design combination therapies
+
+ - Pfizer has defined three pillars of survival of a drug through clinical development in order to progress to phase III. The drug condidate must demonstrate:
+   - Exposure at the target site of action over a desired period of time
+   - Binding to the pharmacological target as expected for its mode of action
+   - Expression of pharmacological activity commensurate with the demonstrated target exposure and target binding
+
+* Section I: Pharmacodynamic Biomarkers
+ -- Ecosystem of Tools Predicting Risk and Progression in AD Trials
+
+** Outline
+
+- Could range from Proof of Mechanism or Proof of Efficacy
+- Animal toxicology studies
+- Bioequivalence Designs
+- Graphical Visualizations of Biomarker over time
+- Joint modeling of Biomarker and Efficacy Endpoint
+  - Longitudinal model of PD biomarkers by MMRM
+  - Time to Event analysis with time-varying biomarker
+  - Bivariate model of biomarker and endpoint
+
+** Objectives of PD Biomarkers
+
+The effort of developing assays and measuring one or more biomarkers across several phases of clinical trials help
+
+- Validate target engagement
+- Select optimal dose
+- Identify early efficacy/safety
+- Identify potential subgroup who responds to treatment
+- Help design combination therapies
+- ...
+
+** Toxicology
+- Rodent in-vivo pre-clinical studies
+  - Estimate PK parameters or calculate # of animals in various designs
+    - Serial, Complete, Betch Design
+
+- Non-compartmental PK analysis through R package "PK"
+  - "RATS" data from holder, et al
+
+** Bioequivalence Design
+- Corossover equivalence design - tost processedure and composite hypothesis
+- Composite Hypothesis based on the ratio \(\mu_{T}/\mu_{R}\):
+  - H0: \(H_{0}: \mu_{T}/\mu_{R} \le \theta_{1} or \mu_{T}/\mu_{R} \ge \theta_{2} VS \)
+- Schultz, et al shows various examples & compares R, SAS and Winnonlin
+- R package "powertost" provides power calculations for two one-sided tests
+- R package "BE":
+  - Analysis of BE study 2x2x2
+  - MSE calculations; CV (coefficient for intra-individual variation) calculations
+  - Plotting results
+  - Power calculations using MSE or CV
+
+** Cross-sectional Profile
+- Visualization and ANOVA
+  - AUC, %Change from baseline at time T
+  - Multiple correction, overall hypothesis
+
+** Longitudinal Assessment - Correlation Analysis
+- Mixed effect repeated measures model
+  - Informative Censoring
+- Time-varying Biomarker
+  - Best for exogenous variable
+- Joint modeling of outcome & biomarker over time
+- Use AIDS example (CD4 as biomarker) to illustrate all three methods
+  - R package "JM"
+  - CD4 cell counts has been correlated with time to death from AIDS
+- Plots
+  - PD biomarker vs Mean percent changes over time
+  - Relaction with Clinical Outcome (biomarker percent change at time T vs Hazard Ratio of Onset of Dementia)
+
+** Multiple Biomarkers - Longitudinal Assessment
+- Objective: Look at relationships with clinical outcome and inter-relationships
+- Forest Plots
+- Network Analysis - Gaussion Graphical Models
+- Heatmaps - well used methodology
+
+* Section II: Predictive Biomarkers (Precision Medicine)
+- Patient stratification
+
+** Outline
+- Identify subset of patients based on a biomarker - who responds to therapy
+- Uncentainty remains on who is biomarker positive vs negative
+- Identify cutpoint to split subjects into positive vs negative
+  - Sample size calculations for POC and conformatory trials
+- Seamless trial with stage I - assess treatment group in pos vs negative; stage II - confirm effect on positive and/or overall population
+
+** Objectives of PREDICTIVE Biomarkers
+Predictive biomarkers are about identifying patients who will respond to treatment
+- May be different from a prognostic biomarker
+- May need drug-diagnostic co-development
+- Identify early efficacy/safety
+- Identify potential subgroup who responds to treatment
+- Help design combination therapies
+
+** Three Basic Desings for Predictive-Biomarker Enabled Trials
+- Biomarker Identified Subgroup
+  - Test biomarker, only include biomarker positve patients -> randomize to treatment and control
+- Biomarker Stratified Design
+  - Test Biomarker, randomize both postive and negative separately for treatment and control
+- Biomarker Adaptive Desing
+  - Test Biomarker, try stage I on both positive and negative patients, successful group go to stage II.
+
+** Operational Characteristics of Proof of Clinical (POC) Trials with BM+ and BM- Subgroups
+- R package "RPACT" is used nad code given to calculate rectuitment and study duration for a given sample size
+  - O.C. for BM+ group
+  - O.C. for overall population
+- Power curves for above for survival endpoint - Power via parametric Dunnett procedure
+- Multiple endpoint correction
+
+** Operational Characteristics of Confirmatory Trials with BM+ and BM- Subgroups
+- R code for different closed testing procedures
+  - Fixed, Bonferroni, Hochberg, Dunnett
+  - Example developed from oncology with data and code for extracting correct p-values
+    - Power calculations (for both BM+ and Overall) - Code and Mechanism
+
+** Cutoff Determination of a Countinuous Predictive Biomarker
+- Let us model the biomarker effect when disease outcome is continous
+  - E(Y| Trt, BM) = beta0 + betaTrt Trt + betaBM BM + beta1X Trt x BM
+    - When ... : The marker is neither predictive or prognostic
+    - When ... : The marker is prognostic, but not predictive
+    - When ... : The marker is predictive, but not prognostic
+    - When ... : The marker is both predictive and prognostic
+
+- Methods: Median, Quartile Splits; Optimal Split; STEPP
+  - Good Summary: Haller 2019
+- Methods: Morrison and Simon (2016) Rank conditional coverage and CI in high-dimensional problems
+  - Holmgren (2017) Group Sequential Method for Cutpoint Selection
+- Methods: Bootstrap, Bayesian Hierarchical Models ("BHM")
+- Adaptive Threshold Design
+- Adaptive Seamless Design
+  - R Package "ASD" [Jenkins]
+- Method: Rank Conditional Coverage and CI in High-dimension
+  - RCC is the expeted coverage rate of an interval given the rank of the parameter; uses bootstrapping to produce small intervals
+  - "RCC" package
+- Method: Group Sequential Method
+  - Group sequential stopping boundaries that provide strong control of Type I error of testing a series of hypothesis over a range of marker expression values
+- Let \lambda1, \lambda2, \lambda3, and \lambda4 be the Hazard Ratios of a time to event
+
+* Section III: Surrogate Biomarkers/Endpoints
+ -- Correlated with Treatment Effect on Clinical Endpoint
+
+** Objectives of Surrogate Biomarkers
+NIH (USA) defines surrogate endpoint as "A biomarker intended to substitute for a clinical endpoint"
+
+**Surrogate Endpoints** are used instead of cinical outcomes in some clinical trials. Surrogate endpoints are used when the clinical outcomes might take a very long time to study, or in cases where the clinical benefit of improving the surrogate endpoint, such as controlling blood preasure, is well understood. Clinical trials are needed to show what surrogate endpoints can be relied upon to predict, or correlated with clinical benefit. Surrogate endpoints that have undergone this setting are called vaidated surrogate endpoints and these are accepted by the FDA as evidence of benefit.
+
+Between 2010 and 2012, the FDA approved 45% of new drugs on the basis of a surrogate endpoint.
+
+- Regulatory hurdle for getting a biomarker approved as a surrogate
+- Surrogate could save time in trials if observed earlier than clinical endpoint
+- Outline
+  - Definition of surrogate biomarkers
+  - Meta-analysis framework
+  - Within-trial framework
+  - Proportion of treatment effect explained (PTE)
+
+The FDA (R) categorizeds surrogate endpoints in roughly three hierarchical categories:
+- Candidate surrogate endpoint
+- Reasonably likely surrogate endpoint (Approval is conditional)
+- Validated surrogate endpoint (Approval is regular)
+
+Few examples:
+- Time to Progression (TTP)
+- Progression Free Survival (PFS)
+- Response Rate (RR)
+
+A. Disease -> Intervention -> Surrogate endpoint -> True clinical output
+B. Disease -> Surrogate endpoint
+           -> True clinical output
+C. ...
+
+** Strong Correlation of Association between S and T and Captures Full Effect of Treatment on T
+
+Prentice Criteria
+Normal Dist Endpoint
+
+Quantify surrogate between endpoints has two requirements:
+- Requirement #1: Trial Level - Assess the ability of the treatment effect of the surrogate endpoint to predict the true endpoint (\(R^2_{trial}\))
+- Requirement #2: Individual Level - Assess the correlation between the surrogate and true endpoints after adjusting for treatment (\(R^2_{indiv}\))
+  - Copula Model Implementation via R package "surrosurv" for the endpoints
+
+** Example: Examining the Proportion of Treatment Effect:
+- Hughes (*) shows the two methods for determining PTE on AIDS clinical trials
+  - T = Progression to AIDS or Death after 6 Months
+  - S = Change in CD4 cell count
+  - R code given based on Zamboni PhD dissertation to create bivariate distribution of data with and without surrogate endpoint as a predictor. Data used is AIDS data set released with Hughes seminal paper
+    - Produce PTE and CI for each trial; and overall
+- Bayesian Linear Regression
+  - R code given on same data set
+- CD4 count is surrogate for HR (Bayesian estimate how slope excludes 0; but intercpt does not)
+
+* Section IV: Combination Biomarkers
+-- Combination Biomarkers into a Predictve Model via Machine Learning
+
+** Objective of Composite Biomarkers
+
+*** What is Machine Learning
+"Machine Learning: Field of study that gives computers the ability to learn without being explicitly programmed" - Arthur Samuel (1959)
+
+*** Goal:
+Build predictive signatures of a clinical event or outcome or disease status
+
+*** Book:
+- Regularized Machine Learning Models for
+  - (A) Variable Selection
+  - (B) Predictive Signature Development
+    - Diagnostic / Prognostic / Treatment Responder / Safety Risk
+- Unsupervised Learning Models for
+  - Finding clusters of biomarkers related to disease heterogeneity or in treatment group as a measure of group-wide covariation
+- Graphical Methods for
+  - Exploring Interrelationship between biomarkers
+
+** Regression Based Models
+- Variable selection
+  - Best subset selection - backward / forward
+  - Cross Validation
+  - Best GLM
+  - Family-wise error rate - correction
+  - One as the rule - size of
+- Regularization
+  - Determine Values of Tuning Parameters
+    - Ridge / Lasso / Elastic Net / SPLS
+- Regularization for Interaction between Treatment and Biomarker
+- R package "caret"
+- Hierarchical Group Lasso
+
+** Tree-based method (greedy method)
+- Non-parametric Procedures
+  - Prevent overfitting by minimal cost-complexity pruning
+    - R package "rpart"
+- Classification Trees / Survival Trees / Random Forest
+
+** Cluster Analysis
+- PAM clustering
+- Hierarchical Clustering
+- Tutorial ()
+
+** Network Analysis
+- Detect association between variables in out graphical models (causal or not) after adjusting for all other variables.
+- Estimating the inter-connectedness between variables and regularizing the network topology in order to detect significant associations remain underutilized in biomarker research.
+
+* Section V: Biomarker Statistical Analysis Plan (BSAP)
+** Biomarker Analysis Plan
+- Developed together with translational science team
+  - Scintific rationale for each biomarker to be included
+- Minimal overlap with Study Protocol and SAP
+- Main predictive biomarker may be covered in SAP
+  - Supplemental analyses in BSAP
+- Seven (7) sections outlined
+- General Consideration
+  - missing value
+- Statistical Methods
+
+* Misuse and Abuse of Biomarkers
+- Incomplete use
+  - Totality of evidence not considered from clinical trial biomarker data
+  - Need systematic plan for analysis between rationale for inclusion
+- Wrong Use
+  - Target engagement, dose selection or efficacy
+- Lack of Use
+  - Not embracing predictive group or ignoring precision medicine approach
+- Not embracing new modalities of biomarkers
+  - Imaging, digital biomarkers
+
+
+* Projects
+** Flow Cytometry
+*** Understanding Flow Cytometry:
+- Cell Characterization: Flow cytometry can differentiate cells based on size, granularity, and fluorescence intensity. This is achieved by labeling cells with fluorescent markers that bind to specific cell components or proteins.
+- Quantification: It quantifies how many cells express a particular marker (cell count) and the proportion of these cells relative to the total cell population (percentage).
+
+**** Using Cell Counts and Percentages as Biomarkers:
+1. Disease Diagnosis and Monitoring:
+   - Cancer: For example, in leukemia and lymphoma, abnormal levels or proportions of certain white blood cells can be indicative of disease.
+   - Immunological Disorders: Changes in the percentages of T-cell subsets (like CD4+ and CD8+ cells) can indicate immunological disorders, including HIV/AIDS.
+
+2. Therapeutic Monitoring:
+   - Response to Treatment: In cancer therapy, changes in tumor cell populations or immune cells can indicate the effectiveness of treatment.
+   - Autoimmune Diseases: Monitoring specific immune cells can help in assessing the response to treatments in conditions like rheumatoid arthritis or multiple sclerosis.
+
+3. Transplantation Medicine:
+   - Graft vs. Host Disease (GvHD): Post bone marrow transplant, the proportions of donor vs. recipient cells can be critical in monitoring GvHD or transplant rejection.
+
+4. Research and Drug Development:
+   - Pharmacodynamics: Assessing how a drug affects specific cell populations.
+   - Biomarker Discovery: Identifying new biomarkers for diseases based on unique cell population characteristics.
+
+5. Personalized Medicine:
+   - Tailoring Therapies: Flow cytometry data can guide personalized treatment plans, especially in oncology, by understanding individual patient’s tumor and immune cell characteristics.
+
+**** Advantages:
+- Highly Specific: Can target specific cell types or even subtypes.
+- Quantitative and Qualitative Data: Provides both numerical data and information on cell characteristics.
+- Rapid and Sensitive: Can process and analyze millions of cells quickly.
+
+**** Limitations:
+- Requirement for Expertise: Interpretation of flow cytometry data requires specialized knowledge.
+- Standardization Issues: Variability in protocols and reagents can affect reproducibility across different labs.
+
+In summary, flow cytometry's ability to provide detailed and quantifiable information on cell populations makes it an invaluable tool in using cell counts and percentages as biomarkers for a wide range of clinical and research applications.
+
+*** Responsibilities and Contributions
+**** Data Pipeline and statistical anaysis
+- Design gating templates and programming code to perform automated gating piepleine. Reduce bias by manual gating approach across labs. Improve efficiency and consistency in data analysis workflow
+- Design data schema of processed data to facilicate statistical analysis including integrating clinical annotations and calculate change from baseline
+- Developed QC/Triage report templates in R markdown for real-time report on data quality control and data processing
+
+*** Statistical Methods for Analyzing Flow Cytometry Data
+1. Descriptive Statistics
+   - Mean, Median, and Mode: For summarizing central tendencies of fluorescence intensities or cell counts.
+   - Standard Deviation and Variance: To quantify the dispersion or variability in the data.
+2. Comparing Groups
+   - t-tests or ANOVA: Used when comparing the means of two or more groups, such as comparing cell populations between treatment and control groups.
+   - Non-parametric Tests (e.g., Mann-Whitney U test, Kruskal-Wallis test): Useful when the data do not meet the assumptions required for parametric tests, like normal distribution.
+3. Correlation and Regression Analysis
+   - Pearson or Spearman Correlation: To assess the relationship between two variables, like the expression level of a biomarker and a clinical outcome.
+   - Linear or Logistic Regression: For modeling the relationship between a dependent variable (like a clinical outcome) and one or more independent variables (such as cell counts or percentages).
+4. Multivariate Analysis
+   - Principal Component Analysis (PCA): Used for dimensionality reduction, especially in datasets with multiple fluorescence channels.
+   - Cluster Analysis: For identifying groups or clusters of similar cells within the data, often using algorithms like K-means or hierarchical clustering.
+5. Survival Analysis
+   - Kaplan-Meier Curves: To estimate survival functions based on cell marker data.
+   - Cox Proportional Hazards Model: For assessing the effect of cell populations on survival time, taking into account other covariates.
+6. Longitudinal Data Analysis
+   - Mixed-Effects Models: Useful when data are collected at multiple time points from the same subjects.
+7. Bayesian Methods
+   - For incorporating prior information or beliefs into the analysis, which can be particularly useful in small sample size situations.
+8. Machine Learning Techniques
+   - Supervised Learning (e.g., Random Forest, Support Vector Machines): For classification or prediction tasks based on flow cytometry data.
+   - Unsupervised Learning (e.g., Cluster Analysis): For discovering patterns or groupings in the data without pre-labeled outcomes.
+9. Flow Cytometry-Specific Statistical Methods
+   - FlowJo, Cytobank, or other flow cytometry software: Provide specific tools for gating, visualization, and basic statistical analysis.
+   - Computational Algorithms for High-Dimensional Data: Such as SPADE (Spanning-tree Progression Analysis of Density-normalized Events) or viSNE for analyzing high-dimensional flow cytometry data.
+
+Each method has its own strengths and is chosen based on the specific characteristics of the flow cytometry data and the research question at hand. The complexity and high dimensionality of flow cytometry data often require sophisticated statistical approaches for accurate and meaningful analysis.
+
+*** Software for Processing Flow Cytometry Data
+1. FlowJo
+   - Capabilities: FlowJo is known for its user-friendly interface and robust data analysis capabilities. It allows for detailed gating strategies, compensation, and complex multicolor analysis.
+   - Statistical Analysis: Provides basic statistical functions like t-tests, ANOVA, and non-parametric tests. It can generate dose-response curves and perform kinetics analysis.
+   - Clinical Trial Design & Analysis Plan: FlowJo can help in the preliminary analysis of biomarker data, guiding the development of protocols and helping to refine the focus on specific cell populations or markers.
+
+2. Cytobank
+   - Capabilities: Cytobank specializes in high-dimensional data analysis and is ideal for large datasets. It supports advanced clustering algorithms and machine learning techniques.
+   - Statistical Analysis: Offers advanced clustering (e.g., viSNE, SPADE), heatmaps, and dimensionality reduction techniques. It can handle complex multivariate analyses.
+   - Clinical Trial Design & Analysis Plan: Useful for biomarker discovery and validation. It can help in identifying potential biomarkers that can be targeted in clinical trials.
+
+3. FCS Express
+   - Capabilities: FCS Express is known for its advanced data visualization and reporting capabilities. It integrates seamlessly with other data sources and provides real-time analysis.
+   - Statistical Analysis: Supports a range of statistical tests, regression analysis, and gating strategies. Also allows for custom script integration for specialized analyses.
+   - Clinical Trial Design & Analysis Plan: Can aid in the detailed data reporting and visualization necessary for clinical trial documentation and communication with regulatory bodies.
+
+4. Diva (BD FACSDiva Software)
+   - Capabilities: Commonly used with BD flow cytometers, Diva allows for sophisticated data acquisition and analysis.
+   - Statistical Analysis: Includes basic statistical functionalities and gating tools. It's more focused on data acquisition but does offer some analysis capabilities.
+   - Clinical Trial Design & Analysis Plan: Particularly useful in the setup and standardization of flow cytometry assays in clinical trials, ensuring consistency and accuracy in data collection.
+
+**** How Flow Cytometry Software Aids Clinical Trial Design and Statistical Analysis Plan:
+- Biomarker Identification: Helps in identifying and validating biomarkers that can be crucial in stratifying patient populations or determining efficacy endpoints.
+- Assay Development: Assists in developing and standardizing flow cytometry assays for use in clinical trials.
+- Preliminary Data Analysis: Provides insights into cell populations and their behaviors, which can inform trial designs and hypotheses.
+- Data Quality and Reproducibility: Ensures the quality and reproducibility of flow cytometry data, which is vital for clinical trial credibility.
+- Statistical Planning: The software's analysis capabilities can guide the choice of statistical methods and approaches in the Statistical Analysis Plan (SAP).
+- Regulatory Compliance: Helps in preparing data and reports in formats that are compliant with regulatory requirements.
+
+*** Analyzing flow cytometry data with R
+A flexible and powerful approach, especially for customized or complex analyses. Several R packages have been developed specifically for this purpose, each offering unique functionalities. Some of the most popular and useful R packages for flow cytometry data analysis include:
+1. flowCore
+   - Overview: The backbone of many flow cytometry analyses in R, flowCore provides functionalities for basic and advanced flow cytometry data handling and analysis.
+   - Key Features: Data import/export, gating, transformation, compensation, and visualization. It is often used as a foundation for other flow cytometry packages.
+
+2. flowStats
+   - Overview: An extension of flowCore, flowStats provides advanced statistical methods for flow cytometry data.
+   - Key Features: Includes statistical tests, flow cytometric data gating, and visualization tools. It's useful for more advanced analyses like clustering and classification.
+
+3. openCyto
+   - Overview: A package that allows for automated gating strategies using data-driven and statistically robust methods.
+   - Key Features: Highly customizable gating methods, integration with flowCore, and facilitates automated data analysis workflows.
+
+4. CytoML
+   - Overview: An R/Bioconductor package that bridges the gap between flow cytometry data analysis in R and other software platforms like FlowJo.
+   - Key Features: Importing and exporting gating templates and data between R and other popular flow cytometry software platforms.
+
+5. flowClust
+   - Overview: A package for robust model-based clustering of flow cytometry data.
+   - Key Features: It uses a Bayesian framework for clustering and identifying cell populations in flow cytometry data.
+
+6. FlowSOM
+   - Overview: An R package using self-organizing maps (SOMs) for the analysis and visualization of high-dimensional flow cytometry data.
+   - Key Features: Rapid, automated clustering and visualization, making it particularly useful for large and complex datasets.
+
+7. Cytofkit
+   - Overview: Designed for the analysis of high-dimensional cytometry data, such as mass cytometry (CyTOF) data, but also applicable to flow cytometry.
+   - Key Features: Integrates various analysis methods (like t-SNE, UMAP) for dimensionality reduction, clustering, and visualization.
+
+8. ggcyto
+   - Overview: Combines the power of ggplot2 and flowCore to offer an R-based solution for visualizing flow cytometry data.
+   - Key Features: Customizable and flexible visualization tools tailored for flow cytometry data.
+
+9. ConsensusClusterPlus
+   - Overview: While not specifically designed for flow cytometry, it's useful for unsupervised class discovery and refinement in flow cytometry data.
+   - Key Features: Implements consensus clustering methodology, useful for determining the stability of discovered clusters.
+
+**** How They Help in Analysis:
+- Flexibility: These packages offer the flexibility to create customized analysis pipelines tailored to specific research questions or data characteristics.
+- Advanced Statistical Analysis: Many of these packages provide advanced statistical techniques not readily available in standard flow cytometry software, enabling more in-depth data exploration and hypothesis testing.
+- High-Dimensional Data Handling: They are particularly adept at managing and analyzing the high-dimensional data typical of flow cytometry, especially in the context of large datasets or complex experimental designs.
+- Visualization: Offer robust tools for data visualization, which is key in understanding and presenting flow cytometry data effectively.
+- Reproducibility: Using R packages for flow cytometry data analysis enhances reproducibility, as all steps from data processing to analysis can be scripted and documented.
+- Incorporating these R packages into flow cytometry data analysis workflows can significantly enhance the depth, efficiency, and quality of the analysis, especially in research settings requiring customized or sophisticated analytical approaches.

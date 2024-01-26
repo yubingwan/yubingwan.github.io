@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-01-17 Wed 22:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Learn Biostatistics</title>
+<meta name="author" content="Yubing Wan" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Learn Biostatistics</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgd19db02">1. Introduction to Statistics</a>
+<ul>
+<li><a href="#org5f7611f">1.1. Learning Objectives</a></li>
+<li><a href="#orgbae6845">1.2. Guidelines</a></li>
+<li><a href="#org11d54be">1.3. Terms &amp; Definitions</a>
+<ul>
+<li><a href="#orgb9c00d3">1.3.1. Statistics</a></li>
+</ul>
+</li>
+<li><a href="#org96c9c38">1.4. Populations &amp; Samples</a>
+<ul>
+<li><a href="#orgd06b98a">1.4.1. Populations</a></li>
+<li><a href="#org99986e0">1.4.2. Samples</a></li>
+</ul>
+</li>
+<li><a href="#orgf416ad6">1.5. Inferential Statistics</a></li>
+<li><a href="#orgb200e22">1.6. Variables &amp; Constants</a></li>
+<li><a href="#org0ec7f27">1.7. Type of Variables</a></li>
+<li><a href="#org9b0681c">1.8. Relationship vs Causal Effects</a>
+<ul>
+<li><a href="#org66e2d33">1.8.1. Correlational Method</a></li>
+<li><a href="#org797b9bd">1.8.2. Experimental Method</a></li>
+<li><a href="#org4dedab7">1.8.3. Quasi-experimental Method</a></li>
+<li><a href="#orgeac0fad">1.8.4. Identifying a Study: What to consider</a></li>
+</ul>
+</li>
+<li><a href="#orgb122ba0">1.9. Scales of Measurement</a></li>
+</ul>
+</li>
+<li><a href="#org8eac5a2">2. Biostatistics</a></li>
+<li><a href="#org09deb19">3. Describing Data: Shape</a>
+<ul>
+<li><a href="#org05fe96a">3.1. Learning Objectives</a></li>
+<li><a href="#org5737bfd">3.2. Statistical Notation</a></li>
+<li><a href="#orgb67d56d">3.3. Frequency Distributions</a></li>
+<li><a href="#orgf0ff9fe">3.4. Graphs of Data</a>
+<ul>
+<li><a href="#org4df1d3c">3.4.1. Scales of Measurement:</a></li>
+</ul>
+</li>
+<li><a href="#org0188917">3.5. Frequency Distribution Graphs</a></li>
+<li><a href="#orgf776876">3.6. Shape of a Frequency Distribution</a>
+<ul>
+<li><a href="#org3c6d656">3.6.1. Normal Distribution</a></li>
+<li><a href="#org1636898">3.6.2. Symetric vs Skewed Distribution</a></li>
+<li><a href="#org079b024">3.6.3. Kurtosis</a></li>
+</ul>
+</li>
+<li><a href="#org711c8c0">3.7. Rank and Percentile</a></li>
+</ul>
+</li>
+<li><a href="#org4f7f14f">4. Describing Data: Central Tendency</a>
+<ul>
+<li><a href="#org20ffb4d">4.1. Learning Objectives</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd19db02" class="outline-2">
+<h2 id="orgd19db02"><span class="section-number-2">1.</span> Introduction to Statistics</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org5f7611f" class="outline-3">
+<h3 id="org5f7611f"><span class="section-number-3">1.1.</span> Learning Objectives</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Discuss with reference to medical examples, the purpose of the two main branches of statistics (i.e. descriptive and inferential).</li>
+<li>Explain and apply the following terminology:
+<ul class="org-ul">
+<li>Statistical
+statistics, population, sample, variable, data, datum, parameter, statistic, descriptive statistics, inferential statistics, sampling error</li>
+<li>Research
+corrlation method, experimental method, quasi-experimental method, independent variable, dependent variable, quasi-independent variable</li>
+<li>Measurement
+discrete variable, continuous variable, real limits, upper real limit, lower real limit, nominal scale, ordinal scale, interval scale, ratio scale</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbae6845" class="outline-3">
+<h3 id="orgbae6845"><span class="section-number-3">1.2.</span> Guidelines</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Terms &amp; Definitions</li>
+<li>Populations &amp; Samples</li>
+<li>Variables &amp; Constants</li>
+<li>Types of Study</li>
+<li>Scales of Measurement</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org11d54be" class="outline-3">
+<h3 id="org11d54be"><span class="section-number-3">1.3.</span> Terms &amp; Definitions</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orgb9c00d3" class="outline-4">
+<h4 id="orgb9c00d3"><span class="section-number-4">1.3.1.</span> Statistics</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li>From the Latin word statista; a person dealing with affairs of the state.</li>
+<li>It was originally called state arithmetic: tabulating information about citizens of the state for census data, taxation, and war planning.</li>
+<li><p>
+Development has historically come from:
+Insurance, Astronomy, Biology, Brewing, Gambling, War
+</p>
+
+<p>
+Mathematics -&gt; Statistics -&gt; Theretical
+                          -&gt; Applied Statistics -&gt; Econometirics
+                                                -&gt; Biostatistics -&gt; Suvival Analysis
+                                                -&gt; Genomics
+            -&gt; Topology
+</p></li>
+
+<li>Biostatistics is the application of statistical principles in medicine, public health, or biology</li>
+<li>This encompasssed the desing of research, collection and organization of data, summation of results, and interpretation of findings.</li>
+
+<li>Two Main Branches
+<ol class="org-ol">
+<li>Descriptive Statistics - summarizing and communicating information about a group of numbers (data). They refer only to the actual data available.</li>
+<li>Inferential Statistics - drawing conclusions based on the data collected, and making predictions that go beyong the immediate data.</li>
+</ol></li>
+</ul>
+
+<p>
+In short, statistics are about summarizing and answering questions based on data.
+</p>
+
+<ul class="org-ul">
+<li>Observations (information in the environment) are usually made on individuals.</li>
+<li>A measurement or <b>datum</b> is a single observation. The term <b>score</b> is also commonly used in the behavioral sciences for a single observation.</li>
+<li>Data (plural) are a collection of scores.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org96c9c38" class="outline-3">
+<h3 id="org96c9c38"><span class="section-number-3">1.4.</span> Populations &amp; Samples</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-orgd06b98a" class="outline-4">
+<h4 id="orgd06b98a"><span class="section-number-4">1.4.1.</span> Populations</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li>Observations (measurements; data) are usually make on individuals.</li>
+<li>A population is the set of all the individuals of interest.
+<ul class="org-ul">
+<li>A population of Romans</li>
+</ul></li>
+<li>Populations are often so large that it is impossible to obtain measurements from all the individuals</li>
+<li>Some populations are infinite or hypothetical, they cannot be measured.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org99986e0" class="outline-4">
+<h4 id="org99986e0"><span class="section-number-4">1.4.2.</span> Samples</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<ul class="org-ul">
+<li>A sample is a set of individuals selected from a population - we usually want samples to be representative (not biased) and genralizable.</li>
+</ul>
+
+<p>
+A <b>parameter</b> describes a <b>population</b>, whereas a <b>statistc</b> describes a <b>sample</b>.
+We use a statistic to <b>estimate</b> a parameter.
+Generally, <b>Greek</b> letters denote <b>parameters</b> and <b>Roman</b> letters denote <b>statistics</b>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf416ad6" class="outline-3">
+<h3 id="orgf416ad6"><span class="section-number-3">1.5.</span> Inferential Statistics</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>Used to conclusions based on the data collected, and making predictions that go beyond the immediate data.</li>
+
+<li><b>Sampling Error</b>: the discrepancy between the sample statistic and the true population parameter it is estimating.</li>
+
+<li>To reduce <b>sampling error</b>:
+<ul class="org-ul">
+<li>Use a sufficiently large sample</li>
+<li>Use random selection: selecting individuals from the population at random for you sample to create an unbiased sample (sometimes bias is subtle)</li>
+</ul></li>
+</ul>
+
+<p>
+<b><b>Note</b></b>: We can only &ldquo;prove&rdquo; something if we can measure the population. As a result of sampling error, we can only ever determine &ldquo;beyond a reasonable doubt&rdquo;.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb200e22" class="outline-3">
+<h3 id="orgb200e22"><span class="section-number-3">1.6.</span> Variables &amp; Constants</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>A constant is a characteristic that is fixed across conditions.</li>
+<li>A variable is a characteristic that changes across conditions.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0ec7f27" class="outline-3">
+<h3 id="org0ec7f27"><span class="section-number-3">1.7.</span> Type of Variables</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+In an experiment, the <b>independent variable</b> is the one that is &ldquo;manipulated&rdquo;.
+Whereas the <b>dependent variable</b> is the one that is <b>observed</b>.
+</p>
+
+<p>
+To make an inference (a conclusion reached on the basis of evidence and reasoning), we manipulate a variable of interest (the independent variable), and observe the effect on an outcome variable (the dependent variable), hodling all other variables constant.
+</p>
+
+<p>
+Independent variable -&gt; influences changes in the -&gt; dependent variable
+</p>
+
+<p>
+<b>Between-subject variables</b>: a characteristic that varies between different individuals. Examples: age, sex, blood type, &#x2026; etc.
+</p>
+
+<p>
+<b>Within-subjects variable</b>: a characteristic of particular individuals that varies with time. Examples: age, tiredness, blood pressure, &#x2026; etc.
+</p>
+</div>
+</div>
+<div id="outline-container-org9b0681c" class="outline-3">
+<h3 id="org9b0681c"><span class="section-number-3">1.8.</span> Relationship vs Causal Effects</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li>Correlational Method: two (or more) variables are observed to see if there is an <b>association</b> - this provides no information about causality.</li>
+<li>Experimental Method: goal is to establish <b>cause-end-effect</b> relationships between variables - this requires manipulation and control.</li>
+<li>Quasi-experimental method: no actual manipulation, but groups are defined by &rsquo;natual&rsquo; variations, either between subjects or over time.</li>
+</ul>
+</div>
+<div id="outline-container-org66e2d33" class="outline-4">
+<h4 id="org66e2d33"><span class="section-number-4">1.8.1.</span> Correlational Method</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<p>
+Look for <b>consistent patterns</b> in the data to providence evidence for a relationship between the variables.
+</p>
+
+<p>
+Examples:
+</p>
+<ul class="org-ul">
+<li>Supervisor&rsquo;s sense of humor and people&rsquo;s job satisfaction.</li>
+<li>A nation&rsquo;s per capita chocolate consumption and rate at which its citizins win Nobel Prizes.</li>
+</ul>
+
+<p>
+Correlation studies <b>CANNOT</b> demonstrate <b>cause-and-effect</b> relationships.
+</p>
+</div>
+</div>
+<div id="outline-container-org797b9bd" class="outline-4">
+<h4 id="org797b9bd"><span class="section-number-4">1.8.2.</span> Experimental Method</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<p>
+In an <b>experiment</b>, the <b>independent variable</b> is the one that is manipulated, whereas the <b>dependent variable</b> is the one that is <b>observed</b>.
+</p>
+
+<p>
+<b>Example:</b> administration of Polio vaccine and the incidence of Polio.
+</p>
+
+<p>
+<b>Manipulation</b> - Researcher manipulates one variable by chaning it value.
+</p>
+
+<p>
+<b>Control</b> - researcher must exercise control over the research situation to ensure that other confounding variables do not influence the relationship being exmined.
+</p>
+
+<p>
+<b>Aim</b> - is to demonstrate that chaning the value of one variable (<b>independent variable</b>) will cause changes to occur in the second variable (<b>dependent variable</b>)
+</p>
+
+<p>
+<b>Control Group</b>: receives no treatment (or receive a placebo)
+</p>
+
+<p>
+<b>Experimental Group:</b> receives treatment.
+</p>
+
+<p>
+<b>Confunding Variable:</b>
+</p>
+<ul class="org-ul">
+<li>uncontrolled</li>
+<li>a source of error in interpretation.</li>
+<li>participant variables (e.g. age, sex, and intelligence).</li>
+<li>environmental variables (e.g. lighting, time of day, weather conditions).</li>
+</ul>
+
+<p>
+To control confunding variables, reasearchers can use the following:
+</p>
+<ul class="org-ul">
+<li><b>Random Assignment</b> to both conditions, and to levels of the independent variable.</li>
+<li><b>Matching</b>: Use equivalent groups or environments.</li>
+<li><b>Holding</b> constant of variables (e.g. age only use 10-year olds in study).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4dedab7" class="outline-4">
+<h4 id="org4dedab7"><span class="section-number-4">1.8.3.</span> Quasi-experimental Method</h4>
+<div class="outline-text-4" id="text-1-8-3">
+<p>
+A <b>quasi-experimental design</b> is one that looks a bit like an experimental design but lacks same level of control. Aspects that might not be controlled are:
+</p>
+<ul class="org-ul">
+<li>Not having a control group with which to compare results</li>
+<li>Not randomly assigning participants to control or experimental group</li>
+<li>Not having control over the intervention (e.g. using an intervention that is in place in practice).</li>
+</ul>
+
+<p>
+<b>Examples:</b>
+</p>
+<ul class="org-ul">
+<li>A study looking at sex differences isn&rsquo;t technically an experiment because you can&rsquo;t assign sex.</li>
+<li>A hospital introduces a new pharmacy order-entry system and wishes to study the impact of this intervention on the number of medication-related adverse events before and after the intervention.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgeac0fad" class="outline-4">
+<h4 id="orgeac0fad"><span class="section-number-4">1.8.4.</span> Identifying a Study: What to consider</h4>
+<div class="outline-text-4" id="text-1-8-4">
+<ol class="org-ol">
+<li>Experimental
+<ul class="org-ul">
+<li>Measures 1 variable (the dependent variable)</li>
+<li>Manipulates the other variable (the independent variable)</li>
+<li>Rigorous control of the research situation</li>
+</ul></li>
+
+<li>Quasi-experimental
+<ul class="org-ul">
+<li>Measures 1 variable (the dependent variable)</li>
+<li>Cannot manipulates the independent variable</li>
+<li>Rigorous control of the research situation</li>
+</ul></li>
+
+<li>Correlational
+<ul class="org-ul">
+<li>Measures 2 (or more) variables</li>
+<li>No manipulation or control of the research situation</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb122ba0" class="outline-3">
+<h3 id="orgb122ba0"><span class="section-number-3">1.9.</span> Scales of Measurement</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+When collecting data need to make measurements.
+</p>
+
+<p>
+How do we measure things?
+</p>
+<ul class="org-ul">
+<li>By putting them into categories (qualitative).</li>
+<li>By using numbers (quantitative).</li>
+</ul>
+
+<p>
+There are different kinds of measurement <b>variables</b>:
+</p>
+<ul class="org-ul">
+<li>Discrete
+<ul class="org-ul">
+<li>consist of separate, indivisible categories.</li>
+<li>No values can exist between two adjacent categories.</li>
+<li>Examples:</li>
+</ul></li>
+
+<li>Continuous
+<ul class="org-ul">
+<li>an infinite number of possible values that fit between any two adjacent values. It is divisible into an infinite number of fractional parts.</li>
+<li>Examples: Time, weight, pupil diameter, blood pressure, &#x2026; etc.</li>
+<li>It should be rare to obtain identical measurements for two different individuals.</li>
+<li>Each measurement category is actually an interval that must be defined by boundaries.</li>
+<li>Example: Blood Pressure - the arterial preasure of the systemic circulation exerted upon the walls of blood vessels.</li>
+</ul></li>
+</ul>
+
+<p>
+As well as different kinds of measurement scales:
+</p>
+<ul class="org-ul">
+<li>nominal
+<ul class="org-ul">
+<li>classification data</li>
+<li>no ordering</li>
+<li>arbitrary labels</li>
+</ul></li>
+<li>ordinal
+<ul class="org-ul">
+<li>values are categories organized in an ordered sequence (ranks)</li>
+<li>norminal, but also contain a greater than/less than relationship between values on the scale.</li>
+<li>cannot determine the magnitude of the relationships.</li>
+</ul></li>
+<li>interval
+<ul class="org-ul">
+<li>ordered categories that are all intervals of exatly the same size.
+<ul class="org-ul">
+<li>orderd, constant scale but no natural zero.</li>
+</ul></li>
+<li>Examples: temperature in Fahrenheit or Celsius, IQ scores, dates, &#x2026; etc.</li>
+<li>Differences between intervals are meaningful, but ratios are not (because there is no abolute zero)
+<ul class="org-ul">
+<li>The amount of difference from 30 to 20 degree is the same as that of 20 to 10 degree. But the ratio of 20/10 DOES NOT mean 20 is twice as hot as 10.</li>
+</ul></li>
+</ul></li>
+<li>ratio - an interval scale with an absolute zero point.
+<ul class="org-ul">
+<li>Examples: reaction time, hight, erros on a test, temperature in Kelvin.</li>
+<li>All the qualities of an interval scale, but ratios of numbers reflect ratios of magnitude (because the zero reflects a true absence of the variable being measured).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org8eac5a2" class="outline-2">
+<h2 id="org8eac5a2"><span class="section-number-2">2.</span> Biostatistics</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>the analysis of data relating to living organisms</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org09deb19" class="outline-2">
+<h2 id="org09deb19"><span class="section-number-2">3.</span> Describing Data: Shape</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org05fe96a" class="outline-3">
+<h3 id="org05fe96a"><span class="section-number-3">3.1.</span> Learning Objectives</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>Discuss frequency distribution tables and graphs as organized displays showing where all of the individual scores are located on the scale of measurement.</li>
+
+<li>Construct graphs, including bar graphs, histograms, piecharts and polygons, and interpret data that are presented in a graph.</li>
+
+<li>Describe the shape of a distribution portrayed in a frequency distribution graph.</li>
+
+<li>Interpret locations within a distribution in terms of percentiles and percentile ranks.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org5737bfd" class="outline-3">
+<h3 id="org5737bfd"><span class="section-number-3">3.2.</span> Statistical Notation</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>N = number of measurements in a population</li>
+<li>n = number of measurements in a sample</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb67d56d" class="outline-3">
+<h3 id="orgb67d56d"><span class="section-number-3">3.3.</span> Frequency Distributions</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+<b>Descriptive Statistics</b> are used to summarize, organize and simplify data (i.e. observations).
+</p>
+
+<p>
+Organize &#x2013;&gt; Look for Patterns &#x2013;&gt; Communicate
+</p>
+
+<ul class="org-ul">
+<li>Frequency Table</li>
+<li>Grouped Frequency Table</li>
+<li>Relative Frequency Distribution</li>
+<li>Cumulative Frequency Distribution
+<ul class="org-ul">
+<li>Expressed as a percentage;</li>
+<li>represents the % of scores <b>accumulated as you move up the scale</b>, (i.e. the % of scores *lying within and below each class interval).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf0ff9fe" class="outline-3">
+<h3 id="orgf0ff9fe"><span class="section-number-3">3.4.</span> Graphs of Data</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+A graph is a diagram showing the relationship between variable quantities.
+Typically measurements are represented on the horizontal axis (x axis) and frequencies on the vertical axis (y axis).
+The type of graph used to display a distribution depends on the scale of mesurement used
+</p>
+</div>
+<div id="outline-container-org4df1d3c" class="outline-4">
+<h4 id="org4df1d3c"><span class="section-number-4">3.4.1.</span> Scales of Measurement:</h4>
+<div class="outline-text-4" id="text-3-4-1">
+<ul class="org-ul">
+<li>Nominal - use a bar graph or pie chart</li>
+<li>Ordinal - Use a bar graph</li>
+<li>Interval - use a histogram or polygon</li>
+<li>Ratio - use a histogram, polygon or pie chart</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org44a54ac"></a>Polygon Graph<br />
+<div class="outline-text-5" id="text-3-4-1-1">
+<ul class="org-ul">
+<li>for continuous data on an interval/ratio scale
+<ul class="org-ul">
+<li>a dot represents each score</li>
+<li>a continuous line is drawn from dot to dot</li>
+<li>to complete, a line is drwan down to the x-axis at each end</li>
+</ul></li>
+<li>Cumulative Frequency Polygon</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org0188917" class="outline-3">
+<h3 id="org0188917"><span class="section-number-3">3.5.</span> Frequency Distribution Graphs</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Rather than drawing a complete frequency distribution graph, researchers often simply describe its characteristics.
+</p>
+
+<p>
+There are 3 characteristics that completely describe any distribution:
+</p>
+<ul class="org-ul">
+<li>Shape</li>
+<li>Central Tendency (where the center is located)</li>
+<li>Variability (how spread of the scores are)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf776876" class="outline-3">
+<h3 id="orgf776876"><span class="section-number-3">3.6.</span> Shape of a Frequency Distribution</h3>
+<div class="outline-text-3" id="text-3-6">
+</div>
+<div id="outline-container-org3c6d656" class="outline-4">
+<h4 id="org3c6d656"><span class="section-number-4">3.6.1.</span> Normal Distribution</h4>
+<div class="outline-text-4" id="text-3-6-1">
+<ul class="org-ul">
+<li>It is a commonly occurring population distribution in biological research</li>
+<li>The smooth curve indicates you are not connecting a series of dots (real frequencies) but instead are showing the relative changes that occur from one score to the next.</li>
+<li>The word normal refers to a specific shape, defined by a mathematical equation.</li>
+<li>Symmetrical and mathematically certain in most situations.</li>
+<li>The greatest frequency is in the middle and relatively smaller frequencies as you move forwards either extreme.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1636898" class="outline-4">
+<h4 id="org1636898"><span class="section-number-4">3.6.2.</span> Symetric vs Skewed Distribution</h4>
+<div class="outline-text-4" id="text-3-6-2">
+<p>
+In a skewed distribution, the scores tend to pile up toward one end of the scale and taper off gradually at the other end.
+</p>
+
+<p>
+The section where the scores taper off toward one end of the distribution is called the tail of the distribution.
+</p>
+<ul class="org-ul">
+<li>Positive Skewed - right skewed - the tail is on the right-hand side.</li>
+<li>Negative Skewed - left skewed - the tail is on the left-hand side.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org079b024" class="outline-4">
+<h4 id="org079b024"><span class="section-number-4">3.6.3.</span> Kurtosis</h4>
+<div class="outline-text-4" id="text-3-6-3">
+<p>
+The sharpness of the peak of a frequency distribution curve.
+</p>
+<ul class="org-ul">
+<li>Mesokurtic: the peakedness or kurtosis is the same as the normal distribution.</li>
+<li>Leptokurtic: the peakedness or kurtosis is greater than the normal distribution.</li>
+<li>Platykurtic: the peakedness or kurtosis is less than the normal distribution.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org711c8c0" class="outline-3">
+<h3 id="org711c8c0"><span class="section-number-3">3.7.</span> Rank and Percentile</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+The rank or percntile rank is the percentage of individuals with scores at or below the particular value.
+</p>
+
+<p>
+When a particular score is identified by its rank, we call it a percentile.
+</p>
+<ul class="org-ul">
+<li>Percentile: What score has this % or scores below it (refers to a score)?</li>
+<li>Percent Rank: What is the percentage of scores below this one (refers to a percentage)?
+<ul class="org-ul">
+<li>Provide a way of giving information about one individual score in relation to all the other scores in a distribution.</li>
+</ul></li>
+<li>Percentile Ranks: are one member of a family of values called quantiles, which divide distributions into an equal number of parts.
+<ul class="org-ul">
+<li>Centiles - divide into 100 equal parts</li>
+<li>Quartiles - divide into 4 equal parts</li>
+<li>Quintiles - divide into 5 equal parts</li>
+<li>Deciles - divide into 10 equal parts</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org4f7f14f" class="outline-2">
+<h2 id="org4f7f14f"><span class="section-number-2">4.</span> Describing Data: Central Tendency</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org20ffb4d" class="outline-3">
+<h3 id="org20ffb4d"><span class="section-number-3">4.1.</span> Learning Objectives</h3>
+<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li>Define central tendency and discuss the general purpose of obtaining a measure of central tendency.</li>
+<li>Define and calculate each of the three basic measures of central tendency (mean, median and mode) for a set of data.</li>
+<li>Explain when each of the three measures of central tendency should be used, and their advantages and disadvantages.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Yubing Wan</p>
+<p class="date">Created: 2024-01-17 Wed 22:50</p>
+</div>
+</body>
+</html>

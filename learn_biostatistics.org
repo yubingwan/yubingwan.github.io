@@ -1,0 +1,292 @@
+#+title: Learn Biostatistics
+
+* Biostatistics
+- the analysis of data relating to living organisms
+
+* Introduction to Statistics
+** Learning Objectives
+- Discuss with reference to medical examples, the purpose of the two main branches of statistics (i.e. descriptive and inferential).
+- Explain and apply the following terminology:
+  - Statistical
+    statistics, population, sample, variable, data, datum, parameter, statistic, descriptive statistics, inferential statistics, sampling error
+  - Research
+    corrlation method, experimental method, quasi-experimental method, independent variable, dependent variable, quasi-independent variable
+  - Measurement
+    discrete variable, continuous variable, real limits, upper real limit, lower real limit, nominal scale, ordinal scale, interval scale, ratio scale
+
+** Guidelines
+- Terms & Definitions
+- Populations & Samples
+- Variables & Constants
+- Types of Study
+- Scales of Measurement
+
+** Terms & Definitions
+*** Statistics
+- From the Latin word statista; a person dealing with affairs of the state.
+- It was originally called state arithmetic: tabulating information about citizens of the state for census data, taxation, and war planning.
+- Development has historically come from:
+  Insurance, Astronomy, Biology, Brewing, Gambling, War
+
+  Mathematics -> Statistics -> Theretical
+                            -> Applied Statistics -> Econometirics
+                                                  -> Biostatistics -> Suvival Analysis
+                                                  -> Genomics
+              -> Topology
+
+- Biostatistics is the application of statistical principles in medicine, public health, or biology
+- This encompasssed the desing of research, collection and organization of data, summation of results, and interpretation of findings.
+
+- Two Main Branches
+  1. Descriptive Statistics - summarizing and communicating information about a group of numbers (data). They refer only to the actual data available.
+  2.  Inferential Statistics - drawing conclusions based on the data collected, and making predictions that go beyong the immediate data.
+
+In short, statistics are about summarizing and answering questions based on data.
+
+- Observations (information in the environment) are usually made on individuals.
+- A measurement or *datum* is a single observation. The term *score* is also commonly used in the behavioral sciences for a single observation.
+- Data (plural) are a collection of scores.
+
+** Populations & Samples
+*** Populations
+ - Observations (measurements; data) are usually make on individuals.
+ - A population is the set of all the individuals of interest.
+   - A population of Romans
+ - Populations are often so large that it is impossible to obtain measurements from all the individuals
+ - Some populations are infinite or hypothetical, they cannot be measured.
+
+*** Samples
+ - A sample is a set of individuals selected from a population - we usually want samples to be representative (not biased) and genralizable.
+
+A *parameter* describes a *population*, whereas a *statistc* describes a *sample*.
+We use a statistic to *estimate* a parameter.
+Generally, *Greek* letters denote *parameters* and *Roman* letters denote *statistics*
+
+** Inferential Statistics
+- Used to conclusions based on the data collected, and making predictions that go beyond the immediate data.
+
+- *Sampling Error*: the discrepancy between the sample statistic and the true population parameter it is estimating.
+
+- To reduce *sampling error*:
+  - Use a sufficiently large sample
+  - Use random selection: selecting individuals from the population at random for you sample to create an unbiased sample (sometimes bias is subtle)
+
+**Note**: We can only "prove" something if we can measure the population. As a result of sampling error, we can only ever determine "beyond a reasonable doubt".
+
+** Variables & Constants
+- A constant is a characteristic that is fixed across conditions.
+- A variable is a characteristic that changes across conditions.
+
+** Type of Variables
+In an experiment, the *independent variable* is the one that is "*manipulated*".
+Whereas the *dependent variable* is the one that is *observed*.
+
+To make an inference (a conclusion reached on the basis of evidence and reasoning), we manipulate a variable of interest (the independent variable), and observe the effect on an outcome variable (the dependent variable), hodling all other variables constant.
+
+Independent variable -> influences changes in the -> dependent variable
+
+*Between-subject variables*: a characteristic that varies between different individuals. Examples: age, sex, blood type, ... etc.
+
+*Within-subjects variable*: a characteristic of particular individuals that varies with time. Examples: age, tiredness, blood pressure, ... etc.
+
+** Relationship vs Causal Effects
+- Correlational Method: two (or more) variables are observed to see if there is an *association* - this provides no information about causality.
+- Experimental Method: goal is to establish *cause-end-effect* relationships between variables - this requires manipulation and control.
+- Quasi-experimental method: no actual manipulation, but groups are defined by 'natual' variations, either between subjects or over time.
+
+*** Correlational Method
+Look for *consistent patterns* in the data to providence evidence for a relationship between the variables.
+
+Examples:
+- Supervisor's sense of humor and people's job satisfaction.
+- A nation's per capita chocolate consumption and rate at which its citizins win Nobel Prizes.
+
+Correlation studies *CANNOT* demonstrate *cause-and-effect* relationships.
+
+*** Experimental Method
+In an *experiment*, the *independent variable* is the one that is manipulated, whereas the *dependent variable* is the one that is *observed*.
+
+*Example:* administration of Polio vaccine and the incidence of Polio.
+
+*Manipulation* - Researcher manipulates one variable by chaning it value.
+
+*Control* - researcher must exercise control over the research situation to ensure that other confounding variables do not influence the relationship being exmined.
+
+*Aim* - is to demonstrate that chaning the value of one variable (*independent variable*) will cause changes to occur in the second variable (*dependent variable*)
+
+*Control Group*: receives no treatment (or receive a placebo)
+
+*Experimental Group:* receives treatment.
+
+*Confunding Variable:*
+ - uncontrolled
+ - a source of error in interpretation.
+ - participant variables (e.g. age, sex, and intelligence).
+ - environmental variables (e.g. lighting, time of day, weather conditions).
+
+To control confunding variables, reasearchers can use the following:
+ - *Random Assignment* to both conditions, and to levels of the independent variable.
+ - *Matching*: Use equivalent groups or environments.
+ - *Holding* constant of variables (e.g. age only use 10-year olds in study).
+
+*** Quasi-experimental Method
+A *quasi-experimental design* is one that looks a bit like an experimental design but lacks same level of control. Aspects that might not be controlled are:
+- Not having a control group with which to compare results
+- Not randomly assigning participants to control or experimental group
+- Not having control over the intervention (e.g. using an intervention that is in place in practice).
+
+*Examples:*
+- A study looking at sex differences isn't technically an experiment because you can't assign sex.
+- A hospital introduces a new pharmacy order-entry system and wishes to study the impact of this intervention on the number of medication-related adverse events before and after the intervention.
+
+*** Identifying a Study: What to consider
+1. Experimental
+   - Measures 1 variable (the dependent variable)
+   - Manipulates the other variable (the independent variable)
+   - Rigorous control of the research situation
+
+2. Quasi-experimental
+   - Measures 1 variable (the dependent variable)
+   - Cannot manipulates the independent variable
+   - Rigorous control of the research situation
+
+3. Correlational
+   - Measures 2 (or more) variables
+   - No manipulation or control of the research situation
+
+** Scales of Measurement
+When collecting data need to make measurements.
+
+How do we measure things?
+- By putting them into categories (qualitative).
+- By using numbers (quantitative).
+
+There are different kinds of measurement *variables*:
+- Discrete
+  - consist of separate, indivisible categories.
+  - No values can exist between two adjacent categories.
+  - Examples:
+
+- Continuous
+  - an infinite number of possible values that fit between any two adjacent values. It is divisible into an infinite number of fractional parts.
+  - Examples: Time, weight, pupil diameter, blood pressure, ... etc.
+  - It should be rare to obtain identical measurements for two different individuals.
+  - Each measurement category is actually an interval that must be defined by boundaries.
+  - Example: Blood Pressure - the arterial preasure of the systemic circulation exerted upon the walls of blood vessels.
+
+As well as different kinds of measurement scales:
+- nominal
+  - classification data
+  - no ordering
+  - arbitrary labels
+- ordinal
+  - values are categories organized in an ordered sequence (ranks)
+  - norminal, but also contain a greater than/less than relationship between values on the scale.
+  - cannot determine the magnitude of the relationships.
+- interval
+  - ordered categories that are all intervals of exatly the same size.
+    - orderd, constant scale but no natural zero.
+  - Examples: temperature in Fahrenheit or Celsius, IQ scores, dates, ... etc.
+  - Differences between intervals are meaningful, but ratios are not (because there is no abolute zero)
+    - The amount of difference from 30 to 20 degree is the same as that of 20 to 10 degree. But the ratio of 20/10 DOES NOT mean 20 is twice as hot as 10.
+- ratio - an interval scale with an absolute zero point.
+  - Examples: reaction time, hight, erros on a test, temperature in Kelvin.
+  - All the qualities of an interval scale, but ratios of numbers reflect ratios of magnitude (because the zero reflects a true absence of the variable being measured).
+
+* Describing Data: Shape
+** Learning Objectives
+1. Discuss frequency distribution tables and graphs as organized displays showing where all of the individual scores are located on the scale of measurement.
+
+2. Construct graphs, including bar graphs, histograms, piecharts and polygons, and interpret data that are presented in a graph.
+
+3. Describe the shape of a distribution portrayed in a frequency distribution graph.
+
+4. Interpret locations within a distribution in terms of percentiles and percentile ranks.
+
+** Statistical Notation
+- N = number of measurements in a population
+- n = number of measurements in a sample
+
+** Frequency Distributions
+*Descriptive Statistics* are used to summarize, organize and simplify data (i.e. observations).
+
+Organize --> Look for Patterns --> Communicate
+
+- Frequency Table
+- Grouped Frequency Table
+- Relative Frequency Distribution
+- Cumulative Frequency Distribution
+  - Expressed as a percentage;
+  - represents the % of scores *accumulated as you move up the scale*, (i.e. the % of scores *lying within and below each class interval).
+
+** Graphs of Data
+A graph is a diagram showing the relationship between variable quantities.
+Typically measurements are represented on the horizontal axis (x axis) and frequencies on the vertical axis (y axis).
+The type of graph used to display a distribution depends on the scale of mesurement used
+
+*** Scales of Measurement:
+- Nominal - use a bar graph or pie chart
+- Ordinal - Use a bar graph
+- Interval - use a histogram or polygon
+- Ratio - use a histogram, polygon or pie chart
+
+**** Polygon Graph
+- for continuous data on an interval/ratio scale
+  - a dot represents each score
+  - a continuous line is drawn from dot to dot
+  - to complete, a line is drwan down to the x-axis at each end
+- Cumulative Frequency Polygon
+
+** Frequency Distribution Graphs
+Rather than drawing a complete frequency distribution graph, researchers often simply describe its characteristics.
+
+There are 3 characteristics that completely describe any distribution:
+- Shape
+- Central Tendency (where the center is located)
+- Variability (how spread of the scores are)
+
+** Shape of a Frequency Distribution
+*** Normal Distribution
+- It is a commonly occurring population distribution in biological research
+- The smooth curve indicates you are not connecting a series of dots (real frequencies) but instead are showing the relative changes that occur from one score to the next.
+- The word normal refers to a specific shape, defined by a mathematical equation.
+- Symmetrical and mathematically certain in most situations.
+- The greatest frequency is in the middle and relatively smaller frequencies as you move forwards either extreme.
+
+*** Symetric vs Skewed Distribution
+In a skewed distribution, the scores tend to pile up toward one end of the scale and taper off gradually at the other end.
+
+The section where the scores taper off toward one end of the distribution is called the tail of the distribution.
+- Positive Skewed - right skewed - the tail is on the right-hand side.
+- Negative Skewed - left skewed - the tail is on the left-hand side.
+
+*** Kurtosis
+The sharpness of the peak of a frequency distribution curve.
+- Mesokurtic: the peakedness or kurtosis is the same as the normal distribution.
+- Leptokurtic: the peakedness or kurtosis is greater than the normal distribution.
+- Platykurtic: the peakedness or kurtosis is less than the normal distribution.
+
+** Rank and Percentile
+The rank or percntile rank is the percentage of individuals with scores at or below the particular value.
+
+When a particular score is identified by its rank, we call it a percentile.
+- Percentile: What score has this % or scores below it (refers to a score)?
+- Percent Rank: What is the percentage of scores below this one (refers to a percentage)?
+  - Provide a way of giving information about one individual score in relation to all the other scores in a distribution.
+- Percentile Ranks: are one member of a family of values called quantiles, which divide distributions into an equal number of parts.
+  - Centiles - divide into 100 equal parts
+  - Quartiles - divide into 4 equal parts
+  - Quintiles - divide into 5 equal parts
+  - Deciles - divide into 10 equal parts
+
+* Describing Data: Central Tendency
+** Learning Objectives
+1. Define central tendency and discuss the general purpose of obtaining a measure of central tendency.
+2. Define and calculate each of the three basic measures of central tendency (mean, median and mode) for a set of data.
+3. Explain when each of the three measures of central tendency should be used, and their advantages and disadvantages.
+
+
+
+* Hypothesis Testing
+- Type I Error (False Positive Error) - Incorrectly reject the Null Hypothesis while it is actually true. (Incorrectly get a P-value less than the significance level, while it should be greater)
+- Type II Error (False Negative Error) - Incorrectly failed to reject the Null Hypothesis while it is actually false. (Incorrectly get a P-value greater than the significanc level while it should be less)

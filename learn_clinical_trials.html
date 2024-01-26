@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-01-11 Thu 12:37 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Learn Clinical Trials</title>
+<meta name="author" content="Yubing Wan" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Learn Clinical Trials</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org5437000">1. Trial Phases</a>
+<ul>
+<li><a href="#org4d7293d">1.1. Summary of Different Phases</a></li>
+<li><a href="#org6a4dde9">1.2. General Biostatistician Aspects to Consider Across Phases:</a></li>
+</ul>
+</li>
+<li><a href="#org122d86b">2. Preclinical/Nonclinical Trials</a>
+<ul>
+<li><a href="#org322de32">2.1. Key Biomarker</a>
+<ul>
+<li><a href="#org42c98af">2.1.1. Pharmacokinetric (PK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5437000" class="outline-2">
+<h2 id="org5437000"><span class="section-number-2">1.</span> Trial Phases</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org4d7293d" class="outline-3">
+<h3 id="org4d7293d"><span class="section-number-3">1.1.</span> Summary of Different Phases</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Clinical trials are conducted in distinct phases, each with specific characteristics, objectives, and study designs. Here&rsquo;s an overview tailored to your interest in biostatistics:
+</p>
+
+<ol class="org-ol">
+<li>Phase I Trials
+<ul class="org-ul">
+<li>Characteristics: Small-scale trials, often including 20-100 healthy volunteers (sometimes patients).</li>
+<li>Major Purpose: Assess safety, determine a safe dosage range, and identify side effects.</li>
+<li>Study Design: Typically non-randomized, open-label, often using a dose-escalation study design.</li>
+<li>Biostatistician Concerns: Focus on determining maximum tolerated dose, pharmacokinetics, and pharmacodynamics.</li>
+</ul></li>
+
+<li>Phase II Trials
+<ul class="org-ul">
+<li>Characteristics: Larger groups (100-300 participants), usually patients with the disease/condition.</li>
+<li>Major Purpose: Evaluate the efficacy of the drug and further assess its safety.</li>
+<li>Study Design: Often randomized controlled trials (RCTs), can be single-blind or double-blind.</li>
+<li>Biostatistician Concerns: Establishing the preliminary efficacy, optimal dose, and short-term side effects. Power and sample size calculations are crucial.</li>
+</ul></li>
+
+<li>Phase III Trials
+<ul class="org-ul">
+<li>Characteristics: Large-scale trials, involving 300-3,000+ participants, typically from multiple sites.</li>
+<li>Major Purpose: Confirm effectiveness, monitor side effects, compare with standard or equivalent treatments.</li>
+<li>Study Design: Randomized, double-blind, placebo-controlled trials. Often multi-center studies.</li>
+<li>Biostatistician Concerns: Emphasis on confirmatory data analysis, interim analysis, handling multicenter data, and comprehensive safety analysis.</li>
+</ul></li>
+
+<li>Phase IV Trials
+<ul class="org-ul">
+<li>Characteristics: Post-marketing studies conducted after a treatment is approved and on the market.</li>
+<li>Major Purpose: Further information including drug&rsquo;s risks, benefits, and optimal use.</li>
+<li>Study Design: Can vary widely, including randomized and non-randomized designs, observational studies.</li>
+<li>Biostatistician Concerns: Long-term effectiveness and safety, pharmacoeconomics, real-world evidence.</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org6a4dde9" class="outline-3">
+<h3 id="org6a4dde9"><span class="section-number-3">1.2.</span> General Biostatistician Aspects to Consider Across Phases:</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Sample Size Determination: Crucial in all phases for ensuring statistical power.</li>
+<li>Randomization: Reduces bias and confounding variables, particularly important in Phase II and III.</li>
+<li>Blinding: Important for reducing bias in treatment assignment and outcome assessment.</li>
+<li>Statistical Analysis Plans: Must be well-defined and documented before the trial begins.</li>
+<li>Handling Missing Data: Strategies for dealing with dropouts and missing values.</li>
+<li>Interim Analysis: Particularly in Phase III, for early signals of efficacy or safety concerns.</li>
+<li>Regulatory Compliance: Adherence to statistical guidelines from regulatory authorities like FDA or EMA.</li>
+</ul>
+
+<p>
+Each phase of a clinical trial has distinct statistical considerations. Biostatisticians play a critical role in the design, analysis, and interpretation of clinical trial data, ensuring that the results are robust, valid, and ethically obtained.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org122d86b" class="outline-2">
+<h2 id="org122d86b"><span class="section-number-2">2.</span> Preclinical/Nonclinical Trials</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org322de32" class="outline-3">
+<h3 id="org322de32"><span class="section-number-3">2.1.</span> Key Biomarker</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org42c98af" class="outline-4">
+<h4 id="org42c98af"><span class="section-number-4">2.1.1.</span> Pharmacokinetric (PK)</h4>
+<div class="outline-text-4" id="text-2-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="orga1b4e07"></a>PK Parameters<br />
+<div class="outline-text-5" id="text-2-1-1-1">
+<ul class="org-ul">
+<li>Concentration-Time Data: This is the fundamental PK data, including the concentrations of the drug in blood, plasma, or other biological fluids over time. These data are used to calculate various parameters</li>
+<li>Area Under the curve (AUC): The measures the total exposure to the drug over time and is calculated from the concentration-time data. It&rsquo;s a key indictor of the drug&rsquo;s bioavailability</li>
+<li>Maximum concentration (Cmax) and Time to Maximum Concentration (Tmax):</li>
+<li>Half-Life(t1/2): The time it takes for the drug&rsquo;s concentration to reduce by half in the body. It&rsquo;s crucial for understanding the duration of the drug&rsquo;s effect and for determining dosing intervals.</li>
+<li>Clearance (CL): This measures the body&rsquo;s efficiency in eliminating the drug, often expressed as volume per unit time.</li>
+<li>Volumne of Distribution (Vd): This parameter gives an idea of how extensively the drug distributes into body tissues compared to the bloodstream.</li>
+<li>Bioavailability (F): The fraction of the administrered drug that reaches the systemic circulation in an active form</li>
+<li>Dose-Proportionality Studies: Data to determine if the PK of the drug are linear or non-linear across different dose levels.</li>
+<li>Metabolite Data: Information about the drug&rsquo;s metabolites, if relevant, which can be important for efficacy and safety assessments</li>
+</ul>
+</div>
+</li>
+<li><a id="org5dbfcda"></a>PD Parameters<br />
+<div class="outline-text-5" id="text-2-1-1-2">
+<ul class="org-ul">
+<li>Effect Size or Response Magnitude: This refers to the degree of biological or cinical response observed after drug administration. It could be a measure of symptom relief, tumor size reduction in oncology, or change of biomarker levels.</li>
+<li>Time to Onset of Action: The time it takes for the drug to start showing its therapeutic effect.</li>
+<li>Duration of Effect: How long the therapeutic effect of the drug lasts. This can be crucial in determining dosing frequency.</li>
+<li>EC50 (Effective Concentration 50): The concentration of the drug that produces 50% of its maximum effect. This is a common measure of a drug&rsquo;s potency.</li>
+<li>IC50 (Inhibitory Concentration 50): Particularly relevant in oncology and biochemistry, it&rsquo;s the concentration of a drug that is required for 50% inhibition in vitro (e.g. of cancer cell growth).</li>
+<li>Efficacy: The maximun effect that can be achieved with the drug. This is often assessed in terms of the proportion of subjects achieving a predefined clinical outcome.</li>
+<li>Therapeutic Index: A ratio that compares the blood concentration at which a drug becomes toxic to the concentration at which the drug is effective. The alrger the therapeutic index, the safer the drug</li>
+<li>Biomarker Levels:</li>
+<li>Drug-Receptor Interaction Data:</li>
+<li>Adverse Effects:</li>
+<li>Dose-Response Relationship:</li>
+<li>Physiological and Biochemical Changes:</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Yubing Wan</p>
+<p class="date">Created: 2024-01-11 Thu 12:37</p>
+</div>
+</body>
+</html>
