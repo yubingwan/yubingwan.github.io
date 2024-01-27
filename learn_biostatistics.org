@@ -286,7 +286,24 @@ When a particular score is identified by its rank, we call it a percentile.
 3. Explain when each of the three measures of central tendency should be used, and their advantages and disadvantages.
 
 
-
 * Hypothesis Testing
 - Type I Error (False Positive Error) - Incorrectly reject the Null Hypothesis while it is actually true. (Incorrectly get a P-value less than the significance level, while it should be greater)
 - Type II Error (False Negative Error) - Incorrectly failed to reject the Null Hypothesis while it is actually false. (Incorrectly get a P-value greater than the significanc level while it should be less)
+
+* Generalized Linear Mixed-effects Models (GLMM)
+** Questions
+1. In the context of statistical modeling, particularly when considering the application of mixed effects models, how does the methodology and interpretation differ when one opts to average measurements of the same variable across subjects or conditions, as opposed to incorporating random effects to account for variability across these measurements? Specifically, how to understand the implications of these two approaches in terms of their ability to accurately capture within-subject or within-group variability, and how this choice impacts the interpretation of the fixed effects in the model?
+
+   *Answer:*
+   In many real-world scenarios, data is collected in a way that introduces different kinds of variability. For instance, measurements might be taken from different individuals, across different times, or under varying conditions. This is where mixed effects models come into play, as they are designed to handle this complexity.
+   - Mixed Effects Models:
+     1. Random Effects: These models explicitly account for variability at different levels (like individual, time, group, etc.). By including random effects in your model, you're acknowledging that there's a structure to the data that can't be captured by fixed effects alone. For example, if you're measuring blood pressure in patients over time, a random effect could account for individual differences in baseline blood pressure.
+     2. Fixed Effects: Alongside random effects, mixed models also include fixed effects, which are the usual regression coefficients that estimate the average relationship between predictors and the outcome across the entire dataset.
+     3. Handling Dependency: One key advantage of mixed effects models is their ability to handle the dependency in the data (like measurements from the same individual being more similar to each other than to measurements from different individuals). Ignoring this dependency can lead to underestimated standard errors and overly confident inferences.
+   - Averaging Measurements:
+     Averaging measurements for the same variable is a simpler approach, often used for reducing complexity or dealing with repeated measures. However, this method has limitations:
+     1. Loss of Information: Averaging discards valuable information about the variability and structure of the data at different levels (like within and between individual variability).
+     2. Assumption of Homogeneity: It implicitly assumes that the variability within each group (or individual) is not important or is consistent across groups, which might not be true in many practical scenarios.
+     3. Inability to Model Individual Trajectories: Averaging doesn't allow for the modeling of individual trajectories over time or under different conditions, something that is often critical in longitudinal studies or personalized medicine.
+     4. Risk of Bias: If the variability is systematically related to other variables in your study, averaging can introduce bias.
+   - In summary, while averaging measurements is a simpler method that might be useful in certain contexts, mixed effects models offer a more nuanced and accurate way to analyze data with multiple levels of variability. They allow you to capture both the average effects (through fixed effects) and the individual-specific or group-specific variations (through random effects), leading to a more comprehensive understanding of your data.
