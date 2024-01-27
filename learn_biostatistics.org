@@ -291,6 +291,11 @@ When a particular score is identified by its rank, we call it a percentile.
 - Type II Error (False Negative Error) - Incorrectly failed to reject the Null Hypothesis while it is actually false. (Incorrectly get a P-value greater than the significanc level while it should be less)
 
 * Generalized Linear Mixed-effects Models (GLMM)
+
+Fixed Effects -
+
+Random Effects -
+
 ** Questions
 1. In the context of statistical modeling, particularly when considering the application of mixed effects models, how does the methodology and interpretation differ when one opts to average measurements of the same variable across subjects or conditions, as opposed to incorporating random effects to account for variability across these measurements? Specifically, how to understand the implications of these two approaches in terms of their ability to accurately capture within-subject or within-group variability, and how this choice impacts the interpretation of the fixed effects in the model?
 
