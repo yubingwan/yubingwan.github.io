@@ -1,7 +1,8 @@
 #+title: Learn Biostatistics
 
 * Biostatistics
-- the analysis of data relating to living organisms
+
+*The analysis of data relating to living organisms*
 
 * Introduction to Statistics
 ** Learning Objectives
@@ -285,13 +286,11 @@ When a particular score is identified by its rank, we call it a percentile.
 2. Define and calculate each of the three basic measures of central tendency (mean, median and mode) for a set of data.
 3. Explain when each of the three measures of central tendency should be used, and their advantages and disadvantages.
 
-
 * Hypothesis Testing
 - Type I Error (False Positive Error) - Incorrectly reject the Null Hypothesis while it is actually true. (Incorrectly get a P-value less than the significance level, while it should be greater)
 - Type II Error (False Negative Error) - Incorrectly failed to reject the Null Hypothesis while it is actually false. (Incorrectly get a P-value greater than the significanc level while it should be less)
 
 * Generalized Linear Mixed-effects Models (GLMM)
-
 ** When is GLMM needed?
 - Combination of two things requires generalized linear mixed (effects) models
   - Outcome is not normally distributed, but distribution is known (link function)
@@ -319,14 +318,50 @@ When a particular score is identified by its rank, we call it a percentile.
   - some function of outcome IS linearly related to numeric predictor(s)
     - e.g. Logit for logistic regression
   - Variance not often separately estimated by model (i.e., no $\sigma$ parameter), but dictated by model
+  - Individual observations not necessarily able to "equal" predicted value
+    - Logisitic regression: observations equal to 1 or 0, and $\hat{p}$ something in between
+    - Parameter "solution" not obtained using least squares; maximum likelihood equations not solved directly
+      - Iterative solutions
+*** Data Structure
+- Unit (Person/Subject, field, lightbulb) contributes random variability - within subject effects
+- Sometimes multiple sources contribute random variability
+  - Split Plot Design
+  - Repeated Measures Design
+- Fixed effects and random effects
+  - Fixed effects: generally applicable, interesting to report/account for in research
+  - Random effects: from units/individuals not of specific interest, could be repalced in another study
+  - Variability of random effects may be of interest - not specific units/individuals
+  - Random effects come from units/individuals with measured values of variables/outcomes
+  - Repeated measures may lead to correlation of residuals
+  - Complicated: fixed effects, random effects, and correlation
+    - Iterative solutions
+** Basic Outline of Method
+*** General Instructions
+- Identify response variable distribution
+- Identify units requiring random effects
+- Determine which variables measured on which units
+- Consider which variables might require/accommodate random slopes
+- Consider whether random effects may be correlatied
+- Consider whether repeated measures induce correlation among error terms
+- Program/build the model; perform any variable selection
+- Check Assumptions, make necessary changes
+- Interpret results and inferences
+*** Notes
+- Graphing data and charting design extremely helpful
+- Complete understanding of structure allows quality assessment
+- Many principles of simpler models apply to GLMM
+- More complicated model = more difficult iteration process = more convergence issues
+
+** Results and Interpretation of GLMM
+*** Case Study
+- Publicly available simulated cancer data set from UCLA: [[https://stats.oarc.ucla.edu/other/mult-pkg/introduction-to-generalized-linear-mixed-models/][UCLA GLMM Example]]
 
 
 
 ** Questions
-1. In the context of statistical modeling, particularly when considering the application of mixed effects models, how does the methodology and interpretation differ when one opts to average measurements of the same variable across subjects or conditions, as opposed to incorporating random effects to account for variability across these measurements? Specifically, how to understand the implications of these two approaches in terms of their ability to accurately capture within-subject or within-group variability, and how this choice impacts the interpretation of the fixed effects in the model?
+1. In the context of statistical modeling, when considering the application of mixed effects models, how does the methodology and interpretation differ when one opts to average measurements of the same variable across subjects or conditions, as opposed to incorporating random effects to account for variability across these measurements? Specifically, how to understand the implications of these two approaches in terms of their ability to accurately capture within-subject or within-group variability, and how this choice impacts the interpretation of the fixed effects in the model?
 
-   *Answer:*
-   In many real-world scenarios, data is collected in a way that introduces different kinds of variability. For instance, measurements might be taken from different individuals, across different times, or under varying conditions. This is where mixed effects models come into play, as they are designed to handle this complexity.
+   *Answer:* In many real-world scenarios, data is collected in a way that introduces different kinds of variability. For instance, measurements might be taken from different individuals, across different times, or under varying conditions. This is where mixed effects models come into play, as they are designed to handle this complexity.
    - Mixed Effects Models:
      1. Random Effects: These models explicitly account for variability at different levels (like individual, time, group, etc.). By including random effects in your model, you're acknowledging that there's a structure to the data that can't be captured by fixed effects alone. For example, if you're measuring blood pressure in patients over time, a random effect could account for individual differences in baseline blood pressure.
      2. Fixed Effects: Alongside random effects, mixed models also include fixed effects, which are the usual regression coefficients that estimate the average relationship between predictors and the outcome across the entire dataset.
