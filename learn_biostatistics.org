@@ -292,9 +292,35 @@ When a particular score is identified by its rank, we call it a percentile.
 
 * Generalized Linear Mixed-effects Models (GLMM)
 
-Fixed Effects -
+** When is GLMM needed?
+- Combination of two things requires generalized linear mixed (effects) models
+  - Outcome is not normally distributed, but distribution is known (link function)
+  - More than one source of random error
+- Non-normal distribution -> generalized linear models
+- Multiple sources of random error -> mixed effects models
 
-Random Effects -
+*** Outcomes
+- General cases
+  - Normally distributed outcomes
+  - "Simple" categorical data
+- Alternative situation
+  1. Non-normal, unidentifiable distribution
+     - Not generalized linear models
+     - Use nonparametric, or computationally intensive methods
+  2. Non-normal, identifiable distribution
+     - Try generalized linear models/GLMM
+- Distribution of response variable typically
+  - Binomial/multinomial
+  - Poisson/negative bionomial
+  - Beta
+  - Exponential Gamma
+- Features of GLMM
+  - Outcome not linearly realted to numeric predictor(s), BUT
+  - some function of outcome IS linearly related to numeric predictor(s)
+    - e.g. Logit for logistic regression
+  - Variance not often separately estimated by model (i.e., no $\sigma$ parameter), but dictated by model
+
+
 
 ** Questions
 1. In the context of statistical modeling, particularly when considering the application of mixed effects models, how does the methodology and interpretation differ when one opts to average measurements of the same variable across subjects or conditions, as opposed to incorporating random effects to account for variability across these measurements? Specifically, how to understand the implications of these two approaches in terms of their ability to accurately capture within-subject or within-group variability, and how this choice impacts the interpretation of the fixed effects in the model?

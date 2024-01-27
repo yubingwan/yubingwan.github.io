@@ -1,0 +1,1161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-01-14 Sun 17:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Learn Biomarker Analysis</title>
+<meta name="author" content="Yubing Wan" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Learn Biomarker Analysis</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgc7d1d90">1. What Is A Biomarker</a>
+<ul>
+<li><a href="#orgd23ad08">1.1. FDA Definition</a>
+<ul>
+<li><a href="#org77db954">1.1.1. Examples</a></li>
+</ul>
+</li>
+<li><a href="#orge90b6c7">1.2. Fundamental Pharmacology Questions for Biomarkers</a></li>
+<li><a href="#orgb0e9c4b">1.3. Evidence Taken Together Integrated Framework for Decision-Making</a></li>
+</ul>
+</li>
+<li><a href="#org6f9a2fb">2. Section I: Pharmacodynamic Biomarkers</a>
+<ul>
+<li><a href="#orgbbc043a">2.1. Outline</a></li>
+<li><a href="#org6dec902">2.2. Objectives of PD Biomarkers</a></li>
+<li><a href="#org1df7290">2.3. Toxicology</a></li>
+<li><a href="#org96128b8">2.4. Bioequivalence Design</a></li>
+<li><a href="#org1cc9fb6">2.5. Cross-sectional Profile</a></li>
+<li><a href="#org191a5fc">2.6. Longitudinal Assessment - Correlation Analysis</a></li>
+<li><a href="#orgfcc7ccc">2.7. Multiple Biomarkers - Longitudinal Assessment</a></li>
+</ul>
+</li>
+<li><a href="#org928f857">3. Section II: Predictive Biomarkers (Precision Medicine)</a>
+<ul>
+<li><a href="#orgf02c895">3.1. Outline</a></li>
+<li><a href="#org73a95b8">3.2. Objectives of PREDICTIVE Biomarkers</a></li>
+<li><a href="#org79a1ed4">3.3. Three Basic Desings for Predictive-Biomarker Enabled Trials</a></li>
+<li><a href="#org834e8d6">3.4. Operational Characteristics of Proof of Clinical (POC) Trials with BM+ and BM- Subgroups</a></li>
+<li><a href="#org7881bd5">3.5. Operational Characteristics of Confirmatory Trials with BM+ and BM- Subgroups</a></li>
+<li><a href="#org239461d">3.6. Cutoff Determination of a Countinuous Predictive Biomarker</a></li>
+</ul>
+</li>
+<li><a href="#orgd96d4cd">4. Section III: Surrogate Biomarkers/Endpoints</a>
+<ul>
+<li><a href="#orga7bd324">4.1. Objectives of Surrogate Biomarkers</a></li>
+<li><a href="#orgb25bc8e">4.2. Strong Correlation of Association between S and T and Captures Full Effect of Treatment on T</a></li>
+<li><a href="#orgd8333c2">4.3. Example: Examining the Proportion of Treatment Effect:</a></li>
+</ul>
+</li>
+<li><a href="#org6835549">5. Section IV: Combination Biomarkers</a>
+<ul>
+<li><a href="#org1a99395">5.1. Objective of Composite Biomarkers</a>
+<ul>
+<li><a href="#org5eeeda5">5.1.1. What is Machine Learning</a></li>
+<li><a href="#org464349c">5.1.2. Goal:</a></li>
+<li><a href="#org34527aa">5.1.3. Book:</a></li>
+</ul>
+</li>
+<li><a href="#org19581b4">5.2. Regression Based Models</a></li>
+<li><a href="#org498a5eb">5.3. Tree-based method (greedy method)</a></li>
+<li><a href="#org8b01372">5.4. Cluster Analysis</a></li>
+<li><a href="#orgde2c399">5.5. Network Analysis</a></li>
+</ul>
+</li>
+<li><a href="#orga9cd6d9">6. Section V: Biomarker Statistical Analysis Plan (BSAP)</a>
+<ul>
+<li><a href="#orgbca7115">6.1. Biomarker Analysis Plan</a></li>
+</ul>
+</li>
+<li><a href="#org728a5dc">7. Misuse and Abuse of Biomarkers</a></li>
+<li><a href="#orgff658c2">8. Projects</a>
+<ul>
+<li><a href="#orgdc69549">8.1. Flow Cytometry</a>
+<ul>
+<li><a href="#orgb022a64">8.1.1. Understanding Flow Cytometry:</a></li>
+<li><a href="#org6c3aef1">8.1.2. Responsibilities and Contributions</a></li>
+<li><a href="#org776c381">8.1.3. Statistical Methods for Analyzing Flow Cytometry Data</a></li>
+<li><a href="#org233007a">8.1.4. Software for Processing Flow Cytometry Data</a></li>
+<li><a href="#orgb5b6a04">8.1.5. Analyzing flow cytometry data with R</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc7d1d90" class="outline-2">
+<h2 id="orgc7d1d90"><span class="section-number-2">1.</span> What Is A Biomarker</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgd23ad08" class="outline-3">
+<h3 id="orgd23ad08"><span class="section-number-3">1.1.</span> FDA Definition</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+&ldquo;A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or responses to an exposure of intervention, including therapeutic interventions. Molecular, histologic, radiographic, or physiologic characteristics are types of biomarkers. A biomarker is NOT an assessment of how an individual feels, functions, or survives.&rdquo;
+</p>
+</div>
+<div id="outline-container-org77db954" class="outline-4">
+<h4 id="org77db954"><span class="section-number-4">1.1.1.</span> Examples</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Lab based (LIPIDs), Genetic Biomarker (histologic, blood, fluid, CSF, etc), Radiographic (MRI, PET), composite biomarkers, digital biomarkers.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge90b6c7" class="outline-3">
+<h3 id="orge90b6c7"><span class="section-number-3">1.2.</span> Fundamental Pharmacology Questions for Biomarkers</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Drug exposure at target site of action</li>
+<li>Binding to pharmacological target (Engagement/Occupancy)</li>
+<li>Expression of pharmacology (PD effect)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb0e9c4b" class="outline-3">
+<h3 id="orgb0e9c4b"><span class="section-number-3">1.3.</span> Evidence Taken Together Integrated Framework for Decision-Making</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Several PD biomarkers over several phases of clinical development constitute a complete picture of the drug&rsquo;s mechanism in the body from minutes to hours and days of drug administration
+<ul class="org-ul">
+<li>Vaidating target engagement</li>
+<li>Selection of optimal dose</li>
+<li>Identifying potential early efficacy and/or safety</li>
+<li>Identification of patient subgroup likely to respond from treatment with the drug</li>
+<li>Help design combination therapies</li>
+</ul></li>
+
+<li>Pfizer has defined three pillars of survival of a drug through clinical development in order to progress to phase III. The drug condidate must demonstrate:
+<ul class="org-ul">
+<li>Exposure at the target site of action over a desired period of time</li>
+<li>Binding to the pharmacological target as expected for its mode of action</li>
+<li>Expression of pharmacological activity commensurate with the demonstrated target exposure and target binding</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6f9a2fb" class="outline-2">
+<h2 id="org6f9a2fb"><span class="section-number-2">2.</span> Section I: Pharmacodynamic Biomarkers</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+&#x2013; Ecosystem of Tools Predicting Risk and Progression in AD Trials
+</p>
+</div>
+<div id="outline-container-orgbbc043a" class="outline-3">
+<h3 id="orgbbc043a"><span class="section-number-3">2.1.</span> Outline</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Could range from Proof of Mechanism or Proof of Efficacy</li>
+<li>Animal toxicology studies</li>
+<li>Bioequivalence Designs</li>
+<li>Graphical Visualizations of Biomarker over time</li>
+<li>Joint modeling of Biomarker and Efficacy Endpoint
+<ul class="org-ul">
+<li>Longitudinal model of PD biomarkers by MMRM</li>
+<li>Time to Event analysis with time-varying biomarker</li>
+<li>Bivariate model of biomarker and endpoint</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6dec902" class="outline-3">
+<h3 id="org6dec902"><span class="section-number-3">2.2.</span> Objectives of PD Biomarkers</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The effort of developing assays and measuring one or more biomarkers across several phases of clinical trials help
+</p>
+
+<ul class="org-ul">
+<li>Validate target engagement</li>
+<li>Select optimal dose</li>
+<li>Identify early efficacy/safety</li>
+<li>Identify potential subgroup who responds to treatment</li>
+<li>Help design combination therapies</li>
+<li>&#x2026;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1df7290" class="outline-3">
+<h3 id="org1df7290"><span class="section-number-3">2.3.</span> Toxicology</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Rodent in-vivo pre-clinical studies
+<ul class="org-ul">
+<li>Estimate PK parameters or calculate # of animals in various designs
+<ul class="org-ul">
+<li>Serial, Complete, Betch Design</li>
+</ul></li>
+</ul></li>
+
+<li>Non-compartmental PK analysis through R package &ldquo;PK&rdquo;
+<ul class="org-ul">
+<li>&ldquo;RATS&rdquo; data from holder, et al</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org96128b8" class="outline-3">
+<h3 id="org96128b8"><span class="section-number-3">2.4.</span> Bioequivalence Design</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Corossover equivalence design - tost processedure and composite hypothesis</li>
+<li>Composite Hypothesis based on the ratio \(\mu_{T}/\mu_{R}\):
+<ul class="org-ul">
+<li>H0: \(H_{0}: \mu_{T}/\mu_{R} \le \theta_{1} or \mu_{T}/\mu_{R} \ge \theta_{2} VS \)</li>
+</ul></li>
+<li>Schultz, et al shows various examples &amp; compares R, SAS and Winnonlin</li>
+<li>R package &ldquo;powertost&rdquo; provides power calculations for two one-sided tests</li>
+<li>R package &ldquo;BE&rdquo;:
+<ul class="org-ul">
+<li>Analysis of BE study 2x2x2</li>
+<li>MSE calculations; CV (coefficient for intra-individual variation) calculations</li>
+<li>Plotting results</li>
+<li>Power calculations using MSE or CV</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1cc9fb6" class="outline-3">
+<h3 id="org1cc9fb6"><span class="section-number-3">2.5.</span> Cross-sectional Profile</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>Visualization and ANOVA
+<ul class="org-ul">
+<li>AUC, %Change from baseline at time T</li>
+<li>Multiple correction, overall hypothesis</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org191a5fc" class="outline-3">
+<h3 id="org191a5fc"><span class="section-number-3">2.6.</span> Longitudinal Assessment - Correlation Analysis</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li>Mixed effect repeated measures model
+<ul class="org-ul">
+<li>Informative Censoring</li>
+</ul></li>
+<li>Time-varying Biomarker
+<ul class="org-ul">
+<li>Best for exogenous variable</li>
+</ul></li>
+<li>Joint modeling of outcome &amp; biomarker over time</li>
+<li>Use AIDS example (CD4 as biomarker) to illustrate all three methods
+<ul class="org-ul">
+<li>R package &ldquo;JM&rdquo;</li>
+<li>CD4 cell counts has been correlated with time to death from AIDS</li>
+</ul></li>
+<li>Plots
+<ul class="org-ul">
+<li>PD biomarker vs Mean percent changes over time</li>
+<li>Relaction with Clinical Outcome (biomarker percent change at time T vs Hazard Ratio of Onset of Dementia)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfcc7ccc" class="outline-3">
+<h3 id="orgfcc7ccc"><span class="section-number-3">2.7.</span> Multiple Biomarkers - Longitudinal Assessment</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li>Objective: Look at relationships with clinical outcome and inter-relationships</li>
+<li>Forest Plots</li>
+<li>Network Analysis - Gaussion Graphical Models</li>
+<li>Heatmaps - well used methodology</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org928f857" class="outline-2">
+<h2 id="org928f857"><span class="section-number-2">3.</span> Section II: Predictive Biomarkers (Precision Medicine)</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Patient stratification</li>
+</ul>
+</div>
+<div id="outline-container-orgf02c895" class="outline-3">
+<h3 id="orgf02c895"><span class="section-number-3">3.1.</span> Outline</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>Identify subset of patients based on a biomarker - who responds to therapy</li>
+<li>Uncentainty remains on who is biomarker positive vs negative</li>
+<li>Identify cutpoint to split subjects into positive vs negative
+<ul class="org-ul">
+<li>Sample size calculations for POC and conformatory trials</li>
+</ul></li>
+<li>Seamless trial with stage I - assess treatment group in pos vs negative; stage II - confirm effect on positive and/or overall population</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org73a95b8" class="outline-3">
+<h3 id="org73a95b8"><span class="section-number-3">3.2.</span> Objectives of PREDICTIVE Biomarkers</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Predictive biomarkers are about identifying patients who will respond to treatment
+</p>
+<ul class="org-ul">
+<li>May be different from a prognostic biomarker</li>
+<li>May need drug-diagnostic co-development</li>
+<li>Identify early efficacy/safety</li>
+<li>Identify potential subgroup who responds to treatment</li>
+<li>Help design combination therapies</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org79a1ed4" class="outline-3">
+<h3 id="org79a1ed4"><span class="section-number-3">3.3.</span> Three Basic Desings for Predictive-Biomarker Enabled Trials</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>Biomarker Identified Subgroup
+<ul class="org-ul">
+<li>Test biomarker, only include biomarker positve patients -&gt; randomize to treatment and control</li>
+</ul></li>
+<li>Biomarker Stratified Design
+<ul class="org-ul">
+<li>Test Biomarker, randomize both postive and negative separately for treatment and control</li>
+</ul></li>
+<li>Biomarker Adaptive Desing
+<ul class="org-ul">
+<li>Test Biomarker, try stage I on both positive and negative patients, successful group go to stage II.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org834e8d6" class="outline-3">
+<h3 id="org834e8d6"><span class="section-number-3">3.4.</span> Operational Characteristics of Proof of Clinical (POC) Trials with BM+ and BM- Subgroups</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>R package &ldquo;RPACT&rdquo; is used nad code given to calculate rectuitment and study duration for a given sample size
+<ul class="org-ul">
+<li>O.C. for BM+ group</li>
+<li>O.C. for overall population</li>
+</ul></li>
+<li>Power curves for above for survival endpoint - Power via parametric Dunnett procedure</li>
+<li>Multiple endpoint correction</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7881bd5" class="outline-3">
+<h3 id="org7881bd5"><span class="section-number-3">3.5.</span> Operational Characteristics of Confirmatory Trials with BM+ and BM- Subgroups</h3>
+<div class="outline-text-3" id="text-3-5">
+<ul class="org-ul">
+<li>R code for different closed testing procedures
+<ul class="org-ul">
+<li>Fixed, Bonferroni, Hochberg, Dunnett</li>
+<li>Example developed from oncology with data and code for extracting correct p-values
+<ul class="org-ul">
+<li>Power calculations (for both BM+ and Overall) - Code and Mechanism</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org239461d" class="outline-3">
+<h3 id="org239461d"><span class="section-number-3">3.6.</span> Cutoff Determination of a Countinuous Predictive Biomarker</h3>
+<div class="outline-text-3" id="text-3-6">
+<ul class="org-ul">
+<li>Let us model the biomarker effect when disease outcome is continous
+<ul class="org-ul">
+<li>E(Y| Trt, BM) = beta0 + betaTrt Trt + betaBM BM + beta1X Trt x BM
+<ul class="org-ul">
+<li>When &#x2026; : The marker is neither predictive or prognostic</li>
+<li>When &#x2026; : The marker is prognostic, but not predictive</li>
+<li>When &#x2026; : The marker is predictive, but not prognostic</li>
+<li>When &#x2026; : The marker is both predictive and prognostic</li>
+</ul></li>
+</ul></li>
+
+<li>Methods: Median, Quartile Splits; Optimal Split; STEPP
+<ul class="org-ul">
+<li>Good Summary: Haller 2019</li>
+</ul></li>
+<li>Methods: Morrison and Simon (2016) Rank conditional coverage and CI in high-dimensional problems
+<ul class="org-ul">
+<li>Holmgren (2017) Group Sequential Method for Cutpoint Selection</li>
+</ul></li>
+<li>Methods: Bootstrap, Bayesian Hierarchical Models (&ldquo;BHM&rdquo;)</li>
+<li>Adaptive Threshold Design</li>
+<li>Adaptive Seamless Design
+<ul class="org-ul">
+<li>R Package &ldquo;ASD&rdquo; [Jenkins]</li>
+</ul></li>
+<li>Method: Rank Conditional Coverage and CI in High-dimension
+<ul class="org-ul">
+<li>RCC is the expeted coverage rate of an interval given the rank of the parameter; uses bootstrapping to produce small intervals</li>
+<li>&ldquo;RCC&rdquo; package</li>
+</ul></li>
+<li>Method: Group Sequential Method
+<ul class="org-ul">
+<li>Group sequential stopping boundaries that provide strong control of Type I error of testing a series of hypothesis over a range of marker expression values</li>
+</ul></li>
+<li>Let &lambda;1, &lambda;2, &lambda;3, and &lambda;4 be the Hazard Ratios of a time to event</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd96d4cd" class="outline-2">
+<h2 id="orgd96d4cd"><span class="section-number-2">4.</span> Section III: Surrogate Biomarkers/Endpoints</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+&#x2013; Correlated with Treatment Effect on Clinical Endpoint
+</p>
+</div>
+<div id="outline-container-orga7bd324" class="outline-3">
+<h3 id="orga7bd324"><span class="section-number-3">4.1.</span> Objectives of Surrogate Biomarkers</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+NIH (USA) defines surrogate endpoint as &ldquo;A biomarker intended to substitute for a clinical endpoint&rdquo;
+</p>
+
+<p>
+<b><b>Surrogate Endpoints</b></b> are used instead of cinical outcomes in some clinical trials. Surrogate endpoints are used when the clinical outcomes might take a very long time to study, or in cases where the clinical benefit of improving the surrogate endpoint, such as controlling blood preasure, is well understood. Clinical trials are needed to show what surrogate endpoints can be relied upon to predict, or correlated with clinical benefit. Surrogate endpoints that have undergone this setting are called vaidated surrogate endpoints and these are accepted by the FDA as evidence of benefit.
+</p>
+
+<p>
+Between 2010 and 2012, the FDA approved 45% of new drugs on the basis of a surrogate endpoint.
+</p>
+
+<ul class="org-ul">
+<li>Regulatory hurdle for getting a biomarker approved as a surrogate</li>
+<li>Surrogate could save time in trials if observed earlier than clinical endpoint</li>
+<li>Outline
+<ul class="org-ul">
+<li>Definition of surrogate biomarkers</li>
+<li>Meta-analysis framework</li>
+<li>Within-trial framework</li>
+<li>Proportion of treatment effect explained (PTE)</li>
+</ul></li>
+</ul>
+
+<p>
+The FDA (R) categorizeds surrogate endpoints in roughly three hierarchical categories:
+</p>
+<ul class="org-ul">
+<li>Candidate surrogate endpoint</li>
+<li>Reasonably likely surrogate endpoint (Approval is conditional)</li>
+<li>Validated surrogate endpoint (Approval is regular)</li>
+</ul>
+
+<p>
+Few examples:
+</p>
+<ul class="org-ul">
+<li>Time to Progression (TTP)</li>
+<li>Progression Free Survival (PFS)</li>
+<li>Response Rate (RR)</li>
+
+<li>Disease -&gt; Intervention -&gt; Surrogate endpoint -&gt; True clinical output</li>
+<li>Disease -&gt; Surrogate endpoint
+-&gt; True clinical output</li>
+<li>&#x2026;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb25bc8e" class="outline-3">
+<h3 id="orgb25bc8e"><span class="section-number-3">4.2.</span> Strong Correlation of Association between S and T and Captures Full Effect of Treatment on T</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Prentice Criteria
+Normal Dist Endpoint
+</p>
+
+<p>
+Quantify surrogate between endpoints has two requirements:
+</p>
+<ul class="org-ul">
+<li>Requirement #1: Trial Level - Assess the ability of the treatment effect of the surrogate endpoint to predict the true endpoint (\(R^2_{trial}\))</li>
+<li>Requirement #2: Individual Level - Assess the correlation between the surrogate and true endpoints after adjusting for treatment (\(R^2_{indiv}\))
+<ul class="org-ul">
+<li>Copula Model Implementation via R package &ldquo;surrosurv&rdquo; for the endpoints</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd8333c2" class="outline-3">
+<h3 id="orgd8333c2"><span class="section-number-3">4.3.</span> Example: Examining the Proportion of Treatment Effect:</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>Hughes (*) shows the two methods for determining PTE on AIDS clinical trials
+<ul class="org-ul">
+<li>T = Progression to AIDS or Death after 6 Months</li>
+<li>S = Change in CD4 cell count</li>
+<li>R code given based on Zamboni PhD dissertation to create bivariate distribution of data with and without surrogate endpoint as a predictor. Data used is AIDS data set released with Hughes seminal paper
+<ul class="org-ul">
+<li>Produce PTE and CI for each trial; and overall</li>
+</ul></li>
+</ul></li>
+<li>Bayesian Linear Regression
+<ul class="org-ul">
+<li>R code given on same data set</li>
+</ul></li>
+<li>CD4 count is surrogate for HR (Bayesian estimate how slope excludes 0; but intercpt does not)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6835549" class="outline-2">
+<h2 id="org6835549"><span class="section-number-2">5.</span> Section IV: Combination Biomarkers</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+&#x2013; Combination Biomarkers into a Predictve Model via Machine Learning
+</p>
+</div>
+<div id="outline-container-org1a99395" class="outline-3">
+<h3 id="org1a99395"><span class="section-number-3">5.1.</span> Objective of Composite Biomarkers</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-org5eeeda5" class="outline-4">
+<h4 id="org5eeeda5"><span class="section-number-4">5.1.1.</span> What is Machine Learning</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+&ldquo;Machine Learning: Field of study that gives computers the ability to learn without being explicitly programmed&rdquo; - Arthur Samuel (1959)
+</p>
+</div>
+</div>
+<div id="outline-container-org464349c" class="outline-4">
+<h4 id="org464349c"><span class="section-number-4">5.1.2.</span> Goal:</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+Build predictive signatures of a clinical event or outcome or disease status
+</p>
+</div>
+</div>
+<div id="outline-container-org34527aa" class="outline-4">
+<h4 id="org34527aa"><span class="section-number-4">5.1.3.</span> Book:</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<ul class="org-ul">
+<li>Regularized Machine Learning Models for
+<ul class="org-ul">
+<li>(A) Variable Selection</li>
+<li>(B) Predictive Signature Development
+<ul class="org-ul">
+<li>Diagnostic / Prognostic / Treatment Responder / Safety Risk</li>
+</ul></li>
+</ul></li>
+<li>Unsupervised Learning Models for
+<ul class="org-ul">
+<li>Finding clusters of biomarkers related to disease heterogeneity or in treatment group as a measure of group-wide covariation</li>
+</ul></li>
+<li>Graphical Methods for
+<ul class="org-ul">
+<li>Exploring Interrelationship between biomarkers</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org19581b4" class="outline-3">
+<h3 id="org19581b4"><span class="section-number-3">5.2.</span> Regression Based Models</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>Variable selection
+<ul class="org-ul">
+<li>Best subset selection - backward / forward</li>
+<li>Cross Validation</li>
+<li>Best GLM</li>
+<li>Family-wise error rate - correction</li>
+<li>One as the rule - size of</li>
+</ul></li>
+<li>Regularization
+<ul class="org-ul">
+<li>Determine Values of Tuning Parameters
+<ul class="org-ul">
+<li>Ridge / Lasso / Elastic Net / SPLS</li>
+</ul></li>
+</ul></li>
+<li>Regularization for Interaction between Treatment and Biomarker</li>
+<li>R package &ldquo;caret&rdquo;</li>
+<li>Hierarchical Group Lasso</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org498a5eb" class="outline-3">
+<h3 id="org498a5eb"><span class="section-number-3">5.3.</span> Tree-based method (greedy method)</h3>
+<div class="outline-text-3" id="text-5-3">
+<ul class="org-ul">
+<li>Non-parametric Procedures
+<ul class="org-ul">
+<li>Prevent overfitting by minimal cost-complexity pruning
+<ul class="org-ul">
+<li>R package &ldquo;rpart&rdquo;</li>
+</ul></li>
+</ul></li>
+<li>Classification Trees / Survival Trees / Random Forest</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8b01372" class="outline-3">
+<h3 id="org8b01372"><span class="section-number-3">5.4.</span> Cluster Analysis</h3>
+<div class="outline-text-3" id="text-5-4">
+<ul class="org-ul">
+<li>PAM clustering</li>
+<li>Hierarchical Clustering</li>
+<li>Tutorial ()</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgde2c399" class="outline-3">
+<h3 id="orgde2c399"><span class="section-number-3">5.5.</span> Network Analysis</h3>
+<div class="outline-text-3" id="text-5-5">
+<ul class="org-ul">
+<li>Detect association between variables in out graphical models (causal or not) after adjusting for all other variables.</li>
+<li>Estimating the inter-connectedness between variables and regularizing the network topology in order to detect significant associations remain underutilized in biomarker research.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orga9cd6d9" class="outline-2">
+<h2 id="orga9cd6d9"><span class="section-number-2">6.</span> Section V: Biomarker Statistical Analysis Plan (BSAP)</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-orgbca7115" class="outline-3">
+<h3 id="orgbca7115"><span class="section-number-3">6.1.</span> Biomarker Analysis Plan</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>Developed together with translational science team
+<ul class="org-ul">
+<li>Scintific rationale for each biomarker to be included</li>
+</ul></li>
+<li>Minimal overlap with Study Protocol and SAP</li>
+<li>Main predictive biomarker may be covered in SAP
+<ul class="org-ul">
+<li>Supplemental analyses in BSAP</li>
+</ul></li>
+<li>Seven (7) sections outlined</li>
+<li>General Consideration
+<ul class="org-ul">
+<li>missing value</li>
+</ul></li>
+<li>Statistical Methods</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org728a5dc" class="outline-2">
+<h2 id="org728a5dc"><span class="section-number-2">7.</span> Misuse and Abuse of Biomarkers</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Incomplete use
+<ul class="org-ul">
+<li>Totality of evidence not considered from clinical trial biomarker data</li>
+<li>Need systematic plan for analysis between rationale for inclusion</li>
+</ul></li>
+<li>Wrong Use
+<ul class="org-ul">
+<li>Target engagement, dose selection or efficacy</li>
+</ul></li>
+<li>Lack of Use
+<ul class="org-ul">
+<li>Not embracing predictive group or ignoring precision medicine approach</li>
+</ul></li>
+<li>Not embracing new modalities of biomarkers
+<ul class="org-ul">
+<li>Imaging, digital biomarkers</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgff658c2" class="outline-2">
+<h2 id="orgff658c2"><span class="section-number-2">8.</span> Projects</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-orgdc69549" class="outline-3">
+<h3 id="orgdc69549"><span class="section-number-3">8.1.</span> Flow Cytometry</h3>
+<div class="outline-text-3" id="text-8-1">
+</div>
+<div id="outline-container-orgb022a64" class="outline-4">
+<h4 id="orgb022a64"><span class="section-number-4">8.1.1.</span> Understanding Flow Cytometry:</h4>
+<div class="outline-text-4" id="text-8-1-1">
+<ul class="org-ul">
+<li>Cell Characterization: Flow cytometry can differentiate cells based on size, granularity, and fluorescence intensity. This is achieved by labeling cells with fluorescent markers that bind to specific cell components or proteins.</li>
+<li>Quantification: It quantifies how many cells express a particular marker (cell count) and the proportion of these cells relative to the total cell population (percentage).</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org9a72fd9"></a>Using Cell Counts and Percentages as Biomarkers:<br />
+<div class="outline-text-5" id="text-8-1-1-1">
+<ol class="org-ol">
+<li>Disease Diagnosis and Monitoring:
+<ul class="org-ul">
+<li>Cancer: For example, in leukemia and lymphoma, abnormal levels or proportions of certain white blood cells can be indicative of disease.</li>
+<li>Immunological Disorders: Changes in the percentages of T-cell subsets (like CD4+ and CD8+ cells) can indicate immunological disorders, including HIV/AIDS.</li>
+</ul></li>
+
+<li>Therapeutic Monitoring:
+<ul class="org-ul">
+<li>Response to Treatment: In cancer therapy, changes in tumor cell populations or immune cells can indicate the effectiveness of treatment.</li>
+<li>Autoimmune Diseases: Monitoring specific immune cells can help in assessing the response to treatments in conditions like rheumatoid arthritis or multiple sclerosis.</li>
+</ul></li>
+
+<li>Transplantation Medicine:
+<ul class="org-ul">
+<li>Graft vs. Host Disease (GvHD): Post bone marrow transplant, the proportions of donor vs. recipient cells can be critical in monitoring GvHD or transplant rejection.</li>
+</ul></li>
+
+<li>Research and Drug Development:
+<ul class="org-ul">
+<li>Pharmacodynamics: Assessing how a drug affects specific cell populations.</li>
+<li>Biomarker Discovery: Identifying new biomarkers for diseases based on unique cell population characteristics.</li>
+</ul></li>
+
+<li>Personalized Medicine:
+<ul class="org-ul">
+<li>Tailoring Therapies: Flow cytometry data can guide personalized treatment plans, especially in oncology, by understanding individual patient’s tumor and immune cell characteristics.</li>
+</ul></li>
+</ol>
+</div>
+</li>
+<li><a id="org1366022"></a>Advantages:<br />
+<div class="outline-text-5" id="text-8-1-1-2">
+<ul class="org-ul">
+<li>Highly Specific: Can target specific cell types or even subtypes.</li>
+<li>Quantitative and Qualitative Data: Provides both numerical data and information on cell characteristics.</li>
+<li>Rapid and Sensitive: Can process and analyze millions of cells quickly.</li>
+</ul>
+</div>
+</li>
+<li><a id="org716c853"></a>Limitations:<br />
+<div class="outline-text-5" id="text-8-1-1-3">
+<ul class="org-ul">
+<li>Requirement for Expertise: Interpretation of flow cytometry data requires specialized knowledge.</li>
+<li>Standardization Issues: Variability in protocols and reagents can affect reproducibility across different labs.</li>
+</ul>
+
+<p>
+In summary, flow cytometry&rsquo;s ability to provide detailed and quantifiable information on cell populations makes it an invaluable tool in using cell counts and percentages as biomarkers for a wide range of clinical and research applications.
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org6c3aef1" class="outline-4">
+<h4 id="org6c3aef1"><span class="section-number-4">8.1.2.</span> Responsibilities and Contributions</h4>
+<div class="outline-text-4" id="text-8-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="orge824d0e"></a>Data Pipeline and statistical anaysis<br />
+<div class="outline-text-5" id="text-8-1-2-1">
+<ul class="org-ul">
+<li>Design gating templates and programming code to perform automated gating piepleine. Reduce bias by manual gating approach across labs. Improve efficiency and consistency in data analysis workflow</li>
+<li>Design data schema of processed data to facilicate statistical analysis including integrating clinical annotations and calculate change from baseline</li>
+<li>Developed QC/Triage report templates in R markdown for real-time report on data quality control and data processing</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org776c381" class="outline-4">
+<h4 id="org776c381"><span class="section-number-4">8.1.3.</span> Statistical Methods for Analyzing Flow Cytometry Data</h4>
+<div class="outline-text-4" id="text-8-1-3">
+<ol class="org-ol">
+<li>Descriptive Statistics
+<ul class="org-ul">
+<li>Mean, Median, and Mode: For summarizing central tendencies of fluorescence intensities or cell counts.</li>
+<li>Standard Deviation and Variance: To quantify the dispersion or variability in the data.</li>
+</ul></li>
+<li>Comparing Groups
+<ul class="org-ul">
+<li>t-tests or ANOVA: Used when comparing the means of two or more groups, such as comparing cell populations between treatment and control groups.</li>
+<li>Non-parametric Tests (e.g., Mann-Whitney U test, Kruskal-Wallis test): Useful when the data do not meet the assumptions required for parametric tests, like normal distribution.</li>
+</ul></li>
+<li>Correlation and Regression Analysis
+<ul class="org-ul">
+<li>Pearson or Spearman Correlation: To assess the relationship between two variables, like the expression level of a biomarker and a clinical outcome.</li>
+<li>Linear or Logistic Regression: For modeling the relationship between a dependent variable (like a clinical outcome) and one or more independent variables (such as cell counts or percentages).</li>
+</ul></li>
+<li>Multivariate Analysis
+<ul class="org-ul">
+<li>Principal Component Analysis (PCA): Used for dimensionality reduction, especially in datasets with multiple fluorescence channels.</li>
+<li>Cluster Analysis: For identifying groups or clusters of similar cells within the data, often using algorithms like K-means or hierarchical clustering.</li>
+</ul></li>
+<li>Survival Analysis
+<ul class="org-ul">
+<li>Kaplan-Meier Curves: To estimate survival functions based on cell marker data.</li>
+<li>Cox Proportional Hazards Model: For assessing the effect of cell populations on survival time, taking into account other covariates.</li>
+</ul></li>
+<li>Longitudinal Data Analysis
+<ul class="org-ul">
+<li>Mixed-Effects Models: Useful when data are collected at multiple time points from the same subjects.</li>
+</ul></li>
+<li>Bayesian Methods
+<ul class="org-ul">
+<li>For incorporating prior information or beliefs into the analysis, which can be particularly useful in small sample size situations.</li>
+</ul></li>
+<li>Machine Learning Techniques
+<ul class="org-ul">
+<li>Supervised Learning (e.g., Random Forest, Support Vector Machines): For classification or prediction tasks based on flow cytometry data.</li>
+<li>Unsupervised Learning (e.g., Cluster Analysis): For discovering patterns or groupings in the data without pre-labeled outcomes.</li>
+</ul></li>
+<li>Flow Cytometry-Specific Statistical Methods
+<ul class="org-ul">
+<li>FlowJo, Cytobank, or other flow cytometry software: Provide specific tools for gating, visualization, and basic statistical analysis.</li>
+<li>Computational Algorithms for High-Dimensional Data: Such as SPADE (Spanning-tree Progression Analysis of Density-normalized Events) or viSNE for analyzing high-dimensional flow cytometry data.</li>
+</ul></li>
+</ol>
+
+<p>
+Each method has its own strengths and is chosen based on the specific characteristics of the flow cytometry data and the research question at hand. The complexity and high dimensionality of flow cytometry data often require sophisticated statistical approaches for accurate and meaningful analysis.
+</p>
+</div>
+</div>
+<div id="outline-container-org233007a" class="outline-4">
+<h4 id="org233007a"><span class="section-number-4">8.1.4.</span> Software for Processing Flow Cytometry Data</h4>
+<div class="outline-text-4" id="text-8-1-4">
+<ol class="org-ol">
+<li>FlowJo
+<ul class="org-ul">
+<li>Capabilities: FlowJo is known for its user-friendly interface and robust data analysis capabilities. It allows for detailed gating strategies, compensation, and complex multicolor analysis.</li>
+<li>Statistical Analysis: Provides basic statistical functions like t-tests, ANOVA, and non-parametric tests. It can generate dose-response curves and perform kinetics analysis.</li>
+<li>Clinical Trial Design &amp; Analysis Plan: FlowJo can help in the preliminary analysis of biomarker data, guiding the development of protocols and helping to refine the focus on specific cell populations or markers.</li>
+</ul></li>
+
+<li>Cytobank
+<ul class="org-ul">
+<li>Capabilities: Cytobank specializes in high-dimensional data analysis and is ideal for large datasets. It supports advanced clustering algorithms and machine learning techniques.</li>
+<li>Statistical Analysis: Offers advanced clustering (e.g., viSNE, SPADE), heatmaps, and dimensionality reduction techniques. It can handle complex multivariate analyses.</li>
+<li>Clinical Trial Design &amp; Analysis Plan: Useful for biomarker discovery and validation. It can help in identifying potential biomarkers that can be targeted in clinical trials.</li>
+</ul></li>
+
+<li>FCS Express
+<ul class="org-ul">
+<li>Capabilities: FCS Express is known for its advanced data visualization and reporting capabilities. It integrates seamlessly with other data sources and provides real-time analysis.</li>
+<li>Statistical Analysis: Supports a range of statistical tests, regression analysis, and gating strategies. Also allows for custom script integration for specialized analyses.</li>
+<li>Clinical Trial Design &amp; Analysis Plan: Can aid in the detailed data reporting and visualization necessary for clinical trial documentation and communication with regulatory bodies.</li>
+</ul></li>
+
+<li>Diva (BD FACSDiva Software)
+<ul class="org-ul">
+<li>Capabilities: Commonly used with BD flow cytometers, Diva allows for sophisticated data acquisition and analysis.</li>
+<li>Statistical Analysis: Includes basic statistical functionalities and gating tools. It&rsquo;s more focused on data acquisition but does offer some analysis capabilities.</li>
+<li>Clinical Trial Design &amp; Analysis Plan: Particularly useful in the setup and standardization of flow cytometry assays in clinical trials, ensuring consistency and accuracy in data collection.</li>
+</ul></li>
+</ol>
+</div>
+<ol class="org-ol">
+<li><a id="orgdacfea8"></a>How Flow Cytometry Software Aids Clinical Trial Design and Statistical Analysis Plan:<br />
+<div class="outline-text-5" id="text-8-1-4-1">
+<ul class="org-ul">
+<li>Biomarker Identification: Helps in identifying and validating biomarkers that can be crucial in stratifying patient populations or determining efficacy endpoints.</li>
+<li>Assay Development: Assists in developing and standardizing flow cytometry assays for use in clinical trials.</li>
+<li>Preliminary Data Analysis: Provides insights into cell populations and their behaviors, which can inform trial designs and hypotheses.</li>
+<li>Data Quality and Reproducibility: Ensures the quality and reproducibility of flow cytometry data, which is vital for clinical trial credibility.</li>
+<li>Statistical Planning: The software&rsquo;s analysis capabilities can guide the choice of statistical methods and approaches in the Statistical Analysis Plan (SAP).</li>
+<li>Regulatory Compliance: Helps in preparing data and reports in formats that are compliant with regulatory requirements.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgb5b6a04" class="outline-4">
+<h4 id="orgb5b6a04"><span class="section-number-4">8.1.5.</span> Analyzing flow cytometry data with R</h4>
+<div class="outline-text-4" id="text-8-1-5">
+<p>
+A flexible and powerful approach, especially for customized or complex analyses. Several R packages have been developed specifically for this purpose, each offering unique functionalities. Some of the most popular and useful R packages for flow cytometry data analysis include:
+</p>
+<ol class="org-ol">
+<li>flowCore
+<ul class="org-ul">
+<li>Overview: The backbone of many flow cytometry analyses in R, flowCore provides functionalities for basic and advanced flow cytometry data handling and analysis.</li>
+<li>Key Features: Data import/export, gating, transformation, compensation, and visualization. It is often used as a foundation for other flow cytometry packages.</li>
+</ul></li>
+
+<li>flowStats
+<ul class="org-ul">
+<li>Overview: An extension of flowCore, flowStats provides advanced statistical methods for flow cytometry data.</li>
+<li>Key Features: Includes statistical tests, flow cytometric data gating, and visualization tools. It&rsquo;s useful for more advanced analyses like clustering and classification.</li>
+</ul></li>
+
+<li>openCyto
+<ul class="org-ul">
+<li>Overview: A package that allows for automated gating strategies using data-driven and statistically robust methods.</li>
+<li>Key Features: Highly customizable gating methods, integration with flowCore, and facilitates automated data analysis workflows.</li>
+</ul></li>
+
+<li>CytoML
+<ul class="org-ul">
+<li>Overview: An R/Bioconductor package that bridges the gap between flow cytometry data analysis in R and other software platforms like FlowJo.</li>
+<li>Key Features: Importing and exporting gating templates and data between R and other popular flow cytometry software platforms.</li>
+</ul></li>
+
+<li>flowClust
+<ul class="org-ul">
+<li>Overview: A package for robust model-based clustering of flow cytometry data.</li>
+<li>Key Features: It uses a Bayesian framework for clustering and identifying cell populations in flow cytometry data.</li>
+</ul></li>
+
+<li>FlowSOM
+<ul class="org-ul">
+<li>Overview: An R package using self-organizing maps (SOMs) for the analysis and visualization of high-dimensional flow cytometry data.</li>
+<li>Key Features: Rapid, automated clustering and visualization, making it particularly useful for large and complex datasets.</li>
+</ul></li>
+
+<li>Cytofkit
+<ul class="org-ul">
+<li>Overview: Designed for the analysis of high-dimensional cytometry data, such as mass cytometry (CyTOF) data, but also applicable to flow cytometry.</li>
+<li>Key Features: Integrates various analysis methods (like t-SNE, UMAP) for dimensionality reduction, clustering, and visualization.</li>
+</ul></li>
+
+<li>ggcyto
+<ul class="org-ul">
+<li>Overview: Combines the power of ggplot2 and flowCore to offer an R-based solution for visualizing flow cytometry data.</li>
+<li>Key Features: Customizable and flexible visualization tools tailored for flow cytometry data.</li>
+</ul></li>
+
+<li>ConsensusClusterPlus
+<ul class="org-ul">
+<li>Overview: While not specifically designed for flow cytometry, it&rsquo;s useful for unsupervised class discovery and refinement in flow cytometry data.</li>
+<li>Key Features: Implements consensus clustering methodology, useful for determining the stability of discovered clusters.</li>
+</ul></li>
+</ol>
+</div>
+<ol class="org-ol">
+<li><a id="orgb6d7c00"></a>How They Help in Analysis:<br />
+<div class="outline-text-5" id="text-8-1-5-1">
+<ul class="org-ul">
+<li>Flexibility: These packages offer the flexibility to create customized analysis pipelines tailored to specific research questions or data characteristics.</li>
+<li>Advanced Statistical Analysis: Many of these packages provide advanced statistical techniques not readily available in standard flow cytometry software, enabling more in-depth data exploration and hypothesis testing.</li>
+<li>High-Dimensional Data Handling: They are particularly adept at managing and analyzing the high-dimensional data typical of flow cytometry, especially in the context of large datasets or complex experimental designs.</li>
+<li>Visualization: Offer robust tools for data visualization, which is key in understanding and presenting flow cytometry data effectively.</li>
+<li>Reproducibility: Using R packages for flow cytometry data analysis enhances reproducibility, as all steps from data processing to analysis can be scripted and documented.</li>
+<li>Incorporating these R packages into flow cytometry data analysis workflows can significantly enhance the depth, efficiency, and quality of the analysis, especially in research settings requiring customized or sophisticated analytical approaches.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Yubing Wan</p>
+<p class="date">Created: 2024-01-14 Sun 17:15</p>
+</div>
+</body>
+</html>
