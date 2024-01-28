@@ -355,8 +355,23 @@ When a particular score is identified by its rank, we call it a percentile.
 ** Results and Interpretation of GLMM
 *** Case Study
 - Publicly available simulated cancer data set from UCLA: [[https://stats.oarc.ucla.edu/other/mult-pkg/introduction-to-generalized-linear-mixed-models/][UCLA GLMM Example]]
+- For 4 purposes, data set includes
+  - Observations from 8525 patients of 407 doctors
+  - Experience (Years of, measured at doctor level)
+  - IL6, CRP, CancerStage, and LengthofStay (Measured at patient level)
+  - Outcome variable of Remission, measured at patient level as 0 (not in remission) or 1 (in remission)
+    - remission vs exacerbation
+- Outputs
+  - Random Intercept + Random Slope for Length of Stay
 
-
+** Software Implementation
+- SAS: PROC GLIMMIX
+- SPSS: GLMM
+- R: glmer (in the lme4 package), and others
+- Stata: meglm
+- C++: GPBoost (R and Python pacakge - gpboost)
+- Python: statsmodels
+  - [[https://towardsdatascience.com/generalized-linear-mixed-effects-models-in-r-and-python-with-gpboost-89297622820c][A blog for comparing GLMM modeling in R and Python]]
 
 ** Questions
 1. In the context of statistical modeling, when considering the application of mixed effects models, how does the methodology and interpretation differ when one opts to average measurements of the same variable across subjects or conditions, as opposed to incorporating random effects to account for variability across these measurements? Specifically, how to understand the implications of these two approaches in terms of their ability to accurately capture within-subject or within-group variability, and how this choice impacts the interpretation of the fixed effects in the model?
@@ -373,3 +388,5 @@ When a particular score is identified by its rank, we call it a percentile.
      3. Inability to Model Individual Trajectories: Averaging doesn't allow for the modeling of individual trajectories over time or under different conditions, something that is often critical in longitudinal studies or personalized medicine.
      4. Risk of Bias: If the variability is systematically related to other variables in your study, averaging can introduce bias.
    - In summary, while averaging measurements is a simpler method that might be useful in certain contexts, mixed effects models offer a more nuanced and accurate way to analyze data with multiple levels of variability. They allow you to capture both the average effects (through fixed effects) and the individual-specific or group-specific variations (through random effects), leading to a more comprehensive understanding of your data.
+
+
