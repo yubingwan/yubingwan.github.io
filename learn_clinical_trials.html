@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-01-11 Thu 12:37 -->
+<!-- 2024-01-30 Tue 13:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Learn Clinical Trials</title>
@@ -193,6 +193,38 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,81 +233,90 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5437000">1. Trial Phases</a>
+<li><a href="#org2c0f7d3">1. Phases</a>
 <ul>
-<li><a href="#org4d7293d">1.1. Summary of Different Phases</a></li>
-<li><a href="#org6a4dde9">1.2. General Biostatistician Aspects to Consider Across Phases:</a></li>
+<li><a href="#org12d8587">1.1. Summary of Different Phases</a></li>
+<li><a href="#orgd2bd06d">1.2. General Biostatistician Aspects to Consider Across Phases</a></li>
 </ul>
 </li>
-<li><a href="#org122d86b">2. Preclinical/Nonclinical Trials</a>
+<li><a href="#org8cd9e84">2. Data</a>
 <ul>
-<li><a href="#org322de32">2.1. Key Biomarker</a>
+<li><a href="#org60f82b2">2.1. Sample Data</a>
 <ul>
-<li><a href="#org42c98af">2.1.1. Pharmacokinetric (PK)</a></li>
+<li><a href="#orgdfdacca">2.1.1. Type of Sample Data in Clinical Trials</a></li>
+<li><a href="#orgaacec50">2.1.2. Endpoints in Different Therapeutic Areas</a></li>
+</ul>
+</li>
+<li><a href="#org03b10bc">2.2. Biomarker Data</a></li>
+</ul>
+</li>
+<li><a href="#org00927bc">3. Preclinical/Nonclinical Trials</a>
+<ul>
+<li><a href="#orga613071">3.1. Key Biomarker</a>
+<ul>
+<li><a href="#org108d2f6">3.1.1. Pharmacokinetics (PK)</a></li>
+<li><a href="#org939ff30">3.1.2. Pharmacodynamics (PD)</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a href="#org47b0385">4. References</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5437000" class="outline-2">
-<h2 id="org5437000"><span class="section-number-2">1.</span> Trial Phases</h2>
+<div id="outline-container-org2c0f7d3" class="outline-2">
+<h2 id="org2c0f7d3"><span class="section-number-2">1.</span> Phases</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org4d7293d" class="outline-3">
-<h3 id="org4d7293d"><span class="section-number-3">1.1.</span> Summary of Different Phases</h3>
+<div id="outline-container-org12d8587" class="outline-3">
+<h3 id="org12d8587"><span class="section-number-3">1.1.</span> Summary of Different Phases</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-Clinical trials are conducted in distinct phases, each with specific characteristics, objectives, and study designs. Here&rsquo;s an overview tailored to your interest in biostatistics:
+Clinical trials are conducted in distinct phases, each with specific characteristics, objectives, and study designs.
 </p>
-
 <ol class="org-ol">
-<li>Phase I Trials
+<li>Phase I
 <ul class="org-ul">
-<li>Characteristics: Small-scale trials, often including 20-100 healthy volunteers (sometimes patients).</li>
-<li>Major Purpose: Assess safety, determine a safe dosage range, and identify side effects.</li>
-<li>Study Design: Typically non-randomized, open-label, often using a dose-escalation study design.</li>
-<li>Biostatistician Concerns: Focus on determining maximum tolerated dose, pharmacokinetics, and pharmacodynamics.</li>
+<li>Small-scale trials, often including 20-100 healthy volunteers (sometimes patients).</li>
+<li>Assess safety, determine a safe dosage range, and identify side effects.</li>
+<li>Typically non-randomized, open-label, often using a dose-escalation study design.</li>
+<li>Focus on determining maximum tolerated dose, pharmacokinetics, and pharmacodynamics.</li>
 </ul></li>
-
-<li>Phase II Trials
+<li>Phase II
 <ul class="org-ul">
-<li>Characteristics: Larger groups (100-300 participants), usually patients with the disease/condition.</li>
-<li>Major Purpose: Evaluate the efficacy of the drug and further assess its safety.</li>
-<li>Study Design: Often randomized controlled trials (RCTs), can be single-blind or double-blind.</li>
-<li>Biostatistician Concerns: Establishing the preliminary efficacy, optimal dose, and short-term side effects. Power and sample size calculations are crucial.</li>
+<li>Larger groups (100-300 participants), usually patients with the disease/condition.</li>
+<li>Evaluate the efficacy of the drug and further assess its safety.</li>
+<li>Often randomized controlled trials (RCTs), can be single-blind or double-blind.</li>
+<li>Establishing the preliminary efficacy, optimal dose, and short-term side effects. Power and sample size calculations are crucial.</li>
 </ul></li>
-
-<li>Phase III Trials
+<li>Phase III
 <ul class="org-ul">
-<li>Characteristics: Large-scale trials, involving 300-3,000+ participants, typically from multiple sites.</li>
-<li>Major Purpose: Confirm effectiveness, monitor side effects, compare with standard or equivalent treatments.</li>
-<li>Study Design: Randomized, double-blind, placebo-controlled trials. Often multi-center studies.</li>
-<li>Biostatistician Concerns: Emphasis on confirmatory data analysis, interim analysis, handling multicenter data, and comprehensive safety analysis.</li>
+<li>Large-scale trials, involving 300-3,000+ participants, typically from multiple sites.</li>
+<li>Confirm effectiveness, monitor side effects, compare with standard or equivalent treatments.</li>
+<li>Randomized, double-blind, placebo-controlled trials. Often multi-center studies.</li>
+<li>Emphasis on confirmatory data analysis, interim analysis, handling multicenter data, and comprehensive safety analysis.</li>
 </ul></li>
-
-<li>Phase IV Trials
+<li>Phase IV
 <ul class="org-ul">
-<li>Characteristics: Post-marketing studies conducted after a treatment is approved and on the market.</li>
-<li>Major Purpose: Further information including drug&rsquo;s risks, benefits, and optimal use.</li>
-<li>Study Design: Can vary widely, including randomized and non-randomized designs, observational studies.</li>
-<li>Biostatistician Concerns: Long-term effectiveness and safety, pharmacoeconomics, real-world evidence.</li>
+<li>Post-marketing studies conducted after a treatment is approved and on the market.</li>
+<li>Further information including drug&rsquo;s risks, benefits, and optimal use.</li>
+<li>Can vary widely, including randomized and non-randomized designs, observational studies.</li>
+<li>Long-term effectiveness and safety, pharmacoeconomics, real-world evidence.</li>
 </ul></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org6a4dde9" class="outline-3">
-<h3 id="org6a4dde9"><span class="section-number-3">1.2.</span> General Biostatistician Aspects to Consider Across Phases:</h3>
+<div id="outline-container-orgd2bd06d" class="outline-3">
+<h3 id="orgd2bd06d"><span class="section-number-3">1.2.</span> General Biostatistician Aspects to Consider Across Phases</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>Sample Size Determination: Crucial in all phases for ensuring statistical power.</li>
-<li>Randomization: Reduces bias and confounding variables, particularly important in Phase II and III.</li>
-<li>Blinding: Important for reducing bias in treatment assignment and outcome assessment.</li>
-<li>Statistical Analysis Plans: Must be well-defined and documented before the trial begins.</li>
-<li>Handling Missing Data: Strategies for dealing with dropouts and missing values.</li>
-<li>Interim Analysis: Particularly in Phase III, for early signals of efficacy or safety concerns.</li>
-<li>Regulatory Compliance: Adherence to statistical guidelines from regulatory authorities like FDA or EMA.</li>
+<li><b>Sample Size Determination:</b> Crucial in all phases for ensuring statistical power.</li>
+<li><b>Randomization:</b> Reduces bias and confounding variables, particularly important in Phase II and III.</li>
+<li><b>Blinding:</b> Important for reducing bias in treatment assignment and outcome assessment.</li>
+<li><b>Statistical Analysis Plans:</b> Must be well-defined and documented before the trial begins.</li>
+<li><b>Handling Missing Data:</b> Strategies for dealing with dropouts and missing values.</li>
+<li><b>Interim Analysis:</b> Particularly in Phase III, for early signals of efficacy or safety concerns.</li>
+<li><b>Regulatory Compliance:</b> Adherence to statistical guidelines from regulatory authorities like FDA or EMA.</li>
 </ul>
 
 <p>
@@ -284,49 +325,249 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
 </div>
 </div>
 </div>
-<div id="outline-container-org122d86b" class="outline-2">
-<h2 id="org122d86b"><span class="section-number-2">2.</span> Preclinical/Nonclinical Trials</h2>
+<div id="outline-container-org8cd9e84" class="outline-2">
+<h2 id="org8cd9e84"><span class="section-number-2">2.</span> Data</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org322de32" class="outline-3">
-<h3 id="org322de32"><span class="section-number-3">2.1.</span> Key Biomarker</h3>
+<div id="outline-container-org60f82b2" class="outline-3">
+<h3 id="org60f82b2"><span class="section-number-3">2.1.</span> Sample Data</h3>
 <div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><b>Defination:</b>
+<ul class="org-ul">
+<li>Generally refers to a subset of data collected from a larger population.</li>
+<li>In statistics, a sample is a set of obverservations or data points selected from a population of interest.</li>
+<li>The selection methods might include random sampling, stratified sampling or other statistical techinques.</li>
+</ul></li>
+<li><b>Purpose:</b>
+<ul class="org-ul">
+<li>To make inferences or draw conclusions about the larger population from which it is drawn.</li>
+<li>By analyzing sample data, researchers can estimate population parameters, test hypotheses, and make predictions.</li>
+</ul></li>
+<li><b>Charateristics:</b>
+<ul class="org-ul">
+<li>Can vary widely in nature depending on the field of study.</li>
+<li>It represents a smaller, manageable portion of a larger group.</li>
+</ul></li>
+</ul>
 </div>
-<div id="outline-container-org42c98af" class="outline-4">
-<h4 id="org42c98af"><span class="section-number-4">2.1.1.</span> Pharmacokinetric (PK)</h4>
+<div id="outline-container-orgdfdacca" class="outline-4">
+<h4 id="orgdfdacca"><span class="section-number-4">2.1.1.</span> Type of Sample Data in Clinical Trials</h4>
 <div class="outline-text-4" id="text-2-1-1">
+<ol class="org-ol">
+<li>Particular Demographics:
+<ul class="org-ul">
+<li>age, gender, ethnicity, race</li>
+<li>socioeconomic status, education level</li>
+<li>occupation, lifestyle factors (smoking, alcohol use)</li>
+</ul></li>
+
+<li>Medical History:
+<ul class="org-ul">
+<li>Previous and current illnesses and conditions</li>
+<li>Surgical history</li>
+<li>Family medical history</li>
+<li>medication history (prescription, over-the-counter, supplements)</li>
+</ul></li>
+
+<li>Baseline Characteristics:
+<ul class="org-ul">
+<li>vital signs (blood pressure, heart rate, temperature)</li>
+<li>body measurements (height, weight, BMI)</li>
+<li>specific disease-related measurements (e.g. tumor size in cancer trials)</li>
+</ul></li>
+<li>Genetic Information (if relevant)
+<ul class="org-ul">
+<li>genetic markers or mutations</li>
+<li>family genetic history, when applicable</li>
+</ul></li>
+
+<li>Lbaoratory Test Results:
+<ul class="org-ul">
+<li>blood tests (hematology, blood chemistry)</li>
+<li>urine analysis</li>
+<li>other biological samples (e.g. tissue biopsies)</li>
+</ul></li>
+<li>Disease-Specific Clnical Assessments:
+<ul class="org-ul">
+<li>disease severity scoring</li>
+<li>staging of the disease (e.g. cancer staging)</li>
+<li>specific clinical scales or questionnaries relevant to the disease</li>
+</ul></li>
+<li>Treatment Exposure Data:
+<ul class="org-ul">
+<li>dosage and reginmen of the investigational product</li>
+<li>duration of treatment</li>
+<li>concomitant medications</li>
+</ul></li>
+<li>Efficacy Data:
+<ul class="org-ul">
+<li>primary and secondary endpoints of the study</li>
+<li>clinical outcomes (e.g. reduction in tumor size, blood sugar levels)</li>
+<li>patient-reported outcomes (symptoms, quality of life measures)</li>
+</ul></li>
+<li>Safety Data:
+<ul class="org-ul">
+<li>adverse events (AEs) and serious adverse events (SAEs)</li>
+<li>laboratory abnormalities as a result of treatment</li>
+<li>changes in vital signs or physical findings</li>
+</ul></li>
+
+<li>Imaging Data (if applicable)
+<ul class="org-ul">
+<li>X-rays, MRIs, CT scans, PET scans</li>
+<li>ultrasound or other diagnostic imaging results</li>
+</ul></li>
+
+<li>Pharmacokinetric (PK) and Pharmacodynamic (PD) Data:
+<ul class="org-ul">
+<li>concentration of the drug in the blood over time</li>
+<li>the drug&rsquo;s effects on the body and the body&rsquo;s response to the drug</li>
+</ul></li>
+
+<li>Compliance Data:
+<ul class="org-ul">
+<li>adherence to the treatment regimen</li>
+<li>missed doses or deviations from the study protocol</li>
+</ul></li>
+<li>Follow-up Data:
+<ul class="org-ul">
+<li>long-term efficacy and safety data</li>
+<li>post-study monitoring of outcomes</li>
+</ul></li>
+<li>Economic and Quality of Life Assessments:
+<ul class="org-ul">
+<li>health economics data (cost-effectiveness)</li>
+<li>quality of life assessments, often using validated questionnaries</li>
+</ul></li>
+
+<li>Endpoints Data:
+<ul class="org-ul">
+<li>specific to the study&rsquo;s aims, such as progression-free survival, overall survival, response rate in oncology trials, or HbA1c levels in diabetes trials.</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgaacec50" class="outline-4">
+<h4 id="orgaacec50"><span class="section-number-4">2.1.2.</span> Endpoints in Different Therapeutic Areas</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<ul class="org-ul">
+<li>Oncology
+<ul class="org-ul">
+<li>Response Evaluation Criteria in Solid Tumors version 1.1 (RECIST 1.1)
+<ul class="org-ul">
+<li><a href="https://pubs.rsna.org/doi/full/10.1148/rycan.2021210008#">A Primer on RECIST 1.1 for Oncologic Imaging in Clinical Drug Trials</a></li>
+<li>Drug discovery and approval in oncology is mediated by the use of imaging to evaluate drug efficacy.</li>
+<li>Imaging is performed while patients receive therapy to evaluate their response to treatment.</li>
+<li>RECIST 1.1 are standardized and can be used at different time points to classify response into the categories of
+<ul class="org-ul">
+<li>CR: complete response</li>
+<li>PR: partial response</li>
+<li>SD: stable disease</li>
+<li>DP: disease progression</li>
+</ul></li>
+<li>At the trial level, categorical responses for all patients are summated into image-based trial endpoints.</li>
+<li>These outcome measures, including
+<ul class="org-ul">
+<li>ORR: objective response rate</li>
+<li>PFS: progression-free survival</li>
+</ul></li>
+<li>They are characteristics derived from imaging and can be used as surrogates for overall survival (OS).</li>
+<li>OS, ORR and PFS all describe the efficacy of a drug.</li>
+<li>FDA regulatory approval requires therapies to demonstrate direct evidence of clinical benefit, such as improved OS.</li>
+<li>Multiple programs have been created to expedite drug approval for life-threatening illnesses, including advanced cancer.</li>
+<li>ORR and PFS have been accepted by the FDA as adequate predictors of OS on which to base drug approval decisions, thus substantially shortening the time and cost of drug development (1).</li>
+<li>Use of imaging surrogate markers for drug approval has become increasingly common, accounting for more than 90% of approvals through the Accelerated Approval Program and allowing for use of many therapies which have altered the course of cancer.</li>
+</ul></li>
+</ul></li>
+
+<li>Immunology</li>
+<li>CNS</li>
+<li>Cardiology</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org03b10bc" class="outline-3">
+<h3 id="org03b10bc"><span class="section-number-3">2.2.</span> Biomarker Data</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li><b>Defination:</b> Biomarker data refers specifically to data that is indicative of a biological state or condition. Biomarkers (short for biological markers) are measurable indicators of some biological state or condition. They can be molecules, genes, gene products, enzymes, hormones, or other substances whose presence or concentration can be measured in biological samples like blood, tissue, or urine.</li>
+<li><b>Purpose:</b> Biomarker data is typically very specific and scientific, often requiring specialized methods for collection and analysis. It can include levels of specific proteins, the presence of certain genetic markers, or the concentration of particular metabolites, among others.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org00927bc" class="outline-2">
+<h2 id="org00927bc"><span class="section-number-2">3.</span> Preclinical/Nonclinical Trials</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orga613071" class="outline-3">
+<h3 id="orga613071"><span class="section-number-3">3.1.</span> Key Biomarker</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org108d2f6" class="outline-4">
+<h4 id="org108d2f6"><span class="section-number-4">3.1.1.</span> Pharmacokinetics (PK)</h4>
+<div class="outline-text-4" id="text-3-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="orga1b4e07"></a>PK Parameters<br />
-<div class="outline-text-5" id="text-2-1-1-1">
+<li><a id="org5417ca3"></a>Parameters<br />
+<div class="outline-text-5" id="text-3-1-1-1">
 <ul class="org-ul">
-<li>Concentration-Time Data: This is the fundamental PK data, including the concentrations of the drug in blood, plasma, or other biological fluids over time. These data are used to calculate various parameters</li>
-<li>Area Under the curve (AUC): The measures the total exposure to the drug over time and is calculated from the concentration-time data. It&rsquo;s a key indictor of the drug&rsquo;s bioavailability</li>
-<li>Maximum concentration (Cmax) and Time to Maximum Concentration (Tmax):</li>
-<li>Half-Life(t1/2): The time it takes for the drug&rsquo;s concentration to reduce by half in the body. It&rsquo;s crucial for understanding the duration of the drug&rsquo;s effect and for determining dosing intervals.</li>
-<li>Clearance (CL): This measures the body&rsquo;s efficiency in eliminating the drug, often expressed as volume per unit time.</li>
-<li>Volumne of Distribution (Vd): This parameter gives an idea of how extensively the drug distributes into body tissues compared to the bloodstream.</li>
-<li>Bioavailability (F): The fraction of the administrered drug that reaches the systemic circulation in an active form</li>
-<li>Dose-Proportionality Studies: Data to determine if the PK of the drug are linear or non-linear across different dose levels.</li>
-<li>Metabolite Data: Information about the drug&rsquo;s metabolites, if relevant, which can be important for efficacy and safety assessments</li>
+<li><b>Concentration-Time Data:</b> fundamental PK data, including the concentrations of the drug in blood, plasma, or other biological fluids over time. These data are used to calculate various parameters</li>
+<li><b>Area Under the curve (AUC):</b> The measures of the total exposure to the drug over time and is calculated from the concentration-time data. It&rsquo;s a key indictor of the drug&rsquo;s <b>bioavailability</b></li>
+<li><b>Maximum concentration (Cmax) and Time to Maximum Concentration (Tmax):</b></li>
+<li><b>Half-Life(\(t_{1/2}\)):</b> The time it takes for the drug&rsquo;s concentration to reduce by half in the body. It&rsquo;s crucial for understanding the duration of the drug&rsquo;s effect and for determining dosing intervals.</li>
+<li><b>Clearance (CL):</b> This measures the body&rsquo;s efficiency in eliminating the drug, often expressed as volume per unit time.</li>
+<li><b>Volumne of Distribution (Vd):</b> This parameter gives an idea of how extensively the drug distributes into body tissues compared to the bloodstream.</li>
+<li><b>Bioavailability (F):</b> The fraction of the administrered drug that reaches the systemic circulation in an active form</li>
+<li><b>Dose-Proportionality Studies:</b> Data to determine if the PK of the drug are linear or non-linear across different dose levels.</li>
+<li><b>Metabolite Data:</b> Information about the drug&rsquo;s metabolites, if relevant, which can be important for efficacy and safety assessments</li>
 </ul>
 </div>
 </li>
-<li><a id="org5dbfcda"></a>PD Parameters<br />
-<div class="outline-text-5" id="text-2-1-1-2">
+</ol>
+</div>
+<div id="outline-container-org939ff30" class="outline-4">
+<h4 id="org939ff30"><span class="section-number-4">3.1.2.</span> Pharmacodynamics (PD)</h4>
+<div class="outline-text-4" id="text-3-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org7030347"></a>Parameters<br />
+<div class="outline-text-5" id="text-3-1-2-1">
 <ul class="org-ul">
-<li>Effect Size or Response Magnitude: This refers to the degree of biological or cinical response observed after drug administration. It could be a measure of symptom relief, tumor size reduction in oncology, or change of biomarker levels.</li>
-<li>Time to Onset of Action: The time it takes for the drug to start showing its therapeutic effect.</li>
-<li>Duration of Effect: How long the therapeutic effect of the drug lasts. This can be crucial in determining dosing frequency.</li>
-<li>EC50 (Effective Concentration 50): The concentration of the drug that produces 50% of its maximum effect. This is a common measure of a drug&rsquo;s potency.</li>
-<li>IC50 (Inhibitory Concentration 50): Particularly relevant in oncology and biochemistry, it&rsquo;s the concentration of a drug that is required for 50% inhibition in vitro (e.g. of cancer cell growth).</li>
-<li>Efficacy: The maximun effect that can be achieved with the drug. This is often assessed in terms of the proportion of subjects achieving a predefined clinical outcome.</li>
-<li>Therapeutic Index: A ratio that compares the blood concentration at which a drug becomes toxic to the concentration at which the drug is effective. The alrger the therapeutic index, the safer the drug</li>
-<li>Biomarker Levels:</li>
-<li>Drug-Receptor Interaction Data:</li>
-<li>Adverse Effects:</li>
-<li>Dose-Response Relationship:</li>
-<li>Physiological and Biochemical Changes:</li>
+<li><b>Effect Size / Response Magnitude:</b> The degree of biological or cinical response observed after drug administration.
+<ul class="org-ul">
+<li>A measure of <b>symptom relief</b>, <b>tumor size reduction</b> in oncology, or <b>change of biomarker levels</b>.</li>
+</ul></li>
+<li><b>Time to Onset of Action:</b> The time it takes for the drug to start showing its therapeutic effect.</li>
+<li><b>Duration of Effect:</b> How long the therapeutic effect of the drug lasts.
+<ul class="org-ul">
+<li>Crucial in determining <b>dosing frequency</b>.</li>
+</ul></li>
+<li><b>EC50 (Effective Concentration 50):</b> The concentration of the drug that produces 50% of its maximum effect.
+<ul class="org-ul">
+<li>A common measure of a <b>drug&rsquo;s potency</b>.</li>
+</ul></li>
+<li><b>IC50 (Inhibitory Concentration 50):</b> It&rsquo;s the concentration of a drug that is required for 50% inhibition <b>in vitro</b> (e.g. of cancer cell growth).
+<ul class="org-ul">
+<li>Particularly relevant in oncology and biochemistry</li>
+</ul></li>
+<li><b>Efficacy:</b> The maximun effect that can be achieved with the drug.
+<ul class="org-ul">
+<li>This is often assessed in terms of the proportion of subjects achieving a predefined clinical outcome.</li>
+</ul></li>
+<li><b>Therapeutic Index:</b> A ratio that compares the blood concentration at which a drug becomes toxic to the concentration at which the drug is effective.
+<ul class="org-ul">
+<li>The alrger the therapeutic index, the safer the drug</li>
+</ul></li>
+<li><b>Biomarker Levels:</b>
+<ul class="org-ul">
+<li>Drug-Receptor Interaction Data</li>
+<li>Adverse Effects</li>
+<li>Dose-Response Relationship</li>
+<li>Physiological and Biochemical Changes</li>
+</ul></li>
 </ul>
 </div>
 </li>
@@ -334,10 +575,18 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
 </div>
 </div>
 </div>
+<div id="outline-container-org47b0385" class="outline-2">
+<h2 id="org47b0385"><span class="section-number-2">4.</span> References</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+(1) Hsiue EHC, Moore TJ, Alexander GC. Estimated costs of pivotal trials for U.S. Food and Drug Administration-approved cancer drugs, 2015-2017. Clin Trials 2020;17(2):119–125. Crossref, Medline, Google Scholar
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Yubing Wan</p>
-<p class="date">Created: 2024-01-11 Thu 12:37</p>
+<p class="date">Created: 2024-01-30 Tue 13:13</p>
 </div>
 </body>
 </html>

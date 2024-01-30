@@ -282,7 +282,6 @@ Build predictive signatures of a clinical event or outcome or disease status
 - Not embracing new modalities of biomarkers
   - Imaging, digital biomarkers
 
-
 * Projects
 ** Flow Cytometry
 *** Understanding Flow Cytometry:

@@ -1,74 +1,181 @@
 #+title: Learn Clinical Trials
 
-* Trial Phases
-
+* Phases
 ** Summary of Different Phases
-Clinical trials are conducted in distinct phases, each with specific characteristics, objectives, and study designs. Here's an overview tailored to your interest in biostatistics:
+Clinical trials are conducted in distinct phases, each with specific characteristics, objectives, and study designs.
+1. Phase I
+   - Small-scale trials, often including 20-100 healthy volunteers (sometimes patients).
+   - Assess safety, determine a safe dosage range, and identify side effects.
+   - Typically non-randomized, open-label, often using a dose-escalation study design.
+   - Focus on determining maximum tolerated dose, pharmacokinetics, and pharmacodynamics.
+2. Phase II
+   - Larger groups (100-300 participants), usually patients with the disease/condition.
+   - Evaluate the efficacy of the drug and further assess its safety.
+   - Often randomized controlled trials (RCTs), can be single-blind or double-blind.
+   - Establishing the preliminary efficacy, optimal dose, and short-term side effects. Power and sample size calculations are crucial.
+3. Phase III
+   - Large-scale trials, involving 300-3,000+ participants, typically from multiple sites.
+   - Confirm effectiveness, monitor side effects, compare with standard or equivalent treatments.
+   - Randomized, double-blind, placebo-controlled trials. Often multi-center studies.
+   - Emphasis on confirmatory data analysis, interim analysis, handling multicenter data, and comprehensive safety analysis.
+4. Phase IV
+   - Post-marketing studies conducted after a treatment is approved and on the market.
+   - Further information including drug's risks, benefits, and optimal use.
+   - Can vary widely, including randomized and non-randomized designs, observational studies.
+   - Long-term effectiveness and safety, pharmacoeconomics, real-world evidence.
 
-1. Phase I Trials
-   - Characteristics: Small-scale trials, often including 20-100 healthy volunteers (sometimes patients).
-   - Major Purpose: Assess safety, determine a safe dosage range, and identify side effects.
-   - Study Design: Typically non-randomized, open-label, often using a dose-escalation study design.
-   - Biostatistician Concerns: Focus on determining maximum tolerated dose, pharmacokinetics, and pharmacodynamics.
+** General Biostatistician Aspects to Consider Across Phases
+- *Sample Size Determination:* Crucial in all phases for ensuring statistical power.
+- *Randomization:* Reduces bias and confounding variables, particularly important in Phase II and III.
+- *Blinding:* Important for reducing bias in treatment assignment and outcome assessment.
+- *Statistical Analysis Plans:* Must be well-defined and documented before the trial begins.
+- *Handling Missing Data:* Strategies for dealing with dropouts and missing values.
+- *Interim Analysis:* Particularly in Phase III, for early signals of efficacy or safety concerns.
+- *Regulatory Compliance:* Adherence to statistical guidelines from regulatory authorities like FDA or EMA.
 
-2. Phase II Trials
-   - Characteristics: Larger groups (100-300 participants), usually patients with the disease/condition.
-   - Major Purpose: Evaluate the efficacy of the drug and further assess its safety.
-   - Study Design: Often randomized controlled trials (RCTs), can be single-blind or double-blind.
-   - Biostatistician Concerns: Establishing the preliminary efficacy, optimal dose, and short-term side effects. Power and sample size calculations are crucial.
+Each phase of a clinical trial has distinct statistical considerations. Biostatisticians play a critical role in the design, analysis, and interpretation of clinical trial data, ensuring that the results are robust, valid, and ethically obtained.
 
-3. Phase III Trials
-   - Characteristics: Large-scale trials, involving 300-3,000+ participants, typically from multiple sites.
-   - Major Purpose: Confirm effectiveness, monitor side effects, compare with standard or equivalent treatments.
-   - Study Design: Randomized, double-blind, placebo-controlled trials. Often multi-center studies.
-   - Biostatistician Concerns: Emphasis on confirmatory data analysis, interim analysis, handling multicenter data, and comprehensive safety analysis.
+* Data
+** Sample Data
+- *Defination:*
+  - Generally refers to a subset of data collected from a larger population.
+  - In statistics, a sample is a set of obverservations or data points selected from a population of interest.
+  - The selection methods might include random sampling, stratified sampling or other statistical techinques.
+- *Purpose:*
+  - To make inferences or draw conclusions about the larger population from which it is drawn.
+  - By analyzing sample data, researchers can estimate population parameters, test hypotheses, and make predictions.
+- *Charateristics:*
+  - Can vary widely in nature depending on the field of study.
+  - It represents a smaller, manageable portion of a larger group.
 
-4. Phase IV Trials
-   - Characteristics: Post-marketing studies conducted after a treatment is approved and on the market.
-   - Major Purpose: Further information including drug's risks, benefits, and optimal use.
-   - Study Design: Can vary widely, including randomized and non-randomized designs, observational studies.
-   - Biostatistician Concerns: Long-term effectiveness and safety, pharmacoeconomics, real-world evidence.
+*** Type of Sample Data in Clinical Trials
+1. Particular Demographics:
+   - age, gender, ethnicity, race
+   - socioeconomic status, education level
+   - occupation, lifestyle factors (smoking, alcohol use)
 
-** General Biostatistician Aspects to Consider Across Phases:
+2. Medical History:
+   - Previous and current illnesses and conditions
+   - Surgical history
+   - Family medical history
+   - medication history (prescription, over-the-counter, supplements)
 
-+ Sample Size Determination: Crucial in all phases for ensuring statistical power.
-+ Randomization: Reduces bias and confounding variables, particularly important in Phase II and III.
-+ Blinding: Important for reducing bias in treatment assignment and outcome assessment.
-+ Statistical Analysis Plans: Must be well-defined and documented before the trial begins.
-+ Handling Missing Data: Strategies for dealing with dropouts and missing values.
-+ Interim Analysis: Particularly in Phase III, for early signals of efficacy or safety concerns.
-+ Regulatory Compliance: Adherence to statistical guidelines from regulatory authorities like FDA or EMA.
+3. Baseline Characteristics:
+   - vital signs (blood pressure, heart rate, temperature)
+   - body measurements (height, weight, BMI)
+   - specific disease-related measurements (e.g. tumor size in cancer trials)
+4. Genetic Information (if relevant)
+   - genetic markers or mutations
+   - family genetic history, when applicable
 
-Each phase of a clinical trial has distinct statistical :wconsiderations. Biostatisticians play a critical role in the design, analysis, and interpretation of clinical trial data, ensuring that the results are robust, valid, and ethically obtained.
+5. Lbaoratory Test Results:
+   - blood tests (hematology, blood chemistry)
+   - urine analysis
+   - other biological samples (e.g. tissue biopsies)
+6. Disease-Specific Clnical Assessments:
+   - disease severity scoring
+   - staging of the disease (e.g. cancer staging)
+   - specific clinical scales or questionnaries relevant to the disease
+7. Treatment Exposure Data:
+   - dosage and reginmen of the investigational product
+   - duration of treatment
+   - concomitant medications
+8. Efficacy Data:
+   - primary and secondary endpoints of the study
+   - clinical outcomes (e.g. reduction in tumor size, blood sugar levels)
+   - patient-reported outcomes (symptoms, quality of life measures)
+9. Safety Data:
+   - adverse events (AEs) and serious adverse events (SAEs)
+   - laboratory abnormalities as a result of treatment
+   - changes in vital signs or physical findings
 
+10. Imaging Data (if applicable)
+    - X-rays, MRIs, CT scans, PET scans
+    - ultrasound or other diagnostic imaging results
+
+11. Pharmacokinetric (PK) and Pharmacodynamic (PD) Data:
+    - concentration of the drug in the blood over time
+    - the drug's effects on the body and the body's response to the drug
+
+12. Compliance Data:
+    - adherence to the treatment regimen
+    - missed doses or deviations from the study protocol
+13. Follow-up Data:
+    - long-term efficacy and safety data
+    - post-study monitoring of outcomes
+14. Economic and Quality of Life Assessments:
+    - health economics data (cost-effectiveness)
+    - quality of life assessments, often using validated questionnaries
+
+15. Endpoints Data:
+    - specific to the study's aims, such as progression-free survival, overall survival, response rate in oncology trials, or HbA1c levels in diabetes trials.
+
+*** Endpoints in Different Therapeutic Areas
+- Oncology
+  - Response Evaluation Criteria in Solid Tumors version 1.1 (RECIST 1.1)
+    - [[https://pubs.rsna.org/doi/full/10.1148/rycan.2021210008#][A Primer on RECIST 1.1 for Oncologic Imaging in Clinical Drug Trials]]
+    - Drug discovery and approval in oncology is mediated by the use of imaging to evaluate drug efficacy.
+    - Imaging is performed while patients receive therapy to evaluate their response to treatment.
+    - RECIST 1.1 are standardized and can be used at different time points to classify response into the categories of
+      - CR: complete response
+      - PR: partial response
+      - SD: stable disease
+      - DP: disease progression
+    - At the trial level, categorical responses for all patients are summated into image-based trial endpoints.
+    - These outcome measures, including
+      - ORR: objective response rate
+      - PFS: progression-free survival
+    - They are characteristics derived from imaging and can be used as surrogates for overall survival (OS).
+    - OS, ORR and PFS all describe the efficacy of a drug.
+    - FDA regulatory approval requires therapies to demonstrate direct evidence of clinical benefit, such as improved OS.
+    - Multiple programs have been created to expedite drug approval for life-threatening illnesses, including advanced cancer.
+    - ORR and PFS have been accepted by the FDA as adequate predictors of OS on which to base drug approval decisions, thus substantially shortening the time and cost of drug development (1).
+    - Use of imaging surrogate markers for drug approval has become increasingly common, accounting for more than 90% of approvals through the Accelerated Approval Program and allowing for use of many therapies which have altered the course of cancer.
+
+- Immunology
+- CNS
+- Cardiology
+
+
+** Biomarker Data
+- *Defination:* Biomarker data refers specifically to data that is indicative of a biological state or condition. Biomarkers (short for biological markers) are measurable indicators of some biological state or condition. They can be molecules, genes, gene products, enzymes, hormones, or other substances whose presence or concentration can be measured in biological samples like blood, tissue, or urine.
+- *Purpose:* Biomarker data is typically very specific and scientific, often requiring specialized methods for collection and analysis. It can include levels of specific proteins, the presence of certain genetic markers, or the concentration of particular metabolites, among others.
 
 * Preclinical/Nonclinical Trials
-
 ** Key Biomarker
+*** Pharmacokinetics (PK)
+**** Parameters
+- *Concentration-Time Data:* fundamental PK data, including the concentrations of the drug in blood, plasma, or other biological fluids over time. These data are used to calculate various parameters
+- *Area Under the curve (AUC):* The measures of the total exposure to the drug over time and is calculated from the concentration-time data. It's a key indictor of the drug's *bioavailability*
+- *Maximum concentration (Cmax) and Time to Maximum Concentration (Tmax):*
+- *Half-Life($t_{1/2}$):* The time it takes for the drug's concentration to reduce by half in the body. It's crucial for understanding the duration of the drug's effect and for determining dosing intervals.
+- *Clearance (CL):* This measures the body's efficiency in eliminating the drug, often expressed as volume per unit time.
+- *Volumne of Distribution (Vd):* This parameter gives an idea of how extensively the drug distributes into body tissues compared to the bloodstream.
+- *Bioavailability (F):* The fraction of the administrered drug that reaches the systemic circulation in an active form
+- *Dose-Proportionality Studies:* Data to determine if the PK of the drug are linear or non-linear across different dose levels.
+- *Metabolite Data:* Information about the drug's metabolites, if relevant, which can be important for efficacy and safety assessments
 
-*** Pharmacokinetric (PK)
+*** Pharmacodynamics (PD)
+**** Parameters
+- *Effect Size / Response Magnitude:* The degree of biological or cinical response observed after drug administration.
+  - A measure of *symptom relief*, *tumor size reduction* in oncology, or *change of biomarker levels*.
+- *Time to Onset of Action:* The time it takes for the drug to start showing its therapeutic effect.
+- *Duration of Effect:* How long the therapeutic effect of the drug lasts.
+  - Crucial in determining *dosing frequency*.
+- *EC50 (Effective Concentration 50):* The concentration of the drug that produces 50% of its maximum effect.
+  - A common measure of a *drug's potency*.
+- *IC50 (Inhibitory Concentration 50):* It's the concentration of a drug that is required for 50% inhibition *in vitro* (e.g. of cancer cell growth).
+  - Particularly relevant in oncology and biochemistry
+- *Efficacy:* The maximun effect that can be achieved with the drug.
+  - This is often assessed in terms of the proportion of subjects achieving a predefined clinical outcome.
+- *Therapeutic Index:* A ratio that compares the blood concentration at which a drug becomes toxic to the concentration at which the drug is effective.
+  - The alrger the therapeutic index, the safer the drug
+- *Biomarker Levels:*
+  - Drug-Receptor Interaction Data
+  - Adverse Effects
+  - Dose-Response Relationship
+  - Physiological and Biochemical Changes
 
-**** PK Parameters
-- Concentration-Time Data: This is the fundamental PK data, including the concentrations of the drug in blood, plasma, or other biological fluids over time. These data are used to calculate various parameters
-- Area Under the curve (AUC): The measures the total exposure to the drug over time and is calculated from the concentration-time data. It's a key indictor of the drug's bioavailability
-- Maximum concentration (Cmax) and Time to Maximum Concentration (Tmax):
-- Half-Life(t1/2): The time it takes for the drug's concentration to reduce by half in the body. It's crucial for understanding the duration of the drug's effect and for determining dosing intervals.
-- Clearance (CL): This measures the body's efficiency in eliminating the drug, often expressed as volume per unit time.
-- Volumne of Distribution (Vd): This parameter gives an idea of how extensively the drug distributes into body tissues compared to the bloodstream.
-- Bioavailability (F): The fraction of the administrered drug that reaches the systemic circulation in an active form
-- Dose-Proportionality Studies: Data to determine if the PK of the drug are linear or non-linear across different dose levels.
-- Metabolite Data: Information about the drug's metabolites, if relevant, which can be important for efficacy and safety assessments
 
-**** PD Parameters
-- Effect Size or Response Magnitude: This refers to the degree of biological or cinical response observed after drug administration. It could be a measure of symptom relief, tumor size reduction in oncology, or change of biomarker levels.
-- Time to Onset of Action: The time it takes for the drug to start showing its therapeutic effect.
-- Duration of Effect: How long the therapeutic effect of the drug lasts. This can be crucial in determining dosing frequency.
-- EC50 (Effective Concentration 50): The concentration of the drug that produces 50% of its maximum effect. This is a common measure of a drug's potency.
-- IC50 (Inhibitory Concentration 50): Particularly relevant in oncology and biochemistry, it's the concentration of a drug that is required for 50% inhibition in vitro (e.g. of cancer cell growth).
-- Efficacy: The maximun effect that can be achieved with the drug. This is often assessed in terms of the proportion of subjects achieving a predefined clinical outcome.
-- Therapeutic Index: A ratio that compares the blood concentration at which a drug becomes toxic to the concentration at which the drug is effective. The alrger the therapeutic index, the safer the drug
-- Biomarker Levels:
-- Drug-Receptor Interaction Data:
-- Adverse Effects:
-- Dose-Response Relationship:
-- Physiological and Biochemical Changes:
+* References
+(1) Hsiue EHC, Moore TJ, Alexander GC. Estimated costs of pivotal trials for U.S. Food and Drug Administration-approved cancer drugs, 2015-2017. Clin Trials 2020;17(2):119–125. Crossref, Medline, Google Scholar
