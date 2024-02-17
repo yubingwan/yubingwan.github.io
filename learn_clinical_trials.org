@@ -178,6 +178,5 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
   - Dose-Response Relationship
   - Physiological and Biochemical Changes
 
-
 * References
 (1) Hsiue EHC, Moore TJ, Alexander GC. Estimated costs of pivotal trials for U.S. Food and Drug Administration-approved cancer drugs, 2015-2017. Clin Trials 2020;17(2):119–125. Crossref, Medline, Google Scholar

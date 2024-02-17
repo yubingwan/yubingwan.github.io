@@ -10,15 +10,8 @@
 
 - Library: an umbrella term that loosely means "a bundle of code". These can have tens or even hundreds of individual modules that can provide a wide range of functionality. Matplotlib is a plotting library. The Python Standard Library contains hundreds of modules for performing common tasks, like sending emails or reading JSON data. What’s special about the Standard Library is that it comes bundled with your installation of Python, so you can use its modules without having to download them from anywhere.
 
-** Virtual Environments
-- A isolated container with a Python interpreter, PIP executable, and site-package directory
-- Many VE can be activated, which temporarily tricks the shell into thinking that the only Python and PIP executables are the ones that exist in the virtual environment
-- Common practice is to use a different VE for each Python project
-  - This is especially helpful when two different projects require different versions of the same package. Not even python -m pip can get around this.
-
-
 ** Class
-- a blueprint for creating objects (a particular data structure), providing initial values for state (member variables or attributes), and implementations of behavior (member functions or methods)
+- A class is a blueprint for creating objects (a particular data structure), providing initial values for state (member variables or attributes), and implementations of behavior (member functions or methods)
 
 - How to use it
   1. Define a Class
@@ -40,6 +33,36 @@
      my_instance = MyClass("Hello")
      #+END_SRC
 
+
+* Version and IDE Management
+** Virtual Environments
+- A isolated container with a Python interpreter, PIP executable, and site-package directory
+- Many VE can be activated, which temporarily tricks the shell into thinking that the only Python and PIP executables are the ones that exist in the virtual environment
+- Common practice is to use a different VE for each Python project
+  - This is especially helpful when two different projects require different versions of the same package. Not even python -m pip can get around this.
+
+*** How to Use VE
+1. Open Terminal
+2. Update pip, setuptools, and wheel
+#+begin_src python
+python3 -m pip install --user --upgrade pip setuptools wheel
+#+end_src
+3. Create a VE
+   Navigate to your project directory where you want the virtual environment to be created. If you haven't created a project directory yet, you can create one with mkdir projectname and then navigate into it with cd projectname. Once you're in the project directory, create the virtual environment:
+   #+begin_src python
+    python3 -m venv venv
+   #+end_src
+4. Activate the VE
+   #+begin_src python
+   source venv/bin/activate
+   #+end_src
+5. Install Pacakges
+
+6. Deactivate the VE
+   ```
+   deactivate
+   ```
+
 ** Conda or venv
 *** Choosing Between `venv` and `conda`:
 - *Specific Python Version:* Both conda and venv can be used to create environments with specific Python versions. With conda, you can directly specify the Python version when creating a new environment. With venv, you're typically using the Python version venv was created with, but you can install different versions of Python and then create venv environments with those versions.
@@ -50,3 +73,4 @@
 - *Stick to One:* Try to manage your project with either conda or venv/pip exclusively, if possible. This simplifies environment management and reduces the risk of dependency conflicts.
 - *Document Your Environment:* Whether you choose conda, venv, or a mix of conda and pip, document your environment setup and dependencies clearly. If using conda, you can export an environment file with conda env export > environment.yml. If using venv, you can list your dependencies in a requirements.txt file with pip freeze > requirements.txt.
 - *Consistency Across Team:* Ensure that all team members are using the same environment management tool and setup to avoid "it works on my machine" problems.
+
