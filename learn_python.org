@@ -44,27 +44,26 @@
 *** How to Use VE
 1. Open Terminal
 2. Update pip, setuptools, and wheel
-#+begin_src python
-python3 -m pip install --user --upgrade pip setuptools wheel
-#+end_src
+   #+begin_src  bash
+   python3 -m pip install --user --upgrade pip setuptools wheel
+   #+end_src
 3. Create a VE
    Navigate to your project directory where you want the virtual environment to be created. If you haven't created a project directory yet, you can create one with mkdir projectname and then navigate into it with cd projectname. Once you're in the project directory, create the virtual environment:
-   #+begin_src python
-    python3 -m venv venv
+   #+begin_src bash
+   python3 -m venv venv
    #+end_src
 4. Activate the VE
-   #+begin_src python
+   #+begin_src bash
    source venv/bin/activate
    #+end_src
 5. Install Pacakges
-
 6. Deactivate the VE
-   ```
+   #+begin_src bash
    deactivate
-   ```
+   #+end_src
 
-** Conda or venv
-*** Choosing Between `venv` and `conda`:
+** Conda or VE
+*** Choosing Between *venv* and *conda*:
 - *Specific Python Version:* Both conda and venv can be used to create environments with specific Python versions. With conda, you can directly specify the Python version when creating a new environment. With venv, you're typically using the Python version venv was created with, but you can install different versions of Python and then create venv environments with those versions.
 
 - *Project Needs:* If your project requires packages that are difficult to compile or are not available on PyPI but are available through conda, or if you need to manage packages from languages other than Python, conda might be the better choice. For pure Python projects, especially those intended to run in environments where conda is not available or desired, venv is sufficient and lightweight.
@@ -73,4 +72,3 @@ python3 -m pip install --user --upgrade pip setuptools wheel
 - *Stick to One:* Try to manage your project with either conda or venv/pip exclusively, if possible. This simplifies environment management and reduces the risk of dependency conflicts.
 - *Document Your Environment:* Whether you choose conda, venv, or a mix of conda and pip, document your environment setup and dependencies clearly. If using conda, you can export an environment file with conda env export > environment.yml. If using venv, you can list your dependencies in a requirements.txt file with pip freeze > requirements.txt.
 - *Consistency Across Team:* Ensure that all team members are using the same environment management tool and setup to avoid "it works on my machine" problems.
-
