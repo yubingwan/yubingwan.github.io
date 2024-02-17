@@ -131,6 +131,8 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
     - Multiple programs have been created to expedite drug approval for life-threatening illnesses, including advanced cancer.
     - ORR and PFS have been accepted by the FDA as adequate predictors of OS on which to base drug approval decisions, thus substantially shortening the time and cost of drug development (1).
     - Use of imaging surrogate markers for drug approval has become increasingly common, accounting for more than 90% of approvals through the Accelerated Approval Program and allowing for use of many therapies which have altered the course of cancer.
+    - [[https://www.aimetrics.com/comparing-ai-metrics-to-manual-methods/][Comparing AI Metrics to Manual Methods]]
+      AI Metrics increased reporting accuracy by 25%, reduced errors by 99%, cut interpretation time in half, increased inter-observer agreement among oncologists by 58% and among radiologists by 45%, and was preferred by 96% of radiologists and 100% of oncologists compared to current practice with manual image assessments and text reports. In a study of the beta version of the AI Metrics Platform (called eMASS; included guided workflows and annotation tools, but no AI algorithms), eMASS reduced errors and time of evaluation was twice as fast, which indicated better overall effectiveness than standard of care, manual tumor response evaluation methods for three different therapy response criteria.
 
 - Immunology
 - CNS
