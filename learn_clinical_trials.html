@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-17 Sat 15:57 -->
+<!-- 2024-02-22 Thu 22:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Learn Clinical Trials</title>
@@ -233,43 +233,53 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2bb3a0d">1. Phases</a>
+<li><a href="#org79c5b10">1. Phases</a>
 <ul>
-<li><a href="#orgaacac80">1.1. Summary of Different Phases</a></li>
-<li><a href="#org09c3ed6">1.2. General Biostatistician Aspects to Consider Across Phases</a></li>
+<li><a href="#org1d62943">1.1. Summary of Different Phases</a></li>
+<li><a href="#org6cc3e79">1.2. General Biostatistician Aspects to Consider Across Phases</a></li>
 </ul>
 </li>
-<li><a href="#orgb52403c">2. Data</a>
+<li><a href="#org47757f8">2. Data</a>
 <ul>
-<li><a href="#orgd364a0d">2.1. Sample Data</a>
+<li><a href="#org3414d0e">2.1. Sample Data</a>
 <ul>
-<li><a href="#org15d597d">2.1.1. Type of Sample Data in Clinical Trials</a></li>
-<li><a href="#orgf4dbb91">2.1.2. Endpoints in Different Therapeutic Areas</a></li>
+<li><a href="#orgccf9a0a">2.1.1. Type of Sample Data in Clinical Trials</a></li>
+<li><a href="#orgbc2597b">2.1.2. Endpoints in Different Therapeutic Areas</a></li>
 </ul>
 </li>
-<li><a href="#org969c2a6">2.2. Biomarker Data</a></li>
+<li><a href="#orga5627f2">2.2. Biomarker Data</a></li>
 </ul>
 </li>
-<li><a href="#org89c908f">3. Preclinical/Nonclinical Trials</a>
+<li><a href="#org9b3541f">3. Preclinical/Nonclinical Trials</a>
 <ul>
-<li><a href="#org7cae301">3.1. Key Biomarker</a>
+<li><a href="#org3c0b747">3.1. Key Biomarker</a>
 <ul>
-<li><a href="#org23eaf6e">3.1.1. Pharmacokinetics (PK)</a></li>
-<li><a href="#org6907482">3.1.2. Pharmacodynamics (PD)</a></li>
+<li><a href="#orgf9fdc29">3.1.1. Pharmacokinetics (PK)</a></li>
+<li><a href="#orgb42d366">3.1.2. Pharmacodynamics (PD)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgb6296cb">4. References</a></li>
+<li><a href="#org772ba92">4. References</a></li>
+<li><a href="#orgf439a09">5. Adhoc Questions</a>
+<ul>
+<li><a href="#orgd0eacf9">5.1. How to address intercurrent event using estimand strategies?</a></li>
+<li><a href="#orgfae0217">5.2. What are intercurrent events, give me some examples</a></li>
+<li><a href="#orgc6fa5b0">5.3. How to handle biomarker endpoint (exploratory) with primary and secondary endpoints</a></li>
+<li><a href="#org1868de1">5.4. What are common biomarker assays used in oncology and immuno-oncology trials?</a></li>
+<li><a href="#org1ddc241">5.5. What are well-accepted targets at genomic, proteomic and cellular level for oncology and immuno-oncology trials</a></li>
+<li><a href="#org26fab4b">5.6. Can the measurements of these targets be included as exploratory or third endpoints in oncology or immuno-oncology trials?</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2bb3a0d" class="outline-2">
-<h2 id="org2bb3a0d"><span class="section-number-2">1.</span> Phases</h2>
+<div id="outline-container-org79c5b10" class="outline-2">
+<h2 id="org79c5b10"><span class="section-number-2">1.</span> Phases</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgaacac80" class="outline-3">
-<h3 id="orgaacac80"><span class="section-number-3">1.1.</span> Summary of Different Phases</h3>
+<div id="outline-container-org1d62943" class="outline-3">
+<h3 id="org1d62943"><span class="section-number-3">1.1.</span> Summary of Different Phases</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Clinical trials are conducted in distinct phases, each with specific characteristics, objectives, and study designs.
@@ -306,8 +316,8 @@ Clinical trials are conducted in distinct phases, each with specific characteris
 </ol>
 </div>
 </div>
-<div id="outline-container-org09c3ed6" class="outline-3">
-<h3 id="org09c3ed6"><span class="section-number-3">1.2.</span> General Biostatistician Aspects to Consider Across Phases</h3>
+<div id="outline-container-org6cc3e79" class="outline-3">
+<h3 id="org6cc3e79"><span class="section-number-3">1.2.</span> General Biostatistician Aspects to Consider Across Phases</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li><b>Sample Size Determination:</b> Crucial in all phases for ensuring statistical power.</li>
@@ -325,12 +335,12 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
 </div>
 </div>
 </div>
-<div id="outline-container-orgb52403c" class="outline-2">
-<h2 id="orgb52403c"><span class="section-number-2">2.</span> Data</h2>
+<div id="outline-container-org47757f8" class="outline-2">
+<h2 id="org47757f8"><span class="section-number-2">2.</span> Data</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgd364a0d" class="outline-3">
-<h3 id="orgd364a0d"><span class="section-number-3">2.1.</span> Sample Data</h3>
+<div id="outline-container-org3414d0e" class="outline-3">
+<h3 id="org3414d0e"><span class="section-number-3">2.1.</span> Sample Data</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><b>Defination:</b>
@@ -339,11 +349,13 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
 <li>In statistics, a sample is a set of obverservations or data points selected from a population of interest.</li>
 <li>The selection methods might include random sampling, stratified sampling or other statistical techinques.</li>
 </ul></li>
+
 <li><b>Purpose:</b>
 <ul class="org-ul">
 <li>To make inferences or draw conclusions about the larger population from which it is drawn.</li>
 <li>By analyzing sample data, researchers can estimate population parameters, test hypotheses, and make predictions.</li>
 </ul></li>
+
 <li><b>Charateristics:</b>
 <ul class="org-ul">
 <li>Can vary widely in nature depending on the field of study.</li>
@@ -351,8 +363,8 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org15d597d" class="outline-4">
-<h4 id="org15d597d"><span class="section-number-4">2.1.1.</span> Type of Sample Data in Clinical Trials</h4>
+<div id="outline-container-orgccf9a0a" class="outline-4">
+<h4 id="orgccf9a0a"><span class="section-number-4">2.1.1.</span> Type of Sample Data in Clinical Trials</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ol class="org-ol">
 <li>Particular Demographics:
@@ -376,6 +388,7 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
 <li>body measurements (height, weight, BMI)</li>
 <li>specific disease-related measurements (e.g. tumor size in cancer trials)</li>
 </ul></li>
+
 <li>Genetic Information (if relevant)
 <ul class="org-ul">
 <li>genetic markers or mutations</li>
@@ -388,24 +401,28 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
 <li>urine analysis</li>
 <li>other biological samples (e.g. tissue biopsies)</li>
 </ul></li>
+
 <li>Disease-Specific Clnical Assessments:
 <ul class="org-ul">
 <li>disease severity scoring</li>
 <li>staging of the disease (e.g. cancer staging)</li>
 <li>specific clinical scales or questionnaries relevant to the disease</li>
 </ul></li>
+
 <li>Treatment Exposure Data:
 <ul class="org-ul">
 <li>dosage and reginmen of the investigational product</li>
 <li>duration of treatment</li>
 <li>concomitant medications</li>
 </ul></li>
+
 <li>Efficacy Data:
 <ul class="org-ul">
 <li>primary and secondary endpoints of the study</li>
 <li>clinical outcomes (e.g. reduction in tumor size, blood sugar levels)</li>
 <li>patient-reported outcomes (symptoms, quality of life measures)</li>
 </ul></li>
+
 <li>Safety Data:
 <ul class="org-ul">
 <li>adverse events (AEs) and serious adverse events (SAEs)</li>
@@ -430,11 +447,13 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
 <li>adherence to the treatment regimen</li>
 <li>missed doses or deviations from the study protocol</li>
 </ul></li>
+
 <li>Follow-up Data:
 <ul class="org-ul">
 <li>long-term efficacy and safety data</li>
 <li>post-study monitoring of outcomes</li>
 </ul></li>
+
 <li>Economic and Quality of Life Assessments:
 <ul class="org-ul">
 <li>health economics data (cost-effectiveness)</li>
@@ -448,8 +467,8 @@ Each phase of a clinical trial has distinct statistical considerations. Biostati
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf4dbb91" class="outline-4">
-<h4 id="orgf4dbb91"><span class="section-number-4">2.1.2.</span> Endpoints in Different Therapeutic Areas</h4>
+<div id="outline-container-orgbc2597b" class="outline-4">
+<h4 id="orgbc2597b"><span class="section-number-4">2.1.2.</span> Endpoints in Different Therapeutic Areas</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li>Oncology
@@ -490,8 +509,8 @@ AI Metrics increased reporting accuracy by 25%, reduced errors by 99%, cut inter
 </div>
 </div>
 </div>
-<div id="outline-container-org969c2a6" class="outline-3">
-<h3 id="org969c2a6"><span class="section-number-3">2.2.</span> Biomarker Data</h3>
+<div id="outline-container-orga5627f2" class="outline-3">
+<h3 id="orga5627f2"><span class="section-number-3">2.2.</span> Biomarker Data</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li><b>Defination:</b> Biomarker data refers specifically to data that is indicative of a biological state or condition. Biomarkers (short for biological markers) are measurable indicators of some biological state or condition. They can be molecules, genes, gene products, enzymes, hormones, or other substances whose presence or concentration can be measured in biological samples like blood, tissue, or urine.</li>
@@ -500,20 +519,20 @@ AI Metrics increased reporting accuracy by 25%, reduced errors by 99%, cut inter
 </div>
 </div>
 </div>
-<div id="outline-container-org89c908f" class="outline-2">
-<h2 id="org89c908f"><span class="section-number-2">3.</span> Preclinical/Nonclinical Trials</h2>
+<div id="outline-container-org9b3541f" class="outline-2">
+<h2 id="org9b3541f"><span class="section-number-2">3.</span> Preclinical/Nonclinical Trials</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org7cae301" class="outline-3">
-<h3 id="org7cae301"><span class="section-number-3">3.1.</span> Key Biomarker</h3>
+<div id="outline-container-org3c0b747" class="outline-3">
+<h3 id="org3c0b747"><span class="section-number-3">3.1.</span> Key Biomarker</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org23eaf6e" class="outline-4">
-<h4 id="org23eaf6e"><span class="section-number-4">3.1.1.</span> Pharmacokinetics (PK)</h4>
+<div id="outline-container-orgf9fdc29" class="outline-4">
+<h4 id="orgf9fdc29"><span class="section-number-4">3.1.1.</span> Pharmacokinetics (PK)</h4>
 <div class="outline-text-4" id="text-3-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="orga044177"></a>Parameters<br />
+<li><a id="orgf0d946b"></a>Parameters<br />
 <div class="outline-text-5" id="text-3-1-1-1">
 <ul class="org-ul">
 <li><b>Concentration-Time Data:</b> fundamental PK data, including the concentrations of the drug in blood, plasma, or other biological fluids over time. These data are used to calculate various parameters</li>
@@ -530,12 +549,12 @@ AI Metrics increased reporting accuracy by 25%, reduced errors by 99%, cut inter
 </li>
 </ol>
 </div>
-<div id="outline-container-org6907482" class="outline-4">
-<h4 id="org6907482"><span class="section-number-4">3.1.2.</span> Pharmacodynamics (PD)</h4>
+<div id="outline-container-orgb42d366" class="outline-4">
+<h4 id="orgb42d366"><span class="section-number-4">3.1.2.</span> Pharmacodynamics (PD)</h4>
 <div class="outline-text-4" id="text-3-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org7a9d93c"></a>Parameters<br />
+<li><a id="orgf50f490"></a>Parameters<br />
 <div class="outline-text-5" id="text-3-1-2-1">
 <ul class="org-ul">
 <li><b>Effect Size / Response Magnitude:</b> The degree of biological or cinical response observed after drug administration.
@@ -577,18 +596,370 @@ AI Metrics increased reporting accuracy by 25%, reduced errors by 99%, cut inter
 </div>
 </div>
 </div>
-<div id="outline-container-orgb6296cb" class="outline-2">
-<h2 id="orgb6296cb"><span class="section-number-2">4.</span> References</h2>
+<div id="outline-container-org772ba92" class="outline-2">
+<h2 id="org772ba92"><span class="section-number-2">4.</span> References</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 (1) Hsiue EHC, Moore TJ, Alexander GC. Estimated costs of pivotal trials for U.S. Food and Drug Administration-approved cancer drugs, 2015-2017. Clin Trials 2020;17(2):119–125. Crossref, Medline, Google Scholar
 </p>
 </div>
 </div>
+<div id="outline-container-orgf439a09" class="outline-2">
+<h2 id="orgf439a09"><span class="section-number-2">5.</span> Adhoc Questions</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgd0eacf9" class="outline-3">
+<h3 id="orgd0eacf9"><span class="section-number-3">5.1.</span> How to address intercurrent event using estimand strategies?</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Addressing intercurrent events using estimand strategies is a crucial aspect of clinical trial design and analysis, enhancing clarity and transparency in how we handle post-randomization events that could affect the interpretation of treatment effects. Estimands aim to precisely define the target of estimation to address the specific clinical question of interest, taking into account the complexities introduced by intercurrent events. Here are some steps and considerations for incorporating estimand strategies to deal with intercurrent events as a lead biostatistician:
+</p>
+
+<ol class="org-ol">
+<li>Define Your Estimand</li>
+</ol>
+<p>
+Start by clearly defining your estimand according to the ICH E9(R1) guideline, which should include a precise definition of the target population, endpoint(s), and the treatment effect(s) of interest in the presence of intercurrent events. This involves specifying the clinical question you aim to answer and the relevant population characteristics.
+</p>
+
+<ol class="org-ol">
+<li>Identify Intercurrent Events</li>
+</ol>
+<p>
+Intercurrent events are events that occur after treatment initiation and can affect either the interpretation or the existence of the measurements associated with the clinical question of interest. Common examples include use of rescue medication, discontinuation of treatment, and occurrence of a major health event. Identifying these events early in the trial design is crucial for proper estimand formulation.
+</p>
+
+<ol class="org-ol">
+<li>Choose an Appropriate Strategy</li>
+</ol>
+<p>
+The ICH E9(R1) guideline outlines several strategies for addressing intercurrent events within the framework of estimands. These include:
+</p>
+
+<p>
+Treatment Policy Strategy: Include all data, regardless of the occurrence of intercurrent events, to reflect the treatment effect under the treatment policy being studied.
+Composite Strategy: Combine the primary variable of interest with the intercurrent event into a composite endpoint.
+Hypothetical Strategy: Estimate what the outcomes would have been without the intercurrent events.
+Principal Stratification Strategy: Focus on a subgroup of participants who are not affected by the intercurrent events.
+While on Treatment Strategy: Analyze data only up to the occurrence of the intercurrent event.
+</p>
+<ol class="org-ol">
+<li>Implement Appropriate Statistical Methods</li>
+</ol>
+<p>
+Once you&rsquo;ve chosen a strategy, select statistical methods that align with your estimand. This might involve methods for handling missing data, such as multiple imputation or inverse probability weighting, or more complex models like causal inference techniques, depending on the chosen strategy.
+</p>
+
+<ol class="org-ol">
+<li>Document and Justify Your Choices</li>
+</ol>
+<p>
+Document your estimand strategy and the rationale for your choice, including how you plan to handle each identified intercurrent event. This documentation should be part of your statistical analysis plan (SAP) and protocol, ensuring transparency and regulatory compliance.
+</p>
+
+<ol class="org-ol">
+<li>Sensitivity Analyses</li>
+</ol>
+<p>
+Conduct sensitivity analyses to assess the robustness of your findings to different assumptions about the handling of intercurrent events. This can provide insights into the impact of these events on the treatment effect estimate.
+</p>
+
+<ol class="org-ol">
+<li>Communicate with Stakeholders</li>
+</ol>
+<p>
+Engage with clinical and regulatory stakeholders early and throughout the trial process to ensure alignment on the estimand strategy and its implications for clinical decision-making.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfae0217" class="outline-3">
+<h3 id="orgfae0217"><span class="section-number-3">5.2.</span> What are intercurrent events, give me some examples</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Intercurrent events are occurrences after the initiation of treatment in a clinical trial that can affect the interpretation of the primary outcome, either by changing the course of the disease under study or by influencing the measurement of the primary outcome. These events pose challenges in assessing the true effect of the treatment being studied. The concept of intercurrent events is central to the framework of estimands, as defined in the ICH E9(R1) Addendum on Estimands and Sensitivity Analysis in Clinical Trials. Here are some common examples of intercurrent events:
+</p>
+
+<ol class="org-ol">
+<li>Use of Rescue Medication</li>
+</ol>
+<p>
+Participants may receive additional treatments or interventions not specified in the study protocol to manage symptoms or adverse reactions, which can confound the effects of the study treatment.
+</p>
+
+<ol class="org-ol">
+<li>Treatment Discontinuation</li>
+</ol>
+<p>
+Participants may stop the study treatment prematurely for various reasons, such as experiencing side effects, perceiving lack of efficacy, or personal choice. This can complicate the assessment of long-term treatment effects.
+</p>
+
+<ol class="org-ol">
+<li>Switching Treatments</li>
+</ol>
+<p>
+In some cases, participants might switch to an alternative treatment during the study. This switch could affect the disease progression independently of the study treatment.
+</p>
+
+<ol class="org-ol">
+<li>Missing Data</li>
+</ol>
+<p>
+Missing data, resulting from participants dropping out of the study or missing scheduled assessments, can introduce bias if the reasons for missing data are related to the treatment or outcome.
+</p>
+
+<ol class="org-ol">
+<li>Death</li>
+</ol>
+<p>
+Death is a critical intercurrent event, especially in studies where survival or life-extension is the primary endpoint. It requires careful consideration in the analysis to accurately reflect the treatment&rsquo;s impact on survival.
+</p>
+
+<ol class="org-ol">
+<li>Major Health Events</li>
+</ol>
+<p>
+Events such as hospitalization, surgery, or the occurrence of a new illness can impact the outcome of interest or the ability to measure it accurately.
+</p>
+
+<ol class="org-ol">
+<li>Protocol Deviations</li>
+</ol>
+<p>
+Violations of the study protocol, whether intentional or accidental, by participants or investigators, can affect the treatment&rsquo;s perceived efficacy and safety.
+</p>
+
+<p>
+Handling these intercurrent events appropriately in the analysis is crucial for drawing valid and reliable conclusions about the treatment&rsquo;s effects. The choice of strategy to address these events should be guided by the clinical question of interest and the context of the disease and treatment under investigation.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc6fa5b0" class="outline-3">
+<h3 id="orgc6fa5b0"><span class="section-number-3">5.3.</span> How to handle biomarker endpoint (exploratory) with primary and secondary endpoints</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+When a lead biostatistician in a Contract Research Organization (CRO) is involved in exploring biomarker endpoints, especially in the exploratory phase of a clinical trial, there are several important considerations regarding sample size calculation. Whether there is a need to redo sample size calculation specifically for the biomarker endpoint depends on various factors, including the objectives of the biomarker analysis, the relationship between the biomarker and primary/secondary endpoints, and the statistical properties of the biomarker itself. Here are some key points to consider:
+</p>
+
+<p>
+Objectives of Biomarker Analysis
+</p>
+<ul class="org-ul">
+<li>Exploratory vs. Confirmatory: If the biomarker analysis is purely exploratory, intended to generate hypotheses rather than confirm them, a formal sample size recalculation may not be strictly necessary. However, having a sufficient sample size to observe a meaningful signal is still important for the credibility of any findings.</li>
+<li>Decision-making: If the biomarker is critical for future decision-making, such as selecting doses for later-phase trials or identifying responder subgroups, a more rigorous approach to sample size determination may be warranted to ensure the reliability of these decisions.</li>
+</ul>
+
+<p>
+Relationship to Primary/Secondary Endpoints
+</p>
+<ul class="org-ul">
+<li>Correlation with Clinical Outcomes: If the biomarker is strongly correlated with the primary or secondary endpoints, the original sample size may already offer sufficient power to detect meaningful changes in the biomarker. However, this depends on the strength of the correlation and the variability of the biomarker.</li>
+<li>Independent Analysis Goals: If the biomarker endpoint serves a distinct purpose or addresses a separate question from the primary/secondary endpoints, a separate sample size calculation based on the expected effect size, variability, and desired power for the biomarker analysis may be necessary.</li>
+</ul>
+
+<p>
+Statistical Properties of the Biomarker
+</p>
+<ul class="org-ul">
+<li>Variability: Biomarkers often have different variability characteristics compared to clinical endpoints. High variability may necessitate a larger sample size to detect a given effect size.</li>
+<li>Effect Size: The expected effect size for the biomarker may differ from that of the primary/secondary endpoints, potentially requiring adjustment to the sample size calculation.</li>
+</ul>
+
+<p>
+Practical Considerations
+</p>
+<ul class="org-ul">
+<li>Resource Limitations: In the context of a CRO, resource constraints such as budget and time can also influence the feasibility of increasing sample size based on biomarker analyses.</li>
+<li>Regulatory Guidance: Consideration of regulatory expectations for biomarker-based analyses, especially if the biomarker might later transition to a more pivotal role in the study or program.</li>
+</ul>
+
+<p>
+Steps to Take
+</p>
+<ul class="org-ul">
+<li>Preliminary Analysis: Conduct a preliminary analysis to assess the variability and potential effect size associated with the biomarker.</li>
+<li>Statistical Methods: Employ statistical methods tailored to biomarker analysis, which may include simulation studies to estimate the required sample size under different scenarios.</li>
+<li>Consultation: Engage with clinical and scientific experts to understand the clinical relevance of changes in the biomarker and to align on the objectives of the biomarker analysis.</li>
+</ul>
+
+<p>
+In conclusion, while there may not always be a need to formally redo the sample size calculation for exploratory biomarker endpoints, considering the specific objectives and statistical properties of the biomarker analysis is crucial. A careful evaluation will help ensure that the study is appropriately powered to yield informative and credible results, supporting the overall goals of the clinical program.
+</p>
+</div>
+</div>
+<div id="outline-container-org1868de1" class="outline-3">
+<h3 id="org1868de1"><span class="section-number-3">5.4.</span> What are common biomarker assays used in oncology and immuno-oncology trials?</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+In oncology and immuno-oncology trials, biomarkers play a crucial role in understanding the mechanism of action of therapies, predicting responses, and monitoring disease progression. The landscape of biomarker assays is rapidly evolving, driven by advances in technology and a deeper understanding of cancer biology. Here are some popular biomarker assays currently used in these fields:
+</p>
+
+<ol class="org-ol">
+<li>Immunohistochemistry (IHC)</li>
+</ol>
+<p>
+IHC is widely used for the detection and localization of proteins within tissue sections. It is particularly useful for assessing the expression of tumor antigens, checkpoint proteins (e.g., PD-L1), and other markers that may predict response to immunotherapy.
+</p>
+
+<ol class="org-ol">
+<li>Polymerase Chain Reaction (PCR)</li>
+</ol>
+<p>
+PCR, including quantitative PCR (qPCR) and reverse transcription PCR (RT-PCR), is a sensitive method for detecting gene mutations, amplifications, or expression levels of mRNA. It&rsquo;s commonly used for identifying specific oncogenic mutations or viral DNA associated with certain cancers.
+</p>
+
+<ol class="org-ol">
+<li>Next-Generation Sequencing (NGS)</li>
+</ol>
+<p>
+NGS allows for the comprehensive analysis of genetic mutations, gene expression profiles, and other genomic alterations. Its applications in oncology include whole-genome sequencing, targeted gene panel sequencing, and transcriptome sequencing (RNA-Seq). NGS is instrumental in identifying actionable mutations and predicting responses to targeted therapies.
+</p>
+
+<ol class="org-ol">
+<li>Circulating Tumor DNA (ctDNA) Analysis</li>
+</ol>
+<p>
+ctDNA assays detect and quantify tumor-derived DNA fragments in the blood, offering a non-invasive approach to cancer diagnosis, prognosis, and monitoring of treatment response. This &ldquo;liquid biopsy&rdquo; technique is gaining traction for its ability to detect minimal residual disease and emerging resistance mutations.
+</p>
+
+<ol class="org-ol">
+<li>Flow Cytometry</li>
+</ol>
+<p>
+Flow cytometry is used to analyze the physical and chemical characteristics of cells or particles in a fluid as it passes through at least one laser. It&rsquo;s particularly useful for characterizing immune cell populations, assessing leukocyte differentiation status, and quantifying markers of activation or inhibition in the context of immuno-oncology.
+</p>
+
+<ol class="org-ol">
+<li>Multiplex Immunoassays</li>
+</ol>
+<p>
+Multiplex immunoassays, such as Luminex or cytometric bead array, allow for the simultaneous measurement of multiple cytokines, growth factors, and other soluble proteins in a single sample. This capability is valuable for profiling the immune response and understanding the cytokine milieu within the tumor microenvironment.
+</p>
+
+<ol class="org-ol">
+<li>Tumor Mutation Burden (TMB)</li>
+</ol>
+<p>
+TMB is assessed through comprehensive genomic profiling and quantifies the number of mutations within a tumor genome. A higher TMB may predict a better response to immune checkpoint inhibitors, making it a valuable biomarker in immuno-oncology.
+</p>
+
+<ol class="org-ol">
+<li>Microsatellite Instability (MSI) and Mismatch Repair (MMR) Deficiency Testing</li>
+</ol>
+<p>
+MSI and MMR deficiency are biomarkers for certain types of cancer, indicating a predisposition to accumulate genetic mutations. These markers are particularly relevant in colorectal cancer and have implications for responsiveness to immunotherapy.
+</p>
+
+<ol class="org-ol">
+<li>T-cell Receptor (TCR) Sequencing</li>
+</ol>
+<p>
+TCR sequencing analyzes the diversity and clonality of the T-cell repertoire within a tumor or peripheral blood, providing insights into the immune response to cancer and the potential efficacy of immunotherapies.
+</p>
+
+<p>
+These assays are critical tools in the design and execution of oncology and immuno-oncology trials, enabling personalized medicine approaches that match patients with the most appropriate therapies based on their biomarker profiles. As research progresses, the use of these and emerging assays will continue to refine our understanding of cancer biology and enhance the effectiveness of cancer treatments.
+</p>
+</div>
+</div>
+<div id="outline-container-org1ddc241" class="outline-3">
+<h3 id="org1ddc241"><span class="section-number-3">5.5.</span> What are well-accepted targets at genomic, proteomic and cellular level for oncology and immuno-oncology trials</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+In oncology and immuno-oncology trials, the identification of specific targets at the genomic, proteomic, and cellular levels is crucial for the development of effective therapies. These targets provide the basis for understanding cancer&rsquo;s molecular mechanisms and for designing drugs that can selectively interfere with the growth and spread of cancer cells while sparing normal cells. Here are some well-accepted targets in each category:
+</p>
+
+<p>
+Genomic Targets
+</p>
+<ul class="org-ul">
+<li>KRAS: Mutations in the KRAS gene are common in various cancers, including lung, colorectal, and pancreatic cancers. KRAS inhibitors are being actively explored in clinical trials.</li>
+<li>EGFR (Epidermal Growth Factor Receptor): EGFR mutations are prevalent in non-small cell lung cancer (NSCLC) and are targets for EGFR inhibitors.</li>
+<li>BRAF: BRAF mutations, notably V600E in melanoma, are targets for BRAF inhibitors, often used in combination with MEK inhibitors.</li>
+<li>HER2 (Human Epidermal Growth Factor Receptor 2): HER2 is overexpressed in breast cancer and gastric cancer, targeted by monoclonal antibodies and antibody-drug conjugates.</li>
+<li>BRCA1/2: Mutations in these genes are linked to increased risk of breast and ovarian cancers, with PARP inhibitors being effective in targeting BRCA-mutated cancers.</li>
+</ul>
+
+<p>
+Proteomic Targets
+</p>
+<ul class="org-ul">
+<li>PD-1/PD-L1 (Programmed Death-1/Ligand-1): These proteins are key immune checkpoint molecules. Inhibitors of PD-1/PD-L1, such as pembrolizumab and nivolumab, have revolutionized the treatment of various cancers by enhancing anti-tumor immunity.</li>
+<li>CTLA-4 (Cytotoxic T-Lymphocyte-Associated Protein 4): Another immune checkpoint inhibitor target, CTLA-4 blockade (e.g., ipilimumab) can promote anti-tumor immune responses, especially in melanoma.</li>
+<li>ALK (Anaplastic Lymphoma Kinase): ALK rearrangements in NSCLC are targeted by ALK inhibitors.</li>
+<li>VEGF (Vascular Endothelial Growth Factor): VEGF and its receptors are targets for anti-angiogenic therapies, which inhibit tumor blood vessel formation.</li>
+</ul>
+
+<p>
+Cellular Targets
+</p>
+<ul class="org-ul">
+<li>T cells: Enhancing the activity of T cells against cancer cells is a primary focus of immuno-oncology. CAR-T cell therapies, where T cells are engineered to express chimeric antigen receptors targeting cancer cells, have been successful in treating certain hematological malignancies.</li>
+<li>NK (Natural Killer) cells: Therapies that activate or enhance NK cell responses against tumor cells are under investigation.</li>
+<li>Myeloid-derived suppressor cells (MDSCs) and Tumor-associated macrophages (TAMs): These cells can suppress anti-tumor immunity and are targets for therapies aiming to reprogram the tumor microenvironment to support an immune response against the tumor.</li>
+<li>Cancer stem cells: Targeting cancer stem cells, which may be responsible for resistance to conventional therapies and cancer recurrence, is an ongoing area of research.</li>
+</ul>
+
+<p>
+These targets represent only a fraction of the vast landscape of potential molecular and cellular targets in oncology and immuno-oncology. The field is rapidly evolving, with new targets being identified as our understanding of cancer biology deepens. The success of therapies targeting these molecules highlights the importance of precision medicine in cancer treatment, where therapies are tailored to the specific genetic and molecular profile of the tumor.
+</p>
+</div>
+</div>
+<div id="outline-container-org26fab4b" class="outline-3">
+<h3 id="org26fab4b"><span class="section-number-3">5.6.</span> Can the measurements of these targets be included as exploratory or third endpoints in oncology or immuno-oncology trials?</h3>
+<div class="outline-text-3" id="text-5-6">
+<p>
+Yes, measurements of these targets can indeed be included as exploratory or third endpoints in oncology and immuno-oncology trials. Incorporating these measurements as exploratory endpoints serves several important purposes:
+</p>
+
+<ol class="org-ol">
+<li>Biomarker Validation</li>
+</ol>
+<p>
+Including measurements of genomic, proteomic, and cellular targets as exploratory endpoints allows for the validation of these biomarkers in the context of the clinical trial. This validation process is crucial for understanding the biomarker&rsquo;s role in the disease process and its potential utility in predicting response to therapy or in patient stratification.
+</p>
+
+<ol class="org-ol">
+<li>Mechanism of Action (MoA) Elucidation</li>
+</ol>
+<p>
+Exploratory endpoints can help elucidate the mechanism of action of the investigational therapeutic. By measuring changes in specific targets, researchers can gain insights into how the therapy interacts with its target and the downstream effects on signaling pathways, potentially identifying mechanisms of resistance or synergies with other therapies.
+</p>
+
+<ol class="org-ol">
+<li>Identification of Predictive Biomarkers</li>
+</ol>
+<p>
+The analysis of these targets may help identify predictive biomarkers that could foresee which patients are likely to benefit from the therapy. This is particularly relevant in immuno-oncology, where responses to treatments such as checkpoint inhibitors can vary widely among patients. Predictive biomarkers can improve patient selection for specific therapies, enhancing clinical trial efficiency and facilitating personalized medicine approaches.
+</p>
+
+<ol class="org-ol">
+<li>Safety and Toxicity Monitoring</li>
+</ol>
+<p>
+Measurements of certain targets can also be used to monitor for potential adverse effects related to the therapy. For example, changes in immune cell populations or cytokine levels could indicate immune-related adverse events (irAEs) in trials involving immunotherapies.
+</p>
+
+<ol class="org-ol">
+<li>Secondary Pharmacodynamic (PD) Endpoints</li>
+</ol>
+<p>
+These measurements can serve as secondary PD endpoints, providing evidence of drug activity at the intended target site or within a specific biological pathway. PD endpoints are invaluable for dose-ranging studies and for establishing the relationship between drug exposure and biological effect.
+</p>
+
+<p>
+Practical Considerations
+Feasibility and Relevance: The feasibility of measuring these exploratory endpoints and their relevance to the therapeutic area and study goals must be considered. This includes the availability of validated assays and the biological rationale linking the target to the disease.
+Statistical Analysis Plan (SAP): The SAP should clearly outline the methods for analyzing exploratory endpoints, including statistical techniques and handling of multiplicity issues. While exploratory analyses may not be subject to the same statistical rigor as primary or secondary endpoints, clear planning is essential for generating meaningful insights.
+Regulatory and Ethical Considerations: Any additional measurements, especially those requiring extra patient samples or procedures, should be justified in terms of scientific value and patient burden. Ethical and regulatory considerations must be addressed, ensuring that the collection of data aligns with study objectives and patient welfare.
+Incorporating these measurements as exploratory endpoints in clinical trials offers a valuable opportunity to enhance our understanding of disease mechanisms, therapeutic effects, and patient responses, ultimately contributing to the development of more effective and personalized cancer treatments.
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Yubing Wan</p>
-<p class="date">Created: 2024-02-17 Sat 15:57</p>
+<p class="date">Created: 2024-02-22 Thu 22:48</p>
 </div>
 </body>
 </html>

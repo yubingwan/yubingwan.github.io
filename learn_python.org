@@ -28,7 +28,7 @@
      #+RESULTS:
      : None
 
-  2. *Create an INstance:* You create an instance of the class by calling the class name and passing arguments it expects.
+  2. *Create an Instance:* An instance of the class is created by calling the class name and passing arguments it expects.
      #+BEGIN_SRC python
      my_instance = MyClass("Hello")
      #+END_SRC
