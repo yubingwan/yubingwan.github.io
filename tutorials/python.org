@@ -1,4 +1,4 @@
-#+title: Learn Python
+#+title: Python Programming
 
 * Basic Concepts and Terminoloy
 ** Scripts, Modules, Packages, and Libraries

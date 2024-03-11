@@ -1,4 +1,4 @@
-#+title: Learn Biomarker Analysis
+#+title: Biomarker Development and Analysis
 
 * What Is A Biomarker
 ** FDA Definition

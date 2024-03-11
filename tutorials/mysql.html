@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-10 Sun 19:25 -->
+<!-- 2024-03-10 Sun 20:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mysql</title>
+<title>MySQL Project</title>
 <meta name="author" content="Yubing Wan" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -196,40 +196,91 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Mysql</h1>
+<h1 class="title">MySQL Project</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgac9a5c5">1. Practice</a>
+<li><a href="#org9e07421">1. Build a database at localhost</a>
 <ul>
-<li><a href="#orgb532163">1.1. Build a database at localhost</a>
-<ul>
-<li><a href="#orgca5be29">1.1.1. Code: The SQL Script</a></li>
-</ul>
-</li>
+<li><a href="#orgc6b44a8">1.1. Code: The MySQL Script</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgac9a5c5" class="outline-2">
-<h2 id="orgac9a5c5"><span class="section-number-2">1.</span> Practice</h2>
+<div id="outline-container-org9e07421" class="outline-2">
+<h2 id="org9e07421"><span class="section-number-2">1.</span> Build a database at localhost</h2>
 <div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #5B6268;">-- </span><span style="color: #5B6268;">mysql -u yw -p</span>
+
+SHOW DATABASES;
+
+<span style="color: #51afef;">CREATE</span> DATABASE cdx_fda
+<span style="color: #ECBE7B;">CHARACTER</span> <span style="color: #51afef;">SET</span> utf8mb4
+<span style="color: #51afef;">COLLATE</span> utf8mb4_unicode_ci;
+
+SHOW DATABASES;
+
+<span style="color: #51afef;">CREATE</span> <span style="color: #51afef;">TABLE</span> <span style="color: #c678dd;">cdx_fda</span> (
+ `Dx <span style="color: #51afef;">Name</span> (Manufacturer)` <span style="color: #ECBE7B;">VARCHAR</span>(<span style="color: #da8548; font-weight: bold;">255</span>),
+ `Indication - Sample <span style="color: #51afef;">Type</span>` <span style="color: #ECBE7B;">VARCHAR</span>(<span style="color: #da8548; font-weight: bold;">255</span>),
+ `Drug <span style="color: #51afef;">Name</span> NDA / BLA` <span style="color: #ECBE7B;">VARCHAR</span>(<span style="color: #da8548; font-weight: bold;">255</span>),
+ `Biomarker(s)` <span style="color: #ECBE7B;">VARCHAR</span>(<span style="color: #da8548; font-weight: bold;">255</span>),
+ `Biomarker(s) (Details)` TEXT,
+ `PMA <span style="color: #da8548; font-weight: bold;">510</span>(k) <span style="color: #da8548; font-weight: bold;">513</span>(f)(<span style="color: #da8548; font-weight: bold;">2</span>) HDE <span style="color: #ECBE7B;">Date</span>` TEXT);
+
+<span style="color: #51afef;">DESCRIBE</span> cdx_fda;
+
+LOAD <span style="color: #51afef;">DATA</span> <span style="color: #51afef;">LOCAL</span> INFILE <span style="color: #98be65;">'~/Documents/List_of_CDx_FDA.csv'</span>
+ <span style="color: #51afef;">INTO</span> <span style="color: #51afef;">TABLE</span> cdx_fda
+ FIELDS TERMINATED <span style="color: #51afef;">BY</span> <span style="color: #98be65;">','</span>
+ ENCLOSED <span style="color: #51afef;">BY</span> <span style="color: #98be65;">'"'</span>
+ LINES TERMINATED <span style="color: #51afef;">BY</span> <span style="color: #98be65;">'\n'</span>
+ <span style="color: #51afef;">IGNORE</span> <span style="color: #da8548; font-weight: bold;">1</span> <span style="color: #51afef;">ROWS</span>;
+
+<span style="color: #51afef;">SELECT</span> `Dx <span style="color: #51afef;">Name</span> (Manufacturer)` <span style="color: #51afef;">FROM</span> cdx_fda;
+
+<span style="color: #51afef;">ALTER</span> <span style="color: #51afef;">TABLE</span> <span style="color: #c678dd;">cdx_fda</span>
+<span style="color: #51afef;">MODIFY</span> `PMA <span style="color: #da8548; font-weight: bold;">510</span>(k) <span style="color: #da8548; font-weight: bold;">513</span>(f)(<span style="color: #da8548; font-weight: bold;">2</span>) HDE <span style="color: #ECBE7B;">Date</span>` TEXT
+
+<span style="color: #51afef;">ALTER</span> <span style="color: #51afef;">TABLE</span> <span style="color: #c678dd;">cdx_fda</span>
+<span style="color: #51afef;">ADD</span> <span style="color: #51afef;">COLUMN</span> `Approval <span style="color: #ECBE7B;">Date</span>` <span style="color: #ECBE7B;">DATE</span>;
+
+<span style="color: #5B6268;">-- </span><span style="color: #5B6268;">DROP TABLE IF EXISTS cdx_fda;</span>
+
+<span style="color: #51afef;">SELECT</span> * <span style="color: #51afef;">FROM</span> cdx_fda <span style="color: #51afef;">ORDER</span> <span style="color: #51afef;">BY</span> `Dx <span style="color: #51afef;">Name</span> (Manufacturer)` <span style="color: #51afef;">LIMIT</span> <span style="color: #da8548; font-weight: bold;">1</span>;
+
+<span style="color: #51afef;">SELECT</span> `PMA <span style="color: #da8548; font-weight: bold;">510</span>(k) <span style="color: #da8548; font-weight: bold;">513</span>(f)(<span style="color: #da8548; font-weight: bold;">2</span>) HDE <span style="color: #ECBE7B;">Date</span>` <span style="color: #51afef;">FROM</span> cdx_fda <span style="color: #51afef;">ORDER</span> <span style="color: #51afef;">BY</span> `Dx <span style="color: #51afef;">Name</span> (Manufacturer)` <span style="color: #51afef;">LIMIT</span> <span style="color: #da8548; font-weight: bold;">1</span>;
+
+<span style="color: #51afef;">SELECT</span> `PMA <span style="color: #da8548; font-weight: bold;">510</span>(k) <span style="color: #da8548; font-weight: bold;">513</span>(f)(<span style="color: #da8548; font-weight: bold;">2</span>) HDE <span style="color: #ECBE7B;">Date</span>`, `Approval <span style="color: #ECBE7B;">Date</span>` <span style="color: #51afef;">FROM</span>
+  cdx_fda <span style="color: #51afef;">ORDER</span> <span style="color: #51afef;">BY</span> `Dx <span style="color: #51afef;">Name</span> (Manufacturer)` <span style="color: #51afef;">LIMIT</span> <span style="color: #da8548; font-weight: bold;">3</span>;
+
+<span style="color: #51afef;">UPDATE</span> cdx_fda
+<span style="color: #51afef;">SET</span> `Approval <span style="color: #ECBE7B;">Date</span>` = STR_TO_DATE(
+    SUBSTRING_INDEX(
+    SUBSTRING_INDEX(
+    `PMA <span style="color: #da8548; font-weight: bold;">510</span>(k) <span style="color: #da8548; font-weight: bold;">513</span>(f)(<span style="color: #da8548; font-weight: bold;">2</span>) HDE <span style="color: #ECBE7B;">Date</span>` , <span style="color: #98be65;">'('</span>, -<span style="color: #da8548; font-weight: bold;">1</span>), <span style="color: #98be65;">')'</span>, <span style="color: #da8548; font-weight: bold;">1</span>), <span style="color: #98be65;">'%m/%d/%Y'</span>);
+
+<span style="color: #51afef;">UPDATE</span> cdx_fda
+<span style="color: #51afef;">SET</span> `Approval <span style="color: #ECBE7B;">Date</span>` = STR_TO_DATE(
+    REGEXP_SUBSTR(`PMA <span style="color: #da8548; font-weight: bold;">510</span>(k) <span style="color: #da8548; font-weight: bold;">513</span>(f)(<span style="color: #da8548; font-weight: bold;">2</span>) HDE <span style="color: #ECBE7B;">Date</span>`, <span style="color: #98be65;">'\\b(\\d{2}/\\d{2}/\\d{4})\\b'</span>), <span style="color: #98be65;">'%m/%d/%Y'</span>)
+<span style="color: #51afef;">WHERE</span> `PMA <span style="color: #da8548; font-weight: bold;">510</span>(k) <span style="color: #da8548; font-weight: bold;">513</span>(f)(<span style="color: #da8548; font-weight: bold;">2</span>) HDE <span style="color: #ECBE7B;">Date</span>` REGEXP <span style="color: #98be65;">'\\b(\\d{2}/\\d{2}/\\d{4})\\b'</span>;
+
+<span style="color: #51afef;">SELECT</span> <span style="color: #c678dd;">COUNT</span>(*) <span style="color: #51afef;">FROM</span> cdx_fda;
+
+</pre>
 </div>
-<div id="outline-container-orgb532163" class="outline-3">
-<h3 id="orgb532163"><span class="section-number-3">1.1.</span> Build a database at localhost</h3>
-<div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgca5be29" class="outline-4">
-<h4 id="orgca5be29"><span class="section-number-4">1.1.1.</span> Code: <a href="https://yubingwan.github.io/scr_1.sql">The SQL Script</a></h4>
-</div>
+<div id="outline-container-orgc6b44a8" class="outline-3">
+<h3 id="orgc6b44a8"><span class="section-number-3">1.1.</span> Code: <a href="https://yubingwan.github.io/tutorials/scr_1.sql">The MySQL Script</a></h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Yubing Wan</p>
-<p class="date">Created: 2024-03-10 Sun 19:25</p>
+<p class="date">Created: 2024-03-10 Sun 20:07</p>
 </div>
 </body>
 </html>

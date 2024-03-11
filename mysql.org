@@ -1,5 +1,0 @@
-#+title: Mysql
-
-* Practice
-** Build a database at localhost
-*** Code: [[https://yubingwan.github.io/scr_1.sql][The SQL Script]]

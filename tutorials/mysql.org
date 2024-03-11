@@ -1,0 +1,64 @@
+#+title: MySQL Project
+
+* Build a database at localhost
+#+BEGIN_SRC sql :engine mysql :dbuser user :dbpassword pass :database dbname
+-- mysql -u yw -p
+
+SHOW DATABASES;
+
+CREATE DATABASE cdx_fda
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+SHOW DATABASES;
+
+CREATE TABLE cdx_fda (
+ `Dx Name (Manufacturer)` VARCHAR(255),
+ `Indication - Sample Type` VARCHAR(255),
+ `Drug Name NDA / BLA` VARCHAR(255),
+ `Biomarker(s)` VARCHAR(255),
+ `Biomarker(s) (Details)` TEXT,
+ `PMA 510(k) 513(f)(2) HDE Date` TEXT);
+
+DESCRIBE cdx_fda;
+
+LOAD DATA LOCAL INFILE '~/Documents/List_of_CDx_FDA.csv'
+ INTO TABLE cdx_fda
+ FIELDS TERMINATED BY ','
+ ENCLOSED BY '"'
+ LINES TERMINATED BY '\n'
+ IGNORE 1 ROWS;
+
+SELECT `Dx Name (Manufacturer)` FROM cdx_fda;
+
+ALTER TABLE cdx_fda
+MODIFY `PMA 510(k) 513(f)(2) HDE Date` TEXT
+
+ALTER TABLE cdx_fda
+ADD COLUMN `Approval Date` DATE;
+
+-- DROP TABLE IF EXISTS cdx_fda;
+
+SELECT * FROM cdx_fda ORDER BY `Dx Name (Manufacturer)` LIMIT 1;
+
+SELECT `PMA 510(k) 513(f)(2) HDE Date` FROM cdx_fda ORDER BY `Dx Name (Manufacturer)` LIMIT 1;
+
+SELECT `PMA 510(k) 513(f)(2) HDE Date`, `Approval Date` FROM
+  cdx_fda ORDER BY `Dx Name (Manufacturer)` LIMIT 3;
+
+UPDATE cdx_fda
+SET `Approval Date` = STR_TO_DATE(
+    SUBSTRING_INDEX(
+    SUBSTRING_INDEX(
+    `PMA 510(k) 513(f)(2) HDE Date` , '(', -1), ')', 1), '%m/%d/%Y');
+
+UPDATE cdx_fda
+SET `Approval Date` = STR_TO_DATE(
+    REGEXP_SUBSTR(`PMA 510(k) 513(f)(2) HDE Date`, '\\b(\\d{2}/\\d{2}/\\d{4})\\b'), '%m/%d/%Y')
+WHERE `PMA 510(k) 513(f)(2) HDE Date` REGEXP '\\b(\\d{2}/\\d{2}/\\d{4})\\b';
+
+SELECT COUNT(*) FROM cdx_fda;
+
+#+END_SRC
+
+** Code: [[https://yubingwan.github.io/tutorials/scr_1.sql][The MySQL Script]]

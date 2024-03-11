@@ -1,4 +1,4 @@
-#+title: Learn Biostatistics
+#+title: Biostatistics
 
 * Biostatistics
 

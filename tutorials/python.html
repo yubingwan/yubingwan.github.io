@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-17 Sat 16:37 -->
+<!-- 2024-03-10 Sun 19:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Learn Python</title>
+<title>Python Programming</title>
 <meta name="author" content="Yubing Wan" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -196,28 +196,28 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Learn Python</h1>
+<h1 class="title">Python Programming</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8e83e9a">1. Basic Concepts and Terminoloy</a>
+<li><a href="#orga091f98">1. Basic Concepts and Terminoloy</a>
 <ul>
-<li><a href="#orge26898f">1.1. Scripts, Modules, Packages, and Libraries</a></li>
-<li><a href="#orgbc0c533">1.2. Class</a></li>
+<li><a href="#org3937c0f">1.1. Scripts, Modules, Packages, and Libraries</a></li>
+<li><a href="#orge679656">1.2. Class</a></li>
 </ul>
 </li>
-<li><a href="#org908ac48">2. Version and IDE Management</a>
+<li><a href="#orgc12216f">2. Version and IDE Management</a>
 <ul>
-<li><a href="#org03246a1">2.1. Virtual Environments</a>
+<li><a href="#org1a56298">2.1. Virtual Environments</a>
 <ul>
-<li><a href="#org40b42de">2.1.1. How to Use VE</a></li>
+<li><a href="#org323faa3">2.1.1. How to Use VE</a></li>
 </ul>
 </li>
-<li><a href="#org2a65fcc">2.2. Conda or VE</a>
+<li><a href="#org7ff6ed8">2.2. Conda or VE</a>
 <ul>
-<li><a href="#orge06c270">2.2.1. Choosing Between <b>venv</b> and <b>conda</b>:</a></li>
-<li><a href="#orgc38214a">2.2.2. Best Practices:</a></li>
+<li><a href="#org1594d39">2.2.1. Choosing Between <b>venv</b> and <b>conda</b>:</a></li>
+<li><a href="#orge9587e6">2.2.2. Best Practices:</a></li>
 </ul>
 </li>
 </ul>
@@ -225,12 +225,12 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org8e83e9a" class="outline-2">
-<h2 id="org8e83e9a"><span class="section-number-2">1.</span> Basic Concepts and Terminoloy</h2>
+<div id="outline-container-orga091f98" class="outline-2">
+<h2 id="orga091f98"><span class="section-number-2">1.</span> Basic Concepts and Terminoloy</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orge26898f" class="outline-3">
-<h3 id="orge26898f"><span class="section-number-3">1.1.</span> Scripts, Modules, Packages, and Libraries</h3>
+<div id="outline-container-org3937c0f" class="outline-3">
+<h3 id="org3937c0f"><span class="section-number-3">1.1.</span> Scripts, Modules, Packages, and Libraries</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Script: a Python file that is executable direclty. When run it, it should do something. Scripts often contains code written outside the scope of any classes or functions.</li>
@@ -243,8 +243,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbc0c533" class="outline-3">
-<h3 id="orgbc0c533"><span class="section-number-3">1.2.</span> Class</h3>
+<div id="outline-container-orge679656" class="outline-3">
+<h3 id="orge679656"><span class="section-number-3">1.2.</span> Class</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>A class is a blueprint for creating objects (a particular data structure), providing initial values for state (member variables or attributes), and implementations of behavior (member functions or methods)</li>
@@ -266,7 +266,7 @@ Define a Class
 </div></li>
 
 <li><p>
-<b>Create an INstance:</b> You create an instance of the class by calling the class name and passing arguments it expects.
+<b>Create an Instance:</b> An instance of the class is created by calling the class name and passing arguments it expects.
 </p>
 <div class="org-src-container">
 <pre class="src src-python">     <span style="color: #dcaeea;">my_instance</span> = MyClass(<span style="color: #98be65;">"Hello"</span>)
@@ -277,12 +277,12 @@ Define a Class
 </div>
 </div>
 </div>
-<div id="outline-container-org908ac48" class="outline-2">
-<h2 id="org908ac48"><span class="section-number-2">2.</span> Version and IDE Management</h2>
+<div id="outline-container-orgc12216f" class="outline-2">
+<h2 id="orgc12216f"><span class="section-number-2">2.</span> Version and IDE Management</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org03246a1" class="outline-3">
-<h3 id="org03246a1"><span class="section-number-3">2.1.</span> Virtual Environments</h3>
+<div id="outline-container-org1a56298" class="outline-3">
+<h3 id="org1a56298"><span class="section-number-3">2.1.</span> Virtual Environments</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>A isolated container with a Python interpreter, PIP executable, and site-package directory</li>
@@ -293,8 +293,8 @@ Define a Class
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org40b42de" class="outline-4">
-<h4 id="org40b42de"><span class="section-number-4">2.1.1.</span> How to Use VE</h4>
+<div id="outline-container-org323faa3" class="outline-4">
+<h4 id="org323faa3"><span class="section-number-4">2.1.1.</span> How to Use VE</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ol class="org-ol">
 <li>Open Terminal</li>
@@ -332,12 +332,12 @@ Deactivate the VE
 </div>
 </div>
 </div>
-<div id="outline-container-org2a65fcc" class="outline-3">
-<h3 id="org2a65fcc"><span class="section-number-3">2.2.</span> Conda or VE</h3>
+<div id="outline-container-org7ff6ed8" class="outline-3">
+<h3 id="org7ff6ed8"><span class="section-number-3">2.2.</span> Conda or VE</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orge06c270" class="outline-4">
-<h4 id="orge06c270"><span class="section-number-4">2.2.1.</span> Choosing Between <b>venv</b> and <b>conda</b>:</h4>
+<div id="outline-container-org1594d39" class="outline-4">
+<h4 id="org1594d39"><span class="section-number-4">2.2.1.</span> Choosing Between <b>venv</b> and <b>conda</b>:</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li><b>Specific Python Version:</b> Both conda and venv can be used to create environments with specific Python versions. With conda, you can directly specify the Python version when creating a new environment. With venv, you&rsquo;re typically using the Python version venv was created with, but you can install different versions of Python and then create venv environments with those versions.</li>
@@ -346,8 +346,8 @@ Deactivate the VE
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc38214a" class="outline-4">
-<h4 id="orgc38214a"><span class="section-number-4">2.2.2.</span> Best Practices:</h4>
+<div id="outline-container-orge9587e6" class="outline-4">
+<h4 id="orge9587e6"><span class="section-number-4">2.2.2.</span> Best Practices:</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li><b>Stick to One:</b> Try to manage your project with either conda or venv/pip exclusively, if possible. This simplifies environment management and reduces the risk of dependency conflicts.</li>
@@ -361,7 +361,7 @@ Deactivate the VE
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Yubing Wan</p>
-<p class="date">Created: 2024-02-17 Sat 16:37</p>
+<p class="date">Created: 2024-03-10 Sun 19:57</p>
 </div>
 </body>
 </html>

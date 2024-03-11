@@ -1,4 +1,4 @@
-#+title: Learn Clinical Trials
+#+title: Clinical Trial (Design, Analysis and Research)
 
 * Phases
 ** Summary of Different Phases
